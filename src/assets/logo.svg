@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 80" width="100%" height="100%">
+  <defs>
+    <linearGradient id="plumGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3B1F3A" />
+      <stop offset="100%" stop-color="#532C52" />
+    </linearGradient>
+    <linearGradient id="cyanGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8CC9D9" />
+      <stop offset="100%" stop-color="#58AABF" />
+    </linearGradient>
+  </defs>
+
+  <!-- Brand Symbol / Emblem -->
+  <g transform="translate(10, 10)">
+    <!-- Hexagonal / Shield Base -->
+    <rect x="0" y="0" width="60" height="60" rx="16" fill="url(#plumGradient)" />
+    
+    <!-- Decorative stylized grain / leaf curve -->
+    <path d="M30 14 C30 14, 44 22, 44 36 C44 46, 36 50, 30 50 C24 50, 16 46, 16 36 C16 22, 30 14, 30 14 Z" fill="none" stroke="url(#cyanGradient)" stroke-width="3" stroke-linecap="round" />
+    <path d="M30 18 L30 46" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" />
+    
+    <!-- Stylized Wheat / Commodity branches -->
+    <path d="M30 26 C34 24, 38 27, 39 30" fill="none" stroke="url(#cyanGradient)" stroke-width="2.5" stroke-linecap="round" />
+    <path d="M30 34 C34 32, 38 35, 39 38" fill="none" stroke="url(#cyanGradient)" stroke-width="2.5" stroke-linecap="round" />
+    <path d="M30 26 C26 24, 22 27, 21 30" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" />
+    <path d="M30 34 C26 32, 22 35, 21 38" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" />
+    
+    <!-- Top accent dot -->
+    <circle cx="30" cy="13" r="3.5" fill="#8CC9D9" />
+  </g>
+
+  <!-- Typography -->
+  <g transform="translate(84, 26)">
+    <!-- Brand Primary Name -->
+    <text x="0" y="20" font-family="'Inter', system-ui, sans-serif" font-size="24" font-weight="900" letter-spacing="1.5" fill="#3B1F3A">
+      DATTATRAY
+    </text>
+    <text x="180" y="20" font-family="'Inter', system-ui, sans-serif" font-size="24" font-weight="800" letter-spacing="2" fill="#8CC9D9">
+      TRADERS
+    </text>
+
+    <!-- Subtitle -->
+    <text x="1" y="38" font-family="'Inter', system-ui, sans-serif" font-size="9.5" font-weight="700" letter-spacing="3.5" fill="#5D5361">
+      AGRICULTURAL COMMODITIES &amp; WHOLESALE
+    </text>
+  </g>
+</svg>
