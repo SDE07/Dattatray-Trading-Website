@@ -4,6 +4,7 @@ import Navbar from "./common/Navbar";
 import Footer from "./common/Footer";
 import Contact from "./common/Contact";
 import { ThemeProvider } from "./context/ThemeContext";
+import { SmoothScroll } from "./components/common";
 
 // Lazy-loaded page components for fast initial bundle
 const HomePage           = lazy(() => import("./pages/HomePage"));
@@ -34,13 +35,13 @@ function PageFallback() {
   );
 }
 
-// Automatically scroll window to top upon route change
+// Automatically scroll window to top upon route change (only when switching pages, not query parameters)
 function ScrollToTop() {
-  const { pathname, search } = useLocation();
+  const { pathname } = useLocation();
 
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  }, [pathname, search]);
+    window.scrollTo({ top: 0, behavior: "instant" });
+  }, [pathname]);
 
   return null;
 }
@@ -49,19 +50,21 @@ function App() {
   return (
     <ThemeProvider>
       <Router>
-        <ScrollToTop />
-        <div className="min-h-screen flex flex-col bg-[#F9FBFC] dark:bg-[#07111E] text-[#1E1520] dark:text-[#E2E8F0] transition-colors duration-300">
-          
-          {/* Navigation Bar (Navbar: #FFFFFF) */}
-          <Navbar />
+        <SmoothScroll>
+          <ScrollToTop />
+          <div className="min-h-screen flex flex-col bg-[#F9FBFC] dark:bg-[#07111E] text-[#1E1520] dark:text-[#E2E8F0] transition-colors duration-300">
+            
+            {/* Navigation Bar (Navbar: #FFFFFF) */}
+            <Navbar />
 
-          {/* Routed Page Content */}
-          <main className="flex-1">
-            <Suspense fallback={<PageFallback />}>
+            {/* Routed Page Content */}
+            <main className="flex-1">
+              <Suspense fallback={<PageFallback />}>
               <Routes>
                 {/* Core Navigation Routes */}
                 <Route path="/" element={<HomePage />} />
                 <Route path="/about" element={<AboutPage />} />
+                <Route path="/leadership" element={<AboutPage />} />
                 
                 {/* Products & Commodity Categories */}
                 <Route path="/products" element={<ProductsPage />} />
@@ -93,8 +96,9 @@ function App() {
           {/* Global Footer (Footer: #241426) */}
           <Footer />
         </div>
-      </Router>
-    </ThemeProvider>
+      </SmoothScroll>
+    </Router>
+  </ThemeProvider>
   );
 }
 

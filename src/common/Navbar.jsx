@@ -18,35 +18,15 @@ import {
 import logo from "../assets/logo.png";
 import { useTheme } from "../context/ThemeContext";
 
-/* ─── Navigation Items matching New Sara Spa structure ───────────── */
+/* ─── Navigation Items matching user specification ───────────── */
 const navItems = [
   { name: "Home", to: "/" },
   { name: "About", to: "/about" },
-  {
-    name: "Products",
-    to: "/products",
-    hasDropdown: true,
-    subItems: [
-      { name: "Frozen Vegetables Collection", to: "/products?category=frozen-vegetables", icon: Layers, desc: "Green peas, sweet corn, mixed veg & beans" },
-      { name: "IQF Fruits & Fruit Pulps", to: "/products?category=fruit-pulps", icon: Snowflake, desc: "Alphonso mango, guava, strawberry & pulp" },
-      { name: "Ready-To-Eat & Snacks", to: "/products?category=rte-snacks", icon: Sparkles, desc: "Samosas, spring rolls, parathas & momos" },
-      { name: "Bulk Commercial Supply", to: "/products?category=commercial", icon: Building, desc: "HoReCa & food processor bulk packaging" },
-    ]
-  },
-  {
-    name: "Trading",
-    to: "/trading",
-    hasDropdown: true,
-    subItems: [
-      { name: "HoReCa & Foodservice Supply", to: "/trading?segment=horeca", icon: Building, desc: "Institutions, hotels, caterers & cloud kitchens" },
-      { name: "Wholesale & B2B Distribution", to: "/trading?segment=wholesale", icon: Truck, desc: "Pan-India reefer transport & distributor network" },
-      { name: "Merchant Export Division", to: "/trading?segment=export", icon: ShieldCheck, desc: "APEDA & FSSAI certified global cold-chain shipping" },
-    ]
-  },
+  { name: "Leadership", to: "/about#leadership" },
+  { name: "Product", to: "/products" },
   { name: "Quality", to: "/quality" },
-  { name: "Cold Storage", to: "/infrastructure" },
-  { name: "Logistics", to: "/logistics" },
-  { name: "Contact", to: "/contact" },
+  { name: "Trading", to: "/trading" },
+  { name: "Contact Us", to: "/contact" },
 ];
 
 export default function Navbar() {
@@ -105,13 +85,30 @@ export default function Navbar() {
 
   const isActive = (to) => {
     if (to === "/") return location.pathname === "/";
+    if (to.includes("#")) {
+      const [path, hash] = to.split("#");
+      return location.pathname === path && location.hash === "#" + hash;
+    }
+    if (to === "/about") {
+      return location.pathname === "/about" && (!location.hash || location.hash !== "#leadership");
+    }
     return location.pathname.startsWith(to);
   };
 
-  const handleNavClick = () => {
+  const handleNavClick = (to) => {
     setMobileMenuOpen(false);
     setActiveDropdown(null);
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    if (typeof to === "string" && to.includes("#")) {
+      const hash = to.split("#")[1];
+      setTimeout(() => {
+        const el = document.getElementById(hash);
+        if (el) {
+          el.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 100);
+    } else {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
   };
 
   return (
@@ -162,8 +159,8 @@ export default function Navbar() {
           </div>
         </Link>
 
-        {/* Desktop Navigation Links */}
-        <nav className="hidden xl:flex items-center gap-4 lg:gap-5 xl:gap-6 2xl:gap-7">
+        {/* Desktop Navigation Links (Fits 7 items cleanly on lg and above) */}
+        <nav className="hidden lg:flex items-center gap-3.5 xl:gap-5 2xl:gap-6">
           {navItems.map((item) => {
             const active = isActive(item.to);
             const isDropdownOpen = activeDropdown === item.name;
@@ -203,7 +200,7 @@ export default function Navbar() {
                             <Link
                               key={sub.to}
                               to={sub.to}
-                              onClick={handleNavClick}
+                              onClick={() => handleNavClick(sub.to)}
                               className="w-full text-left p-2 rounded-xl hover:bg-[#E8EEF0]/70 dark:hover:bg-slate-800/80 transition-all duration-150 flex items-start gap-2.5 group cursor-pointer outline-none focus:outline-none"
                             >
                               <div className="p-1.5 rounded-lg bg-[#E8EEF0] dark:bg-slate-800 text-[#3B1F3A] dark:text-[#8CC9D9] group-hover:bg-[#3B1F3A] group-hover:text-[#8CC9D9] dark:group-hover:bg-[#1E56C8] dark:group-hover:text-white transition-colors mt-0.5">
@@ -235,7 +232,7 @@ export default function Navbar() {
               <Link
                 key={item.name}
                 to={item.to}
-                onClick={handleNavClick}
+                onClick={() => handleNavClick(item.to)}
                 className={`text-[11px] uppercase tracking-[0.14em] font-semibold transition-colors duration-200 relative py-1 outline-none focus:outline-none select-none ${
                   active
                     ? "text-[#3B1F3A] dark:text-[#8CC9D9] font-bold"
@@ -273,7 +270,7 @@ export default function Navbar() {
           <div className="hidden sm:flex items-center">
             <Link
               to="/contact"
-              onClick={handleNavClick}
+              onClick={() => handleNavClick("/contact")}
               className="group relative inline-flex items-center gap-1.5 px-4.5 sm:px-5 py-2 rounded-full overflow-hidden text-[10.5px] uppercase tracking-wider font-extrabold shadow-sm hover:shadow-md hover:scale-105 transition-all duration-300 cursor-pointer bg-[#8CC9D9] hover:bg-[#78B9C9] text-[#123741] outline-none focus:outline-none"
             >
               <span>Trade Inquiry</span>
@@ -282,7 +279,7 @@ export default function Navbar() {
           </div>
 
           {/* Mobile Menu Toggle */}
-          <div className="xl:hidden flex items-center">
+          <div className="lg:hidden flex items-center">
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="p-1.5 sm:p-2 rounded-full border border-[#E8EEF0] dark:border-white/10 bg-[#3B1F3A]/5 dark:bg-white/10 text-[#3B1F3A] dark:text-white hover:bg-[#3B1F3A]/10 dark:hover:bg-white/20 transition-colors cursor-pointer outline-none focus:outline-none"

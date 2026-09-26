@@ -27,9 +27,11 @@ import frozenSupplyZoneImg from "../assets/frozen_supply_zone.jpg";
 import dattatrayLogo from "../assets/logo.png";
 import pureVegSnacksImg from "../assets/pure_veg_snacks.jpg";
 import coldChainEcosystemMap from "../assets/coldchain_ecosystem_map.jpg";
-import truckImg from "../assets/truck.png";
+import truckImg from "../assets/truck2.png";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useTheme } from "../context/ThemeContext";
+import { SplitTextHeading, AnimatedNumber } from "../components/common";
+import ColdChainInteractiveMap from "../components/about/ColdChainInteractiveMap";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -44,10 +46,25 @@ gsap.registerPlugin(ScrollTrigger);
 export default function AboutPage() {
   const { isDark } = useTheme();
   const headingRef = useRef(null);
+  const logoSceneRef = useRef(null);
+  const logoCubeRef = useRef(null);
   const firstBallRef = useRef(null);
   const lastBallRef = useRef(null);
   const truckRef = useRef(null);
   const ctaBannerRef = useRef(null);
+
+  // Scroll to Leadership section if routed to #leadership or /leadership:
+  useEffect(() => {
+    if (window.location.hash === "#leadership" || window.location.pathname === "/leadership") {
+      const timer = setTimeout(() => {
+        const el = document.getElementById("leadership");
+        if (el) {
+          el.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 350);
+      return () => clearTimeout(timer);
+    }
+  }, []);
 
   // GSAP Bounce-In Effect for Hero Heading:
   useEffect(() => {
@@ -63,6 +80,93 @@ export default function AboutPage() {
     }, headingRef);
 
     return () => ctx.revert();
+  }, []);
+
+  // Smooth scroll to #leadership if hash is present
+  useEffect(() => {
+    if (window.location.hash === "#leadership") {
+      const timer = setTimeout(() => {
+        const el = document.getElementById("leadership");
+        if (el) {
+          el.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 400);
+      return () => clearTimeout(timer);
+    }
+  }, []);
+
+  // 3D Interactive Logo Cube / Emblem on mousemove (User Specification):
+  // scene.addEventListener("mousemove", (e) => {
+  //   rotY += (e.clientX - lastX) * 0.5;
+  //   rotX -= (e.clientY - lastY) * 0.5;
+  //   gsap.to(cube, { rotateX: rotX, rotateY: rotY, duration: 0.3 });
+  // });
+  useEffect(() => {
+    const scene = logoSceneRef.current;
+    const cube = logoCubeRef.current;
+    if (!scene || !cube) return;
+
+    let lastX = 0;
+    let lastY = 0;
+    let rotX = 0;
+    let rotY = 0;
+    let isMoving = false;
+
+    const handleMouseEnter = (e) => {
+      isMoving = true;
+      lastX = e.clientX;
+      lastY = e.clientY;
+    };
+
+    const handleMouseMove = (e) => {
+      if (!isMoving) {
+        lastX = e.clientX;
+        lastY = e.clientY;
+        isMoving = true;
+        return;
+      }
+      rotY += (e.clientX - lastX) * 0.5;
+      rotX -= (e.clientY - lastY) * 0.5;
+      lastX = e.clientX;
+      lastY = e.clientY;
+
+      // Realistic angle dampening limits for sleek premium feel
+      rotX = Math.max(-28, Math.min(28, rotX));
+      rotY = Math.max(-32, Math.min(32, rotY));
+
+      gsap.to(cube, {
+        rotateX: rotX,
+        rotateY: rotY,
+        transformPerspective: 1000,
+        transformStyle: "preserve-3d",
+        duration: 0.3,
+        ease: "power2.out",
+        overwrite: "auto",
+      });
+    };
+
+    const handleMouseLeave = () => {
+      isMoving = false;
+      rotX = 0;
+      rotY = 0;
+      gsap.to(cube, {
+        rotateX: 0,
+        rotateY: 0,
+        duration: 0.7,
+        ease: "power2.out",
+        overwrite: "auto",
+      });
+    };
+
+    scene.addEventListener("mouseenter", handleMouseEnter);
+    scene.addEventListener("mousemove", handleMouseMove);
+    scene.addEventListener("mouseleave", handleMouseLeave);
+
+    return () => {
+      scene.removeEventListener("mouseenter", handleMouseEnter);
+      scene.removeEventListener("mousemove", handleMouseMove);
+      scene.removeEventListener("mouseleave", handleMouseLeave);
+    };
   }, []);
 
   // Kinetic Newton's Cradle Animation (Momentum loop requested by user):
@@ -210,21 +314,21 @@ export default function AboutPage() {
               
               {/* Badge */}
               <div
-                className={`inline-flex items-center gap-2 px-4 py-1.5 rounded-full backdrop-blur-md text-xs font-black uppercase tracking-[0.2em] shadow-sm transition-all duration-500 ${
+                className={`inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 rounded-full backdrop-blur-md text-[10px] sm:text-xs font-black uppercase tracking-[0.12em] sm:tracking-[0.2em] shadow-sm transition-all duration-500 ${
                   isDark
                     ? "bg-sky-950/70 border border-sky-500/35 text-[#38BDF8]"
                     : "bg-emerald-950/60 border border-emerald-500/30 text-emerald-300"
                 }`}
               >
-                <Sparkles className={`w-3.5 h-3.5 ${isDark ? "text-[#38BDF8]" : "text-emerald-400"}`} />
-                <span>ESTABLISHED 1994 • THREE DECADES OF TRUST</span>
+                <Sparkles className={`w-3 h-3 sm:w-3.5 sm:h-3.5 shrink-0 ${isDark ? "text-[#38BDF8]" : "text-emerald-400"}`} />
+                <span className="leading-tight">ESTABLISHED 1994 • THREE DECADES OF TRUST</span>
               </div>
 
               {/* ✦ GSAP Bounce-In Animated Heading (Conditional Gradient) ✦ */}
               <div ref={headingRef} className="py-2 space-y-2">
                 <h1 className="font-sans tracking-tight leading-[1.05]">
                   <span
-                    className={`text block text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-transparent bg-clip-text select-none transition-all duration-500 ${
+                    className={`text block text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black text-transparent bg-clip-text select-none transition-all duration-500 ${
                       isDark
                         ? "bg-gradient-to-r from-[#38BDF8] via-[#60A5FA] to-[#93C5FD] drop-shadow-[0_4px_30px_rgba(56,189,248,0.35)]"
                         : "bg-gradient-to-r from-emerald-400 via-emerald-300 to-teal-200 drop-shadow-[0_4px_30px_rgba(16,185,129,0.35)]"
@@ -232,7 +336,7 @@ export default function AboutPage() {
                   >
                     DATTATRAY
                   </span>
-                  <span className="text block text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-tight drop-shadow-[0_4px_24px_rgba(0,0,0,0.65)] select-none mt-1">
+                  <span className="text block text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black text-white tracking-tight drop-shadow-[0_4px_24px_rgba(0,0,0,0.65)] select-none mt-1">
                     TRADING COMPANY
                   </span>
                 </h1>
@@ -244,7 +348,7 @@ export default function AboutPage() {
                     }`}
                   />
                   <span
-                    className={`text-xs sm:text-sm font-black uppercase tracking-[0.25em] transition-all duration-500 ${
+                    className={`text-[10px] sm:text-xs md:text-sm font-black uppercase tracking-[0.1em] sm:tracking-[0.25em] transition-all duration-500 ${
                       isDark ? "text-[#38BDF8]" : "text-emerald-400"
                     }`}
                   >
@@ -262,10 +366,10 @@ export default function AboutPage() {
               </p>
 
               {/* Action Buttons */}
-              <div className="pt-3 flex flex-wrap items-center gap-3.5">
+              <div className="pt-3 flex flex-col sm:flex-row flex-wrap items-start sm:items-center gap-2.5 sm:gap-3.5">
                 <Link
                   to="/products"
-                  className={`inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-black text-xs sm:text-sm uppercase tracking-wider shadow-xl hover:scale-105 active:scale-95 transition-all duration-300 ${
+                  className={`w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 sm:px-7 py-3 sm:py-3.5 rounded-full font-black text-xs sm:text-sm uppercase tracking-wider shadow-xl hover:scale-105 active:scale-95 transition-all duration-300 ${
                     isDark
                       ? "bg-gradient-to-r from-[#38BDF8] to-[#0284C7] hover:from-[#60A5FA] hover:to-[#1E56C8] text-[#06101E] shadow-[#0284C7]/35"
                       : "bg-gradient-to-r from-emerald-400 via-emerald-500 to-teal-600 hover:from-emerald-300 hover:to-emerald-500 text-slate-950 shadow-emerald-950/50 hover:shadow-emerald-500/30"
@@ -277,7 +381,7 @@ export default function AboutPage() {
 
                 <Link
                   to="/contact"
-                  className={`inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-white/10 backdrop-blur-md font-bold text-xs sm:text-sm uppercase tracking-wider hover:scale-105 active:scale-95 transition-all duration-300 ${
+                  className={`w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 sm:px-7 py-3 sm:py-3.5 rounded-full bg-white/10 backdrop-blur-md font-bold text-xs sm:text-sm uppercase tracking-wider hover:scale-105 active:scale-95 transition-all duration-300 ${
                     isDark
                       ? "hover:bg-sky-950/50 text-white border border-white/20 hover:border-[#38BDF8]"
                       : "hover:bg-emerald-950/50 text-white border border-emerald-500/30 hover:border-emerald-400/80"
@@ -290,76 +394,101 @@ export default function AboutPage() {
 
             </div>
 
-            {/* ── Right Side: Clickable Floating Brand Logo Emblem ── */}
-            <div className="lg:col-span-5 xl:col-span-5 relative flex items-center justify-center">
-              <Link
-                to="/"
-                title="Dattatray Trading Company - Click to View Home"
-                className={`relative group block w-full max-w-[360px] sm:max-w-[420px] aspect-square rounded-[36px] bg-gradient-to-tr from-white/[0.08] via-white/[0.12] to-white/[0.03] backdrop-blur-xl p-8 shadow-[0_20px_50px_rgba(0,0,0,0.6)] transition-all duration-500 hover:scale-103 cursor-pointer ${
+            {/* ── Right Side: 3D Interactive Brand Logo Emblem (GSAP 3D Cube Physics) ── */}
+            <div
+              ref={logoSceneRef}
+              className="lg:col-span-5 xl:col-span-5 relative flex items-center justify-center [perspective:1000px] select-none py-4"
+            >
+              <div
+                ref={logoCubeRef}
+                className={`relative group w-full max-w-[360px] sm:max-w-[420px] aspect-square rounded-[36px] bg-gradient-to-tr from-white/[0.09] via-white/[0.13] to-white/[0.04] backdrop-blur-xl p-8 shadow-[0_25px_60px_rgba(0,0,0,0.65)] transition-shadow duration-500 cursor-pointer [transform-style:preserve-3d] ${
                   isDark
-                    ? "border border-white/15 hover:border-[#38BDF8]/80 hover:shadow-[0_24px_60px_rgba(56,189,248,0.25)]"
-                    : "border border-emerald-500/25 hover:border-emerald-400/80 hover:shadow-[0_24px_60px_rgba(16,185,129,0.25)]"
+                    ? "border border-white/15 hover:border-[#38BDF8]/80 hover:shadow-[0_24px_60px_rgba(56,189,248,0.35)]"
+                    : "border border-emerald-500/30 hover:border-emerald-400/80 hover:shadow-[0_24px_60px_rgba(16,185,129,0.35)]"
                 }`}
               >
-                {/* Radial Glow Halo Behind Logo */}
-                <div
-                  className={`absolute inset-4 rounded-full blur-2xl group-hover:scale-110 transition-transform duration-500 pointer-events-none ${
-                    isDark
-                      ? "bg-gradient-to-tr from-[#38BDF8]/25 via-[#1E56C8]/25 to-transparent"
-                      : "bg-gradient-to-tr from-emerald-500/25 via-teal-600/20 to-transparent"
-                  }`}
-                />
-                
-                {/* Animated Dashed Orbit Accent */}
-                <div
-                  className={`absolute inset-5 rounded-full border border-dashed animate-[spin_60s_linear_infinite] pointer-events-none ${
-                    isDark
-                      ? "border-[#38BDF8]/30 group-hover:border-[#38BDF8]/60"
-                      : "border-emerald-500/30 group-hover:border-emerald-400/60"
-                  }`}
-                />
-                <div
-                  className={`absolute inset-10 rounded-full pointer-events-none ${
-                    isDark ? "border-[#38BDF8]/20" : "border-emerald-500/20"
-                  }`}
-                />
-
-                {/* High-Def Brand Logo */}
-                <div className="relative w-full h-full flex flex-col items-center justify-center text-center z-10">
-                  <img
-                    src={dattatrayLogo}
-                    alt="Dattatray Trading Company Logo"
-                    className="w-[82%] h-[82%] object-contain filter drop-shadow-[0_12px_24px_rgba(0,0,0,0.4)] group-hover:scale-108 transition-transform duration-500 select-none"
-                  />
-                  <span
-                    className={`mt-2 text-[11px] font-black uppercase tracking-[0.22em] transition-colors ${
+                <Link
+                  to="/"
+                  title="Dattatray Trading Company - Click to View Home"
+                  className="block w-full h-full [transform-style:preserve-3d]"
+                >
+                  {/* Radial Glow Halo Behind Logo */}
+                  <div
+                    style={{ transform: "translateZ(-15px)" }}
+                    className={`absolute inset-4 rounded-full blur-2xl group-hover:scale-110 transition-transform duration-500 pointer-events-none ${
                       isDark
-                        ? "text-[#38BDF8] group-hover:text-sky-200"
-                        : "text-emerald-400 group-hover:text-emerald-200"
+                        ? "bg-gradient-to-tr from-[#38BDF8]/30 via-[#1E56C8]/25 to-transparent"
+                        : "bg-gradient-to-tr from-emerald-500/30 via-teal-600/25 to-transparent"
                     }`}
+                  />
+                  
+                  {/* Animated Dashed Orbit Accent */}
+                  <div
+                    style={{ transform: "translateZ(10px)" }}
+                    className={`absolute inset-5 rounded-full border border-dashed animate-[spin_60s_linear_infinite] pointer-events-none ${
+                      isDark
+                        ? "border-[#38BDF8]/30 group-hover:border-[#38BDF8]/60"
+                        : "border-emerald-500/30 group-hover:border-emerald-400/60"
+                    }`}
+                  />
+                  <div
+                    style={{ transform: "translateZ(15px)" }}
+                    className={`absolute inset-10 rounded-full pointer-events-none ${
+                      isDark ? "border-[#38BDF8]/20" : "border-emerald-500/20"
+                    }`}
+                  />
+
+                  {/* High-Def Brand Logo with 3D Depth Elevation */}
+                  <div
+                    style={{ transform: "translateZ(40px)" }}
+                    className="relative w-full h-full flex flex-col items-center justify-center text-center z-10 [transform-style:preserve-3d]"
                   >
-                    Click to Explore Homepage ↗
-                  </span>
-                </div>
-              </Link>
+                    <img
+                      src={dattatrayLogo}
+                      alt="Dattatray Trading Company Logo"
+                      className="w-[82%] h-[82%] object-contain filter drop-shadow-[0_18px_30px_rgba(0,0,0,0.5)] group-hover:scale-108 transition-transform duration-500 select-none pointer-events-none"
+                    />
+                    <span
+                      style={{ transform: "translateZ(20px)" }}
+                      className={`mt-2 text-[11px] font-black uppercase tracking-[0.22em] transition-colors ${
+                        isDark
+                          ? "text-[#38BDF8] group-hover:text-sky-200"
+                          : "text-emerald-400 group-hover:text-emerald-200"
+                      }`}
+                    >
+                      Click to Explore Homepage ↗
+                    </span>
+                  </div>
+                </Link>
+              </div>
             </div>
 
           </div>
         </div>
 
         {/* ── Smooth Slanted Bottom Wave Transition ── */}
-        <div className="absolute bottom-0 left-0 right-0 overflow-hidden leading-none pointer-events-none">
+        <div className="absolute -bottom-[2px] left-0 right-0 overflow-hidden leading-none pointer-events-none z-10">
           <svg
             viewBox="0 0 1200 120"
             preserveAspectRatio="none"
-            className={`relative block w-full h-12 sm:h-16 fill-current transition-colors duration-500 ${
-              isDark ? "text-[#07111E]" : "text-[#F9FBFC]"
-            }`}
+            className="relative block w-full h-10 sm:h-14 lg:h-16 fill-[#F9FBFC] dark:fill-[#07111E] transition-colors duration-300 translate-y-[1px]"
           >
-            <path d="M0,0 C150,90 350,-40 500,60 C650,160 900,10 1200,40 L1200,120 L0,120 Z"></path>
+            <path d="M0,0 C150,90 350,-40 500,60 C650,160 900,10 1200,40 L1200,125 L0,125 Z"></path>
           </svg>
         </div>
       </section>
+      
+      {/* ═════════════════════════════════════════════════════════════════════════════
+          ABOUT SECTION 2: CENTERED BOLD MANIFESTO STATEMENT
+      ═════════════════════════════════════════════════════════════════════════════ */}
+      <section className="w-full   py-12 sm:py-16 transition-colors duration-300">
+        <div className="w-full max-w-[94%] xl:max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
+          <p className="text-base sm:text-xl lg:text-[22px] font-bold text-slate-700 dark:text-slate-200 leading-relaxed sm:leading-relaxed">
+            At <strong className="text-[#0B2546] dark:text-white font-black">Dattatray Trading Company</strong>, we are committed to revolutionizing the frozen food and agro-supply industry with <span className="text-[#1E56C8] dark:text-[#38BDF8] font-black">innovative, sustainable, and temperature-controlled solutions</span>. With decades of proven leadership delivering exceptional bulk and retail consignments, we combine <strong className="text-[#0B2546] dark:text-white font-black">state-of-the-art IQF freezing technology</strong>, experienced agronomy, and customer-centric approaches to bring visions of fresh, healthy food to life.
+          </p>
+        </div>
+      </section>
+
 
       {/* ═════════════════════════════════════════════════════════════════════════════
           ABOUT SECTION 1: PURE VEG ZONE & READY-TO-COOK DELICACIES (FULL WIDTH EDGE-TO-EDGE)
@@ -534,17 +663,6 @@ export default function AboutPage() {
       </section>
 
       {/* ═════════════════════════════════════════════════════════════════════════════
-          ABOUT SECTION 2: CENTERED BOLD MANIFESTO STATEMENT
-      ═════════════════════════════════════════════════════════════════════════════ */}
-      <section className="w-full bg-slate-50 dark:bg-[#09172A] border-y border-slate-200 dark:border-white/10 py-12 sm:py-16 transition-colors duration-300">
-        <div className="w-full max-w-[94%] xl:max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
-          <p className="text-base sm:text-xl lg:text-[22px] font-bold text-slate-700 dark:text-slate-200 leading-relaxed sm:leading-relaxed">
-            At <strong className="text-[#0B2546] dark:text-white font-black">Dattatray Trading Company</strong>, we are committed to revolutionizing the frozen food and agro-supply industry with <span className="text-[#1E56C8] dark:text-[#38BDF8] font-black">innovative, sustainable, and temperature-controlled solutions</span>. With decades of proven leadership delivering exceptional bulk and retail consignments, we combine <strong className="text-[#0B2546] dark:text-white font-black">state-of-the-art IQF freezing technology</strong>, experienced agronomy, and customer-centric approaches to bring visions of fresh, healthy food to life.
-          </p>
-        </div>
-      </section>
-
-      {/* ═════════════════════════════════════════════════════════════════════════════
           ABOUT SECTION 3: 4-COLUMN HORIZONTAL STATS BAR
       ═════════════════════════════════════════════════════════════════════════════ */}
       <section className="w-full max-w-[94%] xl:max-w-[1440px] 2xl:max-w-[1580px] mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
@@ -557,7 +675,7 @@ export default function AboutPage() {
               }`}
             >
               <div className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#0B2546] dark:text-white mb-2 tracking-tight">
-                {s.value}
+                <AnimatedNumber target={s.value} />
               </div>
               <div className="text-xs sm:text-sm font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
                 {s.label}
@@ -637,28 +755,9 @@ export default function AboutPage() {
 
             </div>
 
-            {/* ── Right Column: Isometric Cold-Chain Ecosystem Illustration ── */}
+            {/* ── Right Column: Interactive GSAP Clip-Path Cold-Chain Ecosystem Slider ── */}
             <div className="lg:col-span-7 relative flex items-center justify-center">
-              <div className="relative w-full rounded-[24px] sm:rounded-[32px] overflow-hidden border border-white/15 shadow-2xl bg-slate-900 group">
-                
-                {/* Isometric Map Artwork */}
-                <img
-                  src={coldChainEcosystemMap}
-                  alt="Dattatray Traders - Farm to Table Cold Chain Ecosystem: Organic Crops, Freezing & Processing Plant, Refrigerated Transport, and Global Export Terminal"
-                  className="w-full h-auto object-cover group-hover:scale-103 transition-transform duration-700 select-none"
-                  loading="lazy"
-                />
-
-                {/* Subtle Inner Glow Border */}
-                <div className="absolute inset-0 rounded-[24px] sm:rounded-[32px] border border-emerald-400/20 pointer-events-none group-hover:border-emerald-400/40 transition-colors" />
-
-                {/* Floating Top Badge */}
-                <div className="absolute top-3 left-3 sm:top-4 sm:left-4 px-3 sm:px-3.5 py-1.5 rounded-full bg-black/65 backdrop-blur-md border border-white/20 text-white text-[11px] sm:text-xs font-black uppercase tracking-wider flex items-center gap-2 shadow-lg">
-                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                  <span>Farm-to-Global Cold Chain Ecosystem</span>
-                </div>
-
-              </div>
+              <ColdChainInteractiveMap />
             </div>
 
           </div>
@@ -668,11 +767,11 @@ export default function AboutPage() {
       </section>
 
       {/* ═════════════════════════════════════════════════════════════════════════════
-          ABOUT SECTION 6: FOUNDATIONAL VALUES & WHAT SETS DATTATRAY APART
+          ABOUT SECTION 6: FOUNDATIONAL VALUES & WHAT SETS DATTATRAY APART (LEADERSHIP)
           (Kinetic Newton's Cradle Perpetual Momentum Animation + 4 Integrated Pillars on Left,
            Executive Heading, Narrative & Trust Accreditations on Right)
       ═════════════════════════════════════════════════════════════════════════════ */}
-      <section className="relative w-full bg-slate-50 dark:bg-[#07111E] border-y border-slate-200 dark:border-white/10 py-16 sm:py-24 transition-colors duration-500 overflow-hidden">
+      <section id="leadership" className="relative w-full bg-slate-50 dark:bg-[#07111E] border-y border-slate-200 dark:border-white/10 py-16 sm:py-24 transition-colors duration-500 overflow-hidden">
         
         {/* Subtle Ambient Background Gradients */}
         <div className="absolute top-1/4 left-10 w-96 h-96 bg-emerald-500/5 dark:bg-[#38BDF8]/5 rounded-full blur-[140px] pointer-events-none" />
@@ -816,12 +915,15 @@ export default function AboutPage() {
               </div>
 
               {/* Main Heading */}
-              <h2 className="text-3xl sm:text-4xl xl:text-5xl font-black text-[#0B2546] dark:text-white tracking-tight leading-[1.15]">
+              <SplitTextHeading
+                as="h2"
+                className="text-3xl sm:text-4xl xl:text-5xl font-black text-[#0B2546] dark:text-white tracking-tight leading-[1.15]"
+              >
                 What Sets{" "}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 via-teal-600 to-sky-600 dark:from-emerald-400 dark:via-sky-400 dark:to-blue-400">
                   Dattatray Apart
                 </span>
-              </h2>
+              </SplitTextHeading>
 
               {/* Descriptive Story Paragraphs */}
               <p className="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed font-normal">
@@ -895,9 +997,12 @@ export default function AboutPage() {
               <span className="text-xs font-black uppercase tracking-[0.2em] text-[#8CC9D9]">
                 Ready to Expand Your Frozen Food Supply?
               </span>
-              <h3 className="text-2xl sm:text-3xl lg:text-4xl font-black tracking-tight leading-tight">
+              <SplitTextHeading
+                as="h3"
+                className="text-2xl sm:text-3xl lg:text-4xl font-black tracking-tight leading-tight text-white"
+              >
                 Partner with India’s Dependable Cold-Chain Exporter
-              </h3>
+              </SplitTextHeading>
               <p className="text-sm sm:text-base text-slate-200 leading-relaxed max-w-xl">
                 Connect with our commodity trading desk for customized product specifications, container load quotes, and scheduled export dispatch schedules.
               </p>

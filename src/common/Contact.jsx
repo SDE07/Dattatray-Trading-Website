@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { MapPin, Mail, Globe, CheckCircle2, AlertCircle, Loader2, Phone } from "lucide-react";
 import logo from "../assets/logo.png";
 import OptimizedImage from "./OptimizedImage";
+import { SplitTextHeading } from "../components/common";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -191,7 +192,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="relative overflow-hidden py-16 sm:py-20 lg:py-24 min-h-[80vh] flex items-center bg-[#F9FBFC] dark:bg-[#07111E] transition-colors duration-300">
+    <section id="contact" className="relative overflow-hidden pt-6 sm:pt-10 pb-14 sm:pb-18 flex items-center bg-[#F9FBFC] dark:bg-[#07111E] transition-colors duration-300">
       {/* Background ambient glow effects matching Dattatray palette */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute -top-20 left-4 sm:left-10 w-64 sm:w-80 h-64 sm:h-80 rounded-full bg-[#8CC9D9]/15 dark:bg-[#38BDF8]/10 blur-[130px]" />
@@ -208,10 +209,13 @@ export default function Contact() {
               Get In Touch
             </span>
 
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-black text-[#0B2546] dark:text-white leading-tight mt-2">
+            <SplitTextHeading
+              as="h2"
+              className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-black text-[#0B2546] dark:text-white leading-tight mt-2"
+            >
               Let's Build Something{" "}
               <span className="block text-[#1E56C8] dark:text-[#38BDF8]">Great Together</span>
-            </h2>
+            </SplitTextHeading>
 
             <p className="mt-4 sm:mt-6 text-[#475569] dark:text-slate-300 text-sm sm:text-base lg:text-lg leading-7 sm:leading-8 max-w-xl">
               Whether you're looking for premium IQF frozen vegetables, wholesale food service supply, or a dependable export trading partner, our experienced desk is ready to assist your procurement needs.

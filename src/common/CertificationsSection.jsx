@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { ShieldCheck, BadgeCheck, CheckCircle2, FileCheck2, ArrowUpRight } from "lucide-react";
+import { SplitTextHeading } from "../components/common";
 import cert1 from "../assets/certificates/cert1.png";
 import cert2 from "../assets/certificates/cert2.png";
 import cert3 from "../assets/certificates/cert3.png";
@@ -109,12 +110,15 @@ export default function CertificationsSection() {
 
           {/* Main Heading with Diagonal Floating Verified Badge on the Right */}
           <div className="relative inline-block mx-auto">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#0B2546] dark:text-white tracking-tight leading-[1.18]">
+            <SplitTextHeading
+              as="h2"
+              className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#0B2546] dark:text-white tracking-tight leading-[1.18]"
+            >
               Globally Trusted <br />
               <span className="bg-gradient-to-r from-[#0284C7] via-[#0E7490] to-[#1E56C8] dark:from-[#38BDF8] dark:via-[#8CC9D9] dark:to-[#60A5FA] bg-clip-text text-transparent">
                 Quality Certifications
               </span>
-            </h2>
+            </SplitTextHeading>
 
             {/* Diagonal Floating Verified Badge */}
             <div className="absolute -top-3 sm:-top-4 -right-4 sm:-right-8 lg:-right-14 transform rotate-[9deg] hover:rotate-0 hover:scale-110 transition-all duration-300 select-none z-20 cursor-default">

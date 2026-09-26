@@ -9,6 +9,7 @@ import {
 } from "lucide-react";
 import whyChooseHeroImg from "../../assets/why_choose_hero_hd.png";
 import dattatrayLogo from "../../assets/logo.png";
+import SplitTextHeading from "../common/SplitTextHeading";
 
 // Custom Rupee Coin Stack Icon
 const RupeeCoinStackIcon = ({ className = "w-5 h-5 text-white" }) => (
@@ -176,13 +177,12 @@ export default function WhyChooseUsSection() {
             <Sparkles className="w-3.5 h-3.5 text-[#1E56C8] dark:text-[#38BDF8]" />
             Why Choose Us
           </div>
-          <h2
-            className={`text-3xl sm:text-4xl lg:text-5xl font-black text-[#0B2546] dark:text-white tracking-tight leading-[1.15] transition-all duration-700 delay-100 ${
-              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-            }`}
+          <SplitTextHeading
+            as="h2"
+            className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#0B2546] dark:text-white tracking-tight leading-[1.15]"
           >
             Why Choose <span className="text-[#1E56C8] dark:text-[#38BDF8]">Dattatray</span> Trading?
-          </h2>
+          </SplitTextHeading>
         </div>
 
         {/* 3-Column Layout */}

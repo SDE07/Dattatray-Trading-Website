@@ -1,132 +1,296 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
+import gsap from "gsap";
 import {
+  ThermometerSnowflake,
   ShieldCheck,
   CheckCircle2,
-  FlaskConical,
-  Award,
-  ThermometerSnowflake,
   Sparkles,
+  ArrowRight,
   Layers,
-  ArrowRight
+  Check,
+  Award,
+  ArrowUpRight
 } from "lucide-react";
-import { Link } from "react-router-dom";
-import CertificationsSection from "../common/CertificationsSection";
+import { QualityPipelineAnimation, SplitTextHeading } from "../components/common";
+import QualityCertificationsSection from "../components/quality/QualityCertificationsSection";
+import QualityTelemetryGraph from "../components/quality/QualityTelemetryGraph";
+import { useTheme } from "../context/ThemeContext";
 
 export default function QualityPage() {
-  const qualityPillars = [
-    {
-      icon: FlaskConical,
-      title: "In-House Rapid Testing Labs",
-      desc: "Digital moisture meters, refractometers for fruit pulp brix measurement, microbial plating, and automated foreign matter sorting equipment.",
-      badge: "Testing at -18°C",
-    },
-    {
-      icon: Award,
-      title: "Agmark & FSSAI Conformance",
-      desc: "Rigorous alignment with Food Safety and Standards Authority of India (FSSAI) norms, Agmark grading specifications, and standardized packaging codes.",
-      badge: "FSSAI Grade A",
-    },
-    {
-      icon: ShieldCheck,
-      title: "Global Export Phytosanitary Clearances",
-      desc: "Pesticide residue verification, aflatoxin testing, and international fumigation protocols conforming to European, GCC, and USFDA import mandates.",
-      badge: "Export Grade",
-    },
-    {
-      icon: CheckCircle2,
-      title: "Full Lot Traceability System",
-      desc: "End-to-end digital barcode tracking tracing each individual batch from specific harvest agricultural clusters right to container dispatch.",
-      badge: "100% Traceable",
-    },
-  ];
+  const { isDark } = useTheme();
+  const heroHeadingRef = useRef(null);
+
+  // GSAP Bounce-In Effect for Hero Heading (matching About page & Products page)
+  useEffect(() => {
+    if (!heroHeadingRef.current) return;
+    const ctx = gsap.context(() => {
+      gsap.from(".heading-bounce", {
+        y: -100,
+        opacity: 0,
+        duration: 1.1,
+        ease: "bounce.out",
+        stagger: 0.15,
+      });
+    }, heroHeadingRef);
+
+    return () => ctx.revert();
+  }, []);
 
   return (
-    <div className="pt-24 sm:pt-28 min-h-screen bg-[#F9FBFC] dark:bg-[#07111E] transition-colors duration-300">
-      {/* ─── Hero Banner ─── */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-[#0B2546] via-[#123766] to-[#1E56C8] px-6 py-18 sm:py-24 text-center">
-        {/* Top subtle cyan/gold hairline */}
-        <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-transparent via-[#8CC9D9] to-transparent opacity-80" />
+    <div className="min-h-screen bg-[#F9FBFC] dark:bg-[#07111E] text-[#0B2546] dark:text-[#F1F5F9] transition-colors duration-300 overflow-x-hidden">
+      
+      {/* ══════════════════════════════════════════════════════════════════════
+          1. GRAND HERO BANNER WITH CONDITIONAL THEME ADAPTATION
+             - Light Mode: Rich Botanical Green Palette (Emerald / Jade / Mint)
+             - Dark Theme: Blueish Palette (Deep Midnight Navy / Cyan / Sky Blue)
+      ══════════════════════════════════════════════════════════════════════ */}
+      <section
+        className={`relative w-full pt-28 sm:pt-32 pb-20 sm:pb-28 overflow-hidden text-white transition-all duration-500 ${
+          isDark
+            ? "bg-gradient-to-b from-[#06101E] via-[#09172A] to-[#0B1F38]"
+            : "bg-gradient-to-b from-[#021A13] via-[#042A1E] to-[#01140E]"
+        }`}
+      >
+        {/* Ambient Glow Orbs */}
+        <div
+          className={`absolute top-10 left-10 w-96 h-96 rounded-full blur-[140px] pointer-events-none transition-all duration-500 ${
+            isDark ? "bg-[#1E56C8]/25" : "bg-emerald-600/20"
+          }`}
+        />
+        <div
+          className={`absolute top-20 right-10 w-96 h-96 rounded-full blur-[140px] pointer-events-none transition-all duration-500 ${
+            isDark ? "bg-[#38BDF8]/20" : "bg-emerald-400/15"
+          }`}
+        />
+        <div
+          className={`absolute -bottom-10 left-1/2 -translate-x-1/2 w-[800px] h-64 rounded-full blur-[160px] pointer-events-none transition-all duration-500 ${
+            isDark ? "bg-[#0284C7]/15" : "bg-teal-600/15"
+          }`}
+        />
 
-        {/* Ambient background glows */}
-        <div className="absolute inset-0 pointer-events-none opacity-20">
-          <div className="absolute top-0 right-1/4 w-96 h-96 rounded-full bg-[#8CC9D9]/30 blur-[120px]" />
-          <div className="absolute bottom-0 left-1/4 w-96 h-96 rounded-full bg-[#1E56C8]/40 blur-[130px]" />
+        <div className="relative w-full max-w-[94%] xl:max-w-[1440px] 2xl:max-w-[1580px] mx-auto px-4 sm:px-6 lg:px-8 z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 xl:gap-14 items-center">
+            
+            {/* LEFT SIDE: Heading & Badges */}
+            <div className="lg:col-span-6 xl:col-span-7 space-y-4" ref={heroHeadingRef}>
+              
+              {/* Top Luxury Badge */}
+              <div
+                className={`inline-flex items-center gap-2 px-4 py-1.5 rounded-full backdrop-blur-md text-xs font-black uppercase tracking-[0.2em] shadow-sm transition-all duration-500 ${
+                  isDark
+                    ? "bg-sky-950/70 border border-sky-500/35 text-[#38BDF8]"
+                    : "bg-emerald-950/60 border border-emerald-500/30 text-emerald-300"
+                }`}
+              >
+                <Sparkles className={`w-3.5 h-3.5 ${isDark ? "text-[#38BDF8]" : "text-emerald-400"}`} />
+                <span>RIGOROUS PROTOCOLS • CERTIFIED GLOBAL STANDARDS</span>
+              </div>
+
+              {/* Main Page Heading */}
+              <div className="py-1 space-y-2">
+                <h1 className="font-sans tracking-tight leading-[1.08]">
+                  <span
+                    className={`heading-bounce block text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-black text-transparent bg-clip-text select-none transition-all duration-500 ${
+                      isDark
+                        ? "bg-gradient-to-r from-[#38BDF8] via-[#60A5FA] to-[#93C5FD] drop-shadow-[0_4px_30px_rgba(56,189,248,0.35)]"
+                        : "bg-gradient-to-r from-emerald-400 via-emerald-300 to-teal-200 drop-shadow-[0_4px_30px_rgba(16,185,129,0.35)]"
+                    }`}
+                  >
+                    WORLD-CLASS COLD CHAIN
+                  </span>
+                  <span className="heading-bounce block text-2xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-5xl font-black text-white tracking-tight drop-shadow-[0_4px_24px_rgba(0,0,0,0.65)] select-none mt-1">
+                    FOOD SAFETY PROTOCOLS
+                  </span>
+                </h1>
+
+                <div className="heading-bounce flex items-center gap-2 pt-1">
+                  <div
+                    className={`h-[2px] w-8 rounded-full transition-all duration-500 ${
+                      isDark ? "bg-[#38BDF8]" : "bg-emerald-400"
+                    }`}
+                  />
+                  <span
+                    className={`text-xs sm:text-sm font-black uppercase tracking-[0.25em] transition-all duration-500 ${
+                      isDark ? "text-[#38BDF8]" : "text-emerald-400"
+                    }`}
+                  >
+                    FARM-GATE TO PORT TEMPERATURE INTEGRITY
+                  </span>
+                </div>
+              </div>
+
+              {/* Subtitle */}
+              <p
+                className={`text-sm sm:text-base leading-relaxed max-w-2xl transition-colors duration-500 ${
+                  isDark ? "text-slate-300" : "text-emerald-100/80"
+                }`}
+              >
+                From farm-gate harvest through sub-zero individual quick freezing (IQF) to international containerized export, Dattatray Traders engineers zero nutritional degradation, certified microbiological purity, and unbroken -18°C temperature telemetry.
+              </p>
+
+              {/* Trust Badges Bar */}
+              <div className="heading-bounce pt-1 flex flex-wrap items-center gap-2.5 sm:gap-3.5 text-xs text-slate-300 font-bold">
+                <div className="flex items-center gap-2 bg-white/5 border border-white/10 px-3 py-1.5 rounded-full">
+                  <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
+                  <span>APEDA &amp; FSSAI Grade A Certified</span>
+                </div>
+                <div className="flex items-center gap-2 bg-white/5 border border-white/10 px-3 py-1.5 rounded-full">
+                  <ThermometerSnowflake className="w-3.5 h-3.5 text-[#8CC9D9]" />
+                  <span>-18°C GPS Monitored Cold Chain</span>
+                </div>
+                <div className="flex items-center gap-2 bg-white/5 border border-white/10 px-3 py-1.5 rounded-full">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-sky-400" />
+                  <span>100% Lot Traceability</span>
+                </div>
+              </div>
+
+            </div>
+
+            {/* RIGHT SIDE: The Requested Animated Spline Quality Telemetry Graph */}
+            <div className="lg:col-span-6 xl:col-span-5 flex justify-center w-full">
+              <QualityTelemetryGraph />
+            </div>
+
+          </div>
         </div>
 
-        <div className="relative z-10 mx-auto max-w-3xl">
-          <span className="inline-flex items-center gap-2 rounded-full border border-[#8CC9D9]/40 bg-[#8CC9D9]/15 px-4.5 py-1.5 text-xs font-black uppercase tracking-[0.2em] text-[#8CC9D9] shadow-sm mb-4">
-            <Sparkles className="w-3.5 h-3.5" />
-            Uncompromising Standards
-          </span>
-
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight leading-tight">
-            Quality Assurance &amp; Food Safety Protocols
-          </h1>
-
-          <p className="mx-auto mt-5 max-w-2xl text-sm sm:text-base lg:text-lg leading-relaxed text-[#D0E2EC]">
-            From harvest at fertile farm gates to sub-zero individual quick freezing (IQF) and automated packaging, our multi-tier QA system guarantees maximum freshness, zero nutritional loss, and full international compliance.
-          </p>
+        {/* ── Smooth Slanted Bottom Wave Transition ── */}
+        <div className="absolute -bottom-[2px] left-0 right-0 overflow-hidden leading-none pointer-events-none z-10">
+          <svg
+            viewBox="0 0 1200 120"
+            preserveAspectRatio="none"
+            className="relative block w-full h-10 sm:h-14 lg:h-16 fill-[#F9FBFC] dark:fill-[#07111E] transition-colors duration-300 translate-y-[1px]"
+          >
+            <path d="M0,0 C150,90 350,-40 500,60 C650,160 900,10 1200,40 L1200,125 L0,125 Z"></path>
+          </svg>
         </div>
       </section>
 
-      {/* ─── Globally Trusted Certifications Section ─── */}
-      <CertificationsSection />
-
-      {/* ─── 4 Quality Control Pillars ─── */}
-      <section className="py-16 sm:py-20 lg:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-14">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#1E56C8]/10 dark:bg-[#38BDF8]/15 text-[#1E56C8] dark:text-[#38BDF8] text-xs font-black uppercase tracking-[0.18em] mb-3">
+      {/* ══════════════════════════════════════════════════════════════════════
+          2. UPPER SIDE SECTION: SUB-ZERO FARM-TO-PORT QUALITY VERIFICATION PIPELINE
+             - Section Padding: Generous left and right padding
+             - Left Side: Clean minimal Dattatray Traders quality standard
+             - Right Side: 15-Stage Animated Connect Pipeline (No wrapper border/bg)
+      ══════════════════════════════════════════════════════════════════════ */}
+      <section className="py-14 sm:py-18 lg:py-22 max-w-[94%] xl:max-w-[1440px] 2xl:max-w-[1580px] mx-auto px-6 sm:px-10 lg:px-14 xl:px-16">
+        
+        {/* Section Heading */}
+        <div className="text-center max-w-3xl mx-auto mb-14 sm:mb-18">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#1E56C8]/10 dark:bg-[#38BDF8]/15 border border-[#1E56C8]/20 dark:border-[#38BDF8]/30 text-[#1E56C8] dark:text-[#38BDF8] text-xs font-black uppercase tracking-[0.18em] mb-3.5 shadow-sm">
             <Layers className="w-3.5 h-3.5" />
-            Rigorous Protocols
+            <span>Rigorous Protocols</span>
           </div>
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#0B2546] dark:text-white tracking-tight">
-            Our 4-Stage Quality Verification Process
-          </h2>
-          <p className="text-sm sm:text-base text-[#5D6B7E] dark:text-slate-300 mt-3">
+          <SplitTextHeading
+            as="h2"
+            className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#0B2546] dark:text-white tracking-tight mb-3"
+          >
+            Sub-Zero Farm-to-Port Quality Verification Pipeline
+          </SplitTextHeading>
+          <p className="text-xs sm:text-sm md:text-base text-[#5D6B7E] dark:text-slate-300 max-w-2xl mx-auto leading-relaxed">
             Every batch undergoes systematic sensory evaluation, moisture testing, and microbiological analysis before certification for delivery.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {qualityPillars.map((p, idx) => {
-            const Icon = p.icon;
-            return (
-              <div
-                key={p.title}
-                className="group relative flex flex-col justify-between p-6 sm:p-7 rounded-3xl bg-white dark:bg-[#0B1B2F] border border-[#E2EBF0] dark:border-white/10 hover:border-[#8CC9D9] dark:hover:border-[#38BDF8] shadow-[0_4px_20px_rgba(11,37,70,0.05)] dark:shadow-[0_4px_20px_rgba(0,0,0,0.4)] hover:shadow-[0_16px_32px_rgba(30,86,200,0.12)] hover:-translate-y-1.5 transition-all duration-300"
-              >
-                <div>
-                  <div className="flex items-center justify-between mb-5">
-                    <div className="w-12 h-12 rounded-2xl bg-[#8CC9D9]/20 text-[#1E56C8] dark:text-[#38BDF8] flex items-center justify-center group-hover:bg-[#8CC9D9] group-hover:text-[#123741] transition-all duration-300 shadow-inner">
-                      <Icon className="w-6 h-6" />
-                    </div>
-                    <span className="text-[11px] font-black text-[#8CC9D9] bg-[#0B2546] dark:bg-slate-800 px-2.5 py-1 rounded-full">
-                      0{idx + 1}
-                    </span>
-                  </div>
+        {/* 2-Column Split: Increased gap between left & right */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 xl:gap-20 items-center">
+          
+          {/* LEFT SIDE: Dattatray Traders Gives Overall Best Quality (Senior UI Developer Minimalist Layout) */}
+          <div className="lg:col-span-5 space-y-5">
+            
+            {/* Pill Tag */}
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-500/20 text-emerald-700 dark:text-emerald-400 text-xs font-black uppercase tracking-wider">
+              <Sparkles className="w-3.5 h-3.5" />
+              <span>Zero-Tolerance Quality Standard</span>
+            </div>
 
-                  <h3 className="text-base sm:text-lg font-black text-[#0B2546] dark:text-white mb-2 leading-snug group-hover:text-[#1E56C8] dark:group-hover:text-[#38BDF8] transition-colors">
-                    {p.title}
-                  </h3>
+            {/* Headline */}
+            <h3 className="text-2xl sm:text-3xl font-black text-[#0B2546] dark:text-white tracking-tight leading-snug">
+              Overall Best Quality, Guaranteed from Farm Gate to Port
+            </h3>
 
-                  <p className="text-xs sm:text-sm text-[#5D6B7E] dark:text-slate-300 leading-relaxed">
-                    {p.desc}
-                  </p>
-                </div>
+            {/* Concise, High-Impact Summary */}
+            <p className="text-xs sm:text-sm text-[#5D6B7E] dark:text-slate-300 leading-relaxed">
+              At Dattatray Traders, uncompromising quality is our signature hallmark. We combine automated optical Sortex laser grading, -35°C cryogenic flash-freezing, and continuous satellite cold-chain telemetry to ensure zero degradation, certified purity, and 100% cellular vitality in every shipment.
+            </p>
 
-                <div className="mt-5 pt-4 border-t border-slate-100 dark:border-white/10 flex items-center justify-between">
-                  <span className="text-[11px] font-bold text-[#1E56C8] dark:text-[#38BDF8] bg-[#F0F6FF] dark:bg-slate-800 px-2.5 py-0.5 rounded-full">
-                    {p.badge}
-                  </span>
-                  <CheckCircle2 className="w-4 h-4 text-[#10B981]" />
-                </div>
+            {/* Sleek 2x2 Feature Micro-Pills */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-1">
+              <div className="flex items-center gap-2.5 p-2.5 rounded-xl bg-white dark:bg-[#0B1B2F] border border-slate-200/90 dark:border-white/10 shadow-xs">
+                <span className="w-2 h-2 rounded-full bg-emerald-500 shrink-0" />
+                <span className="text-xs font-bold text-[#0B2546] dark:text-slate-200">99.8% Sortex Laser Grade</span>
               </div>
-            );
-          })}
-        </div>
+              <div className="flex items-center gap-2.5 p-2.5 rounded-xl bg-white dark:bg-[#0B1B2F] border border-slate-200/90 dark:border-white/10 shadow-xs">
+                <span className="w-2 h-2 rounded-full bg-sky-500 shrink-0" />
+                <span className="text-xs font-bold text-[#0B2546] dark:text-slate-200">-35°C Rapid Cryo IQF</span>
+              </div>
+              <div className="flex items-center gap-2.5 p-2.5 rounded-xl bg-white dark:bg-[#0B1B2F] border border-slate-200/90 dark:border-white/10 shadow-xs">
+                <span className="w-2 h-2 rounded-full bg-purple-500 shrink-0" />
+                <span className="text-xs font-bold text-[#0B2546] dark:text-slate-200">NABL &amp; 0.8mm X-Ray Cleared</span>
+              </div>
+              <div className="flex items-center gap-2.5 p-2.5 rounded-xl bg-white dark:bg-[#0B1B2F] border border-slate-200/90 dark:border-white/10 shadow-xs">
+                <span className="w-2 h-2 rounded-full bg-blue-500 shrink-0" />
+                <span className="text-xs font-bold text-[#0B2546] dark:text-slate-200">-18°C Satellite IoT Fleet</span>
+              </div>
+            </div>
 
-        {/* Cold-Chain Guarantee Banner */}
-        <div className="mt-14 rounded-3xl p-8 sm:p-10 bg-gradient-to-r from-[#0B2546] via-[#123766] to-[#0B2546] text-white flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl border border-white/10">
+            {/* Compact Minimalist Metrics Row */}
+            <div className="py-3 px-4 rounded-xl bg-slate-50 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 flex items-center justify-between text-center">
+              <div>
+                <span className="block text-base sm:text-lg font-black text-[#1E56C8] dark:text-[#38BDF8]">99.8%</span>
+                <span className="text-[10px] font-bold uppercase text-slate-500 dark:text-slate-400">Sortex Purity</span>
+              </div>
+              <div className="w-px h-6 bg-slate-200 dark:bg-white/15" />
+              <div>
+                <span className="block text-base sm:text-lg font-black text-sky-600 dark:text-sky-400">-18°C</span>
+                <span className="text-[10px] font-bold uppercase text-slate-500 dark:text-slate-400">Cryo-Lock</span>
+              </div>
+              <div className="w-px h-6 bg-slate-200 dark:bg-white/15" />
+              <div>
+                <span className="block text-base sm:text-lg font-black text-emerald-600 dark:text-emerald-400">100%</span>
+                <span className="text-[10px] font-bold uppercase text-slate-500 dark:text-slate-400">Traceable</span>
+              </div>
+              <div className="w-px h-6 bg-slate-200 dark:bg-white/15" />
+              <div>
+                <span className="block text-base sm:text-lg font-black text-[#0B2546] dark:text-white">15+</span>
+                <span className="text-[10px] font-bold uppercase text-slate-500 dark:text-slate-400">QA Checks</span>
+              </div>
+            </div>
+
+            {/* Action CTA with Image 3 Cyan Button Color */}
+            <div className="pt-1">
+              <Link
+                to="/contact"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#8CC9D9] hover:bg-[#78B9C9] text-[#123741] font-black text-xs sm:text-sm shadow-md shadow-[#8CC9D9]/25 transition-all hover:scale-105"
+              >
+                <span>Request QA Specs &amp; Lab COA</span>
+                <ArrowRight className="w-4 h-4 text-[#123741]" />
+              </Link>
+            </div>
+
+          </div>
+
+          {/* RIGHT SIDE: 15-Stage Animated Connect Beam Pipeline (Clean, borderless, transparent) */}
+          <div className="lg:col-span-7 flex flex-col items-center justify-center">
+            <div className="w-full bg-transparent border-0 shadow-none p-0 flex justify-center">
+              <QualityPipelineAnimation hideHeader={true} className="py-0 px-0" />
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════════════════════════════════════
+          3. DOWN SIDE SECTION: INTERNATIONALLY RECOGNISED STANDARDS
+             (Dedicated pastel 6-card grid matching Screenshot 3, without touching hero page)
+      ══════════════════════════════════════════════════════════════════════ */}
+      <QualityCertificationsSection />
+
+      {/* ══════════════════════════════════════════════════════════════════════
+          4. COLD-CHAIN CONTINUOUS TEMPERATURE DATA LOGGING GUARANTEE BANNER
+      ══════════════════════════════════════════════════════════════════════ */}
+      <section className="pb-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="rounded-3xl p-8 sm:p-10 bg-gradient-to-r from-[#0B2546] via-[#123766] to-[#0B2546] text-white flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl border border-white/10">
           <div className="flex items-center gap-5">
             <div className="w-14 h-14 rounded-2xl bg-[#8CC9D9]/20 border border-[#8CC9D9]/40 flex items-center justify-center shrink-0">
               <ThermometerSnowflake className="w-7 h-7 text-[#8CC9D9]" />
@@ -135,9 +299,12 @@ export default function QualityPage() {
               <span className="text-xs font-black uppercase tracking-widest text-[#8CC9D9]">
                 -18°C Deep Freeze Assurance
               </span>
-              <h3 className="text-xl sm:text-2xl font-black text-white mt-1">
+              <SplitTextHeading
+                as="h3"
+                className="text-xl sm:text-2xl font-black text-white mt-1"
+              >
                 Continuous Cold-Chain Temperature Data Logging
-              </h3>
+              </SplitTextHeading>
               <p className="text-xs sm:text-sm text-[#D0E2EC] mt-1 max-w-xl">
                 Every reefer container and cold room is equipped with GPS-synced continuous temperature dataloggers ensuring unbroken -18°C preservation.
               </p>
@@ -155,6 +322,7 @@ export default function QualityPage() {
           </div>
         </div>
       </section>
+
     </div>
   );
 }

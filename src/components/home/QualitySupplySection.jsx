@@ -16,6 +16,7 @@ import {
 import facilityImg from "../../assets/dattatray_facility.jpg";
 import reeferFleetImg from "../../assets/dattatray_reefer_fleet.jpg";
 import iqfProcessingImg from "../../assets/dattatray_iqf_processing.jpg";
+import SplitTextHeading from "../common/SplitTextHeading";
 
 const facilitySlides = [
   {
@@ -74,52 +75,33 @@ export default function QualitySupplySection({ onOpenStoryModal }) {
   const timerRef = useRef(null);
   const deckContainerRef = useRef(null);
 
-  // GSAP card fan and shuffle animation
+  // GSAP card fan and shuffle animation using user's formula:
+  // gsap.to(".card", {
+  //   x: (i) => (i - 2) * 25,
+  //   rotation: (i) => (i - 2) * 8,
+  //   duration: 0.5,
+  //   ease: "back.out(1.4)"
+  // });
   useGSAP(
     () => {
-      const cards = gsap.utils.toArray(".reefer-deck-card");
+      const cards = gsap.utils.toArray(".card");
       cards.forEach((card, idx) => {
-        const rel = (idx - activeSlide + facilitySlides.length) % facilitySlides.length;
-        if (rel === 0) {
-          // Front Card: Center, full opacity, top z-index
-          gsap.to(card, {
-            x: 0,
-            y: 0,
-            rotation: 0,
-            scale: 1,
-            zIndex: 30,
-            opacity: 1,
-            duration: 0.5,
-            ease: "back.out(1.4)",
-            overwrite: "auto",
-          });
-        } else if (rel === 1) {
-          // Middle Card: Layered behind with slight offset
-          gsap.to(card, {
-            x: -25,
-            y: -18,
-            rotation: -4,
-            scale: 0.96,
-            zIndex: 20,
-            opacity: 0.95,
-            duration: 0.5,
-            ease: "back.out(1.4)",
-            overwrite: "auto",
-          });
-        } else {
-          // Back Card: Layered deepest with rotation
-          gsap.to(card, {
-            x: -50,
-            y: -34,
-            rotation: -8,
-            scale: 0.92,
-            zIndex: 10,
-            opacity: 0.9,
-            duration: 0.5,
-            ease: "back.out(1.4)",
-            overwrite: "auto",
-          });
-        }
+        // layer: 0 = front active card, 1 = middle card, 2 = back card
+        const layer = (idx - activeSlide + facilitySlides.length) % facilitySlides.length;
+        // i corresponds to depth index where i=2 is front, i=1 is middle, i=0 is back
+        const i = facilitySlides.length - 1 - layer;
+
+        gsap.to(card, {
+          x: (i - 2) * 25,
+          rotation: (i - 2) * 8,
+          y: (i - 2) * 16,
+          scale: 1 - layer * 0.04,
+          zIndex: (i + 1) * 10,
+          opacity: layer === 0 ? 1 : 0.95,
+          duration: 0.5,
+          ease: "back.out(1.4)",
+          overwrite: "auto",
+        });
       });
     },
     { scope: deckContainerRef, dependencies: [activeSlide] }
@@ -190,10 +172,13 @@ export default function QualitySupplySection({ onOpenStoryModal }) {
           </div>
 
           {/* Main Headline */}
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#0B2546] dark:text-white tracking-tight leading-[1.15]">
+          <SplitTextHeading
+            as="h2"
+            className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#0B2546] dark:text-white tracking-tight leading-[1.15]"
+          >
             Quality Frozen Foods. <br className="hidden sm:inline" />
             <span className="text-[#1E56C8] dark:text-[#38BDF8]">Reliable Supply.</span> Global Reach.
-          </h2>
+          </SplitTextHeading>
 
           {/* Division Pill Line */}
           <div className="flex flex-wrap items-center gap-2 text-xs font-bold text-[#5D6B7E] dark:text-slate-300">
@@ -303,7 +288,7 @@ export default function QualitySupplySection({ onOpenStoryModal }) {
               return (
                 <div
                   key={slide.id}
-                  className="reefer-deck-card absolute inset-0 w-full h-full rounded-[26px] sm:rounded-[30px] overflow-hidden border border-white/60 bg-[#241426] shadow-2xl transform-gpu select-none"
+                  className="card reefer-deck-card absolute inset-0 w-full h-full rounded-[26px] sm:rounded-[30px] overflow-hidden border border-white/60 bg-[#241426] shadow-2xl transform-gpu select-none"
                 >
                   {/* Facility Slide Image */}
                   <img

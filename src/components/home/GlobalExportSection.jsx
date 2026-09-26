@@ -8,6 +8,7 @@ import {
   ArrowUpRight,
 } from "lucide-react";
 import exportBanner from "../../assets/export.png";
+import SplitTextHeading from "../common/SplitTextHeading";
 
 const exportPillars = [
   {
@@ -91,12 +92,15 @@ export default function GlobalExportSection() {
             <span>EXPORT &amp; GLOBAL TRADE NETWORK</span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#0B2546] dark:text-white tracking-tight leading-[1.18]">
+          <SplitTextHeading
+            as="h2"
+            className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#0B2546] dark:text-white tracking-tight leading-[1.18]"
+          >
             Dattatray Tradings <br />
             <span className="bg-gradient-to-r from-[#059669] via-[#0284C7] to-[#1E56C8] dark:from-[#34D399] dark:via-[#38BDF8] dark:to-[#60A5FA] bg-clip-text text-transparent">
               Global Reach &amp; Merchant Export
             </span>
-          </h2>
+          </SplitTextHeading>
         </div>
 
         {/* Panoramic Export Banner Card with Animated Global Routes */}
@@ -153,119 +157,119 @@ export default function GlobalExportSection() {
                 </linearGradient>
               </defs>
 
-              {/* Arcs: Base Dashed Paths (Originating directly from India: 852, 268) */}
+              {/* Arcs: Base Dashed Paths (Originating directly from India: 818, 232) */}
               {/* India -> USA (East Coast) */}
-              <path d="M 852 268 Q 540 50 240 145" fill="none" stroke="#F59E0B" strokeWidth="1.2" strokeDasharray="3,4" strokeOpacity="0.45" />
+              <path d="M 818 232 Q 670 60 520 155" fill="none" stroke="#F59E0B" strokeWidth="1.2" strokeDasharray="3,4" strokeOpacity="0.45" />
               {/* India -> USA (West Coast) */}
-              <path d="M 852 268 Q 470 20 100 135" fill="none" stroke="#F59E0B" strokeWidth="1.1" strokeDasharray="3,4" strokeOpacity="0.4" />
+              <path d="M 818 232 Q 640 40 465 145" fill="none" stroke="#F59E0B" strokeWidth="1.1" strokeDasharray="3,4" strokeOpacity="0.4" />
               {/* India -> South America */}
-              <path d="M 852 268 Q 580 375 320 350" fill="none" stroke="#F59E0B" strokeWidth="1.1" strokeDasharray="3,4" strokeOpacity="0.4" />
+              <path d="M 818 232 Q 700 320 580 305" fill="none" stroke="#F59E0B" strokeWidth="1.1" strokeDasharray="3,4" strokeOpacity="0.4" />
               {/* India -> UK */}
-              <path d="M 852 268 Q 690 120 530 76" fill="none" stroke="#F59E0B" strokeWidth="1.3" strokeDasharray="3,3" strokeOpacity="0.5" />
+              <path d="M 818 232 Q 750 140 682 135" fill="none" stroke="#F59E0B" strokeWidth="1.3" strokeDasharray="3,3" strokeOpacity="0.5" />
               {/* India -> Europe */}
-              <path d="M 852 268 Q 710 145 572 96" fill="none" stroke="#F59E0B" strokeWidth="1.3" strokeDasharray="3,3" strokeOpacity="0.5" />
+              <path d="M 818 232 Q 770 170 722 148" fill="none" stroke="#F59E0B" strokeWidth="1.3" strokeDasharray="3,3" strokeOpacity="0.5" />
               {/* India -> Middle East */}
-              <path d="M 852 268 Q 800 248 752 238" fill="none" stroke="#F59E0B" strokeWidth="1.4" strokeDasharray="3,3" strokeOpacity="0.6" />
+              <path d="M 818 232 Q 792 216 765 210" fill="none" stroke="#F59E0B" strokeWidth="1.4" strokeDasharray="3,3" strokeOpacity="0.6" />
               {/* India -> Africa */}
-              <path d="M 852 268 Q 750 330 645 345" fill="none" stroke="#F59E0B" strokeWidth="1.2" strokeDasharray="3,4" strokeOpacity="0.45" />
+              <path d="M 818 232 Q 767 265 715 270" fill="none" stroke="#F59E0B" strokeWidth="1.2" strokeDasharray="3,4" strokeOpacity="0.45" />
               {/* India -> China */}
-              <path d="M 852 268 Q 880 220 905 180" fill="none" stroke="#F59E0B" strokeWidth="1.2" strokeDasharray="3,3" strokeOpacity="0.5" />
+              <path d="M 818 232 Q 847 195 875 175" fill="none" stroke="#F59E0B" strokeWidth="1.2" strokeDasharray="3,3" strokeOpacity="0.5" />
               {/* India -> Singapore */}
-              <path d="M 852 268 Q 875 295 895 320" fill="none" stroke="#F59E0B" strokeWidth="1.3" strokeDasharray="3,3" strokeOpacity="0.55" />
+              <path d="M 818 232 Q 842 265 865 295" fill="none" stroke="#F59E0B" strokeWidth="1.3" strokeDasharray="3,3" strokeOpacity="0.55" />
               {/* India -> Japan */}
-              <path d="M 852 268 Q 910 200 968 165" fill="none" stroke="#F59E0B" strokeWidth="1.2" strokeDasharray="3,4" strokeOpacity="0.5" />
+              <path d="M 818 232 Q 882 185 945 160" fill="none" stroke="#F59E0B" strokeWidth="1.2" strokeDasharray="3,4" strokeOpacity="0.5" />
               {/* India -> Australia */}
-              <path d="M 852 268 Q 900 330 945 385" fill="none" stroke="#F59E0B" strokeWidth="1.3" strokeDasharray="3,4" strokeOpacity="0.5" />
+              <path d="M 818 232 Q 864 290 910 345" fill="none" stroke="#F59E0B" strokeWidth="1.3" strokeDasharray="3,4" strokeOpacity="0.5" />
 
               {/* Animated Beams (Traveling Golden Pulse lines) */}
               {/* 1. To USA (East) */}
-              <path d="M 852 268 Q 540 50 240 145" fill="none" stroke="url(#beamIndiaToWest)" strokeWidth="2.4" strokeDasharray="24 220">
+              <path d="M 818 232 Q 670 60 520 155" fill="none" stroke="url(#beamIndiaToWest)" strokeWidth="2.4" strokeDasharray="24 220">
                 <animate attributeName="stroke-dashoffset" from="244" to="0" dur="3s" repeatCount="indefinite" />
               </path>
               {/* 2. To USA (West) */}
-              <path d="M 852 268 Q 470 20 100 135" fill="none" stroke="url(#beamIndiaToWest)" strokeWidth="2" strokeDasharray="20 260">
+              <path d="M 818 232 Q 640 40 465 145" fill="none" stroke="url(#beamIndiaToWest)" strokeWidth="2" strokeDasharray="20 260">
                 <animate attributeName="stroke-dashoffset" from="280" to="0" dur="3.4s" repeatCount="indefinite" />
               </path>
               {/* 3. To South America */}
-              <path d="M 852 268 Q 580 375 320 350" fill="none" stroke="url(#beamIndiaToWest)" strokeWidth="2" strokeDasharray="20 200">
+              <path d="M 818 232 Q 700 320 580 305" fill="none" stroke="url(#beamIndiaToWest)" strokeWidth="2" strokeDasharray="20 200">
                 <animate attributeName="stroke-dashoffset" from="220" to="0" dur="3.2s" repeatCount="indefinite" />
               </path>
               {/* 4. To UK */}
-              <path d="M 852 268 Q 690 120 530 76" fill="none" stroke="url(#beamIndiaToWest)" strokeWidth="2.2" strokeDasharray="18 140">
+              <path d="M 818 232 Q 750 140 682 135" fill="none" stroke="url(#beamIndiaToWest)" strokeWidth="2.2" strokeDasharray="18 140">
                 <animate attributeName="stroke-dashoffset" from="158" to="0" dur="2.2s" repeatCount="indefinite" />
               </path>
               {/* 5. To Europe */}
-              <path d="M 852 268 Q 710 145 572 96" fill="none" stroke="url(#beamIndiaToWest)" strokeWidth="2.2" strokeDasharray="16 120">
+              <path d="M 818 232 Q 770 170 722 148" fill="none" stroke="url(#beamIndiaToWest)" strokeWidth="2.2" strokeDasharray="16 120">
                 <animate attributeName="stroke-dashoffset" from="136" to="0" dur="2s" repeatCount="indefinite" />
               </path>
               {/* 6. To Middle East */}
-              <path d="M 852 268 Q 800 248 752 238" fill="none" stroke="url(#beamIndiaToWest)" strokeWidth="2.4" strokeDasharray="15 80">
+              <path d="M 818 232 Q 792 216 765 210" fill="none" stroke="url(#beamIndiaToWest)" strokeWidth="2.4" strokeDasharray="15 80">
                 <animate attributeName="stroke-dashoffset" from="95" to="0" dur="1.5s" repeatCount="indefinite" />
               </path>
               {/* 7. To Africa */}
-              <path d="M 852 268 Q 750 330 645 345" fill="none" stroke="url(#beamIndiaToWest)" strokeWidth="2" strokeDasharray="18 130">
+              <path d="M 818 232 Q 767 265 715 270" fill="none" stroke="url(#beamIndiaToWest)" strokeWidth="2" strokeDasharray="18 130">
                 <animate attributeName="stroke-dashoffset" from="148" to="0" dur="2.4s" repeatCount="indefinite" />
               </path>
               {/* 8. To China */}
-              <path d="M 852 268 Q 880 220 905 180" fill="none" stroke="url(#beamIndiaToEast)" strokeWidth="2.2" strokeDasharray="16 110">
+              <path d="M 818 232 Q 847 195 875 175" fill="none" stroke="url(#beamIndiaToEast)" strokeWidth="2.2" strokeDasharray="16 110">
                 <animate attributeName="stroke-dashoffset" from="126" to="0" dur="1.9s" repeatCount="indefinite" />
               </path>
               {/* 9. To Singapore */}
-              <path d="M 852 268 Q 875 295 895 320" fill="none" stroke="url(#beamIndiaToEast)" strokeWidth="2.2" strokeDasharray="16 120">
+              <path d="M 818 232 Q 842 265 865 295" fill="none" stroke="url(#beamIndiaToEast)" strokeWidth="2.2" strokeDasharray="16 120">
                 <animate attributeName="stroke-dashoffset" from="136" to="0" dur="1.8s" repeatCount="indefinite" />
               </path>
               {/* 10. To Japan */}
-              <path d="M 852 268 Q 910 200 968 165" fill="none" stroke="url(#beamIndiaToEast)" strokeWidth="2.2" strokeDasharray="20 180">
+              <path d="M 818 232 Q 882 185 945 160" fill="none" stroke="url(#beamIndiaToEast)" strokeWidth="2.2" strokeDasharray="20 180">
                 <animate attributeName="stroke-dashoffset" from="200" to="0" dur="2.6s" repeatCount="indefinite" />
               </path>
               {/* 11. To Australia */}
-              <path d="M 852 268 Q 900 330 945 385" fill="none" stroke="url(#beamIndiaToEast)" strokeWidth="2.4" strokeDasharray="22 210">
+              <path d="M 818 232 Q 864 290 910 345" fill="none" stroke="url(#beamIndiaToEast)" strokeWidth="2.4" strokeDasharray="22 210">
                 <animate attributeName="stroke-dashoffset" from="232" to="0" dur="2.8s" repeatCount="indefinite" />
               </path>
 
               {/* Traveling Luminous Photon Sparks */}
               <circle r="3.2" fill="#FFFFFF" filter="url(#goldGlow)">
-                <animateMotion path="M 852 268 Q 540 50 240 145" dur="3s" repeatCount="indefinite" />
+                <animateMotion path="M 818 232 Q 670 60 520 155" dur="3s" repeatCount="indefinite" />
               </circle>
               <circle r="3" fill="#FFFFFF" filter="url(#goldGlow)">
-                <animateMotion path="M 852 268 Q 690 120 530 76" dur="2.2s" repeatCount="indefinite" />
+                <animateMotion path="M 818 232 Q 750 140 682 135" dur="2.2s" repeatCount="indefinite" />
               </circle>
               <circle r="3" fill="#FFFFFF" filter="url(#goldGlow)">
-                <animateMotion path="M 852 268 Q 800 248 752 238" dur="1.5s" repeatCount="indefinite" />
+                <animateMotion path="M 818 232 Q 792 216 765 210" dur="1.5s" repeatCount="indefinite" />
               </circle>
               <circle r="3" fill="#FFFFFF" filter="url(#cyanGlow)">
-                <animateMotion path="M 852 268 Q 875 295 895 320" dur="1.8s" repeatCount="indefinite" />
+                <animateMotion path="M 818 232 Q 842 265 865 295" dur="1.8s" repeatCount="indefinite" />
               </circle>
               <circle r="3" fill="#FFFFFF" filter="url(#cyanGlow)">
-                <animateMotion path="M 852 268 Q 900 330 945 385" dur="2.8s" repeatCount="indefinite" />
+                <animateMotion path="M 818 232 Q 864 290 910 345" dur="2.8s" repeatCount="indefinite" />
               </circle>
 
               {/* Origin: India Central Pulsing Radar Rings (Positioned 100% on India Subcontinent) */}
-              <circle cx="852" cy="268" r="34" fill="none" stroke="#F59E0B" strokeWidth="1.8" opacity="0.85">
-                <animate attributeName="r" values="8;38" dur="2.4s" repeatCount="indefinite" />
+              <circle cx="818" cy="232" r="34" fill="none" stroke="#F59E0B" strokeWidth="1.8" opacity="0.85">
+                <animate attributeName="r" values="8;36" dur="2.4s" repeatCount="indefinite" />
                 <animate attributeName="opacity" values="0.95;0" dur="2.4s" repeatCount="indefinite" />
               </circle>
-              <circle cx="852" cy="268" r="22" fill="none" stroke="#10B981" strokeWidth="1.5" opacity="0.8">
-                <animate attributeName="r" values="8;26" dur="2.4s" begin="1.2s" repeatCount="indefinite" />
+              <circle cx="818" cy="232" r="22" fill="none" stroke="#10B981" strokeWidth="1.5" opacity="0.8">
+                <animate attributeName="r" values="8;24" dur="2.4s" begin="1.2s" repeatCount="indefinite" />
                 <animate attributeName="opacity" values="0.9;0" dur="2.4s" begin="1.2s" repeatCount="indefinite" />
               </circle>
               {/* Central Glowing Origin Dot */}
-              <circle cx="852" cy="268" r="7" fill="#FBBF24" filter="url(#goldGlow)" />
-              <circle cx="852" cy="268" r="3.5" fill="#FFFFFF" />
+              <circle cx="818" cy="232" r="7" fill="#FBBF24" filter="url(#goldGlow)" />
+              <circle cx="818" cy="232" r="3.5" fill="#FFFFFF" />
 
               {/* Destination Node Beacons */}
               {[
-                { x: 240, y: 145, color: "#F59E0B" }, // USA East
-                { x: 100, y: 135, color: "#F59E0B" }, // USA West
-                { x: 320, y: 350, color: "#F59E0B" }, // South America
-                { x: 530, y: 76, color: "#F59E0B" },  // UK
-                { x: 572, y: 96, color: "#F59E0B" },  // Europe
-                { x: 752, y: 238, color: "#10B981" }, // Middle East
-                { x: 645, y: 345, color: "#F59E0B" }, // Africa
-                { x: 905, y: 180, color: "#38BDF8" }, // China
-                { x: 895, y: 320, color: "#34D399" }, // Singapore / SE Asia
-                { x: 968, y: 165, color: "#38BDF8" }, // Japan
-                { x: 945, y: 385, color: "#F59E0B" }, // Australia
+                { x: 520, y: 155, color: "#F59E0B" }, // USA East
+                { x: 465, y: 145, color: "#F59E0B" }, // USA West
+                { x: 580, y: 305, color: "#F59E0B" }, // South America
+                { x: 682, y: 135, color: "#F59E0B" }, // UK
+                { x: 722, y: 148, color: "#F59E0B" }, // Europe
+                { x: 765, y: 210, color: "#10B981" }, // Middle East
+                { x: 715, y: 270, color: "#F59E0B" }, // Africa
+                { x: 875, y: 175, color: "#38BDF8" }, // China
+                { x: 865, y: 295, color: "#34D399" }, // Singapore / SE Asia
+                { x: 945, y: 160, color: "#38BDF8" }, // Japan
+                { x: 910, y: 345, color: "#F59E0B" }, // Australia
               ].map((pt, i) => (
                 <g key={i}>
                   <circle cx={pt.x} cy={pt.y} r="14" fill="none" stroke={pt.color} strokeWidth="1.2" opacity="0.6">
@@ -280,8 +284,8 @@ export default function GlobalExportSection() {
               {/* Clean Country Text Labels */}
               {/* Origin: India (Right over the Indian Subcontinent) */}
               <text
-                x="852"
-                y="232"
+                x="818"
+                y="208"
                 textAnchor="middle"
                 fill="#FDE047"
                 fontSize="14"
@@ -294,8 +298,8 @@ export default function GlobalExportSection() {
 
               {/* USA */}
               <text
-                x="240"
-                y="125"
+                x="520"
+                y="136"
                 textAnchor="middle"
                 fill="#FFFFFF"
                 fontSize="11"
@@ -307,8 +311,8 @@ export default function GlobalExportSection() {
 
               {/* UK */}
               <text
-                x="530"
-                y="56"
+                x="682"
+                y="118"
                 textAnchor="middle"
                 fill="#FFFFFF"
                 fontSize="11"
@@ -320,8 +324,8 @@ export default function GlobalExportSection() {
 
               {/* Europe */}
               <text
-                x="572"
-                y="76"
+                x="722"
+                y="132"
                 textAnchor="middle"
                 fill="#FFFFFF"
                 fontSize="11"
@@ -333,8 +337,8 @@ export default function GlobalExportSection() {
 
               {/* Middle East */}
               <text
-                x="752"
-                y="218"
+                x="765"
+                y="194"
                 textAnchor="middle"
                 fill="#FFFFFF"
                 fontSize="11"
@@ -346,8 +350,8 @@ export default function GlobalExportSection() {
 
               {/* Africa */}
               <text
-                x="645"
-                y="375"
+                x="715"
+                y="294"
                 textAnchor="middle"
                 fill="#FFFFFF"
                 fontSize="11"
@@ -359,7 +363,7 @@ export default function GlobalExportSection() {
 
               {/* China */}
               <text
-                x="905"
+                x="875"
                 y="158"
                 textAnchor="middle"
                 fill="#FFFFFF"
@@ -372,8 +376,8 @@ export default function GlobalExportSection() {
 
               {/* Singapore */}
               <text
-                x="895"
-                y="346"
+                x="865"
+                y="316"
                 textAnchor="middle"
                 fill="#FFFFFF"
                 fontSize="11"
@@ -385,8 +389,8 @@ export default function GlobalExportSection() {
 
               {/* Japan */}
               <text
-                x="968"
-                y="145"
+                x="945"
+                y="142"
                 textAnchor="middle"
                 fill="#FFFFFF"
                 fontSize="11"
@@ -398,8 +402,8 @@ export default function GlobalExportSection() {
 
               {/* Australia */}
               <text
-                x="945"
-                y="410"
+                x="910"
+                y="368"
                 textAnchor="middle"
                 fill="#FFFFFF"
                 fontSize="11"
