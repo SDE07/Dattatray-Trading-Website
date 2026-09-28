@@ -232,37 +232,37 @@ export default function QualitySupplySection({ onOpenStoryModal }) {
             <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#5D6B7E] dark:text-slate-400 mb-3.5">
               Serving Across Key Sectors
             </p>
-            <div className="flex items-center justify-between gap-2 sm:gap-2.5 w-full">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-2.5 w-full">
               {/* Sector 1 */}
-              <div className="group flex-1 min-w-0 inline-flex items-center justify-center gap-1.5 sm:gap-2 px-2 sm:px-2.5 py-2 rounded-xl bg-white dark:bg-[#0B1B2F] border border-[#E8EEF0] dark:border-white/10 hover:border-[#1E56C8]/40 dark:hover:border-[#38BDF8]/50 shadow-2xs hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 cursor-default">
+              <div className="group min-w-0 inline-flex items-center justify-start sm:justify-center gap-2 px-2.5 sm:px-2.5 py-2 rounded-xl bg-white dark:bg-[#0B1B2F] border border-[#E8EEF0] dark:border-white/10 hover:border-[#1E56C8]/40 dark:hover:border-[#38BDF8]/50 shadow-2xs hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 cursor-default">
                 <div className="w-6 h-6 rounded-full bg-[#E8EEF0] dark:bg-slate-800 group-hover:bg-[#1E56C8] dark:group-hover:bg-[#1E56C8] text-[#0B2546] dark:text-[#8CC9D9] group-hover:text-white flex items-center justify-center transition-all duration-300 group-hover:scale-110 shrink-0">
                   <UtensilsCrossed className="w-3.5 h-3.5" />
                 </div>
-                <span className="text-[11px] sm:text-xs font-bold text-[#0B2546] dark:text-slate-200 group-hover:text-[#1E56C8] dark:group-hover:text-[#38BDF8] truncate whitespace-nowrap">HoReCa &amp; Hotels</span>
+                <span className="text-[11px] sm:text-xs font-bold text-[#0B2546] dark:text-slate-200 group-hover:text-[#1E56C8] dark:group-hover:text-[#38BDF8] truncate">HoReCa &amp; Hotels</span>
               </div>
 
               {/* Sector 2 */}
-              <div className="group flex-1 min-w-0 inline-flex items-center justify-center gap-1.5 sm:gap-2 px-2 sm:px-2.5 py-2 rounded-xl bg-white dark:bg-[#0B1B2F] border border-[#E8EEF0] dark:border-white/10 hover:border-[#1E56C8]/40 dark:hover:border-[#38BDF8]/50 shadow-2xs hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 cursor-default">
+              <div className="group min-w-0 inline-flex items-center justify-start sm:justify-center gap-2 px-2.5 sm:px-2.5 py-2 rounded-xl bg-white dark:bg-[#0B1B2F] border border-[#E8EEF0] dark:border-white/10 hover:border-[#1E56C8]/40 dark:hover:border-[#38BDF8]/50 shadow-2xs hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 cursor-default">
                 <div className="w-6 h-6 rounded-full bg-[#E8EEF0] dark:bg-slate-800 group-hover:bg-[#1E56C8] dark:group-hover:bg-[#1E56C8] text-[#0B2546] dark:text-[#8CC9D9] group-hover:text-white flex items-center justify-center transition-all duration-300 group-hover:scale-110 shrink-0">
                   <Truck className="w-3.5 h-3.5" />
                 </div>
-                <span className="text-[11px] sm:text-xs font-bold text-[#0B2546] dark:text-slate-200 group-hover:text-[#1E56C8] dark:group-hover:text-[#38BDF8] truncate whitespace-nowrap">B2B Wholesalers</span>
+                <span className="text-[11px] sm:text-xs font-bold text-[#0B2546] dark:text-slate-200 group-hover:text-[#1E56C8] dark:group-hover:text-[#38BDF8] truncate">B2B Wholesalers</span>
               </div>
 
               {/* Sector 3 */}
-              <div className="group flex-1 min-w-0 inline-flex items-center justify-center gap-1.5 sm:gap-2 px-2 sm:px-2.5 py-2 rounded-xl bg-white dark:bg-[#0B1B2F] border border-[#E8EEF0] dark:border-white/10 hover:border-[#1E56C8]/40 dark:hover:border-[#38BDF8]/50 shadow-2xs hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 cursor-default">
+              <div className="group min-w-0 inline-flex items-center justify-start sm:justify-center gap-2 px-2.5 sm:px-2.5 py-2 rounded-xl bg-white dark:bg-[#0B1B2F] border border-[#E8EEF0] dark:border-white/10 hover:border-[#1E56C8]/40 dark:hover:border-[#38BDF8]/50 shadow-2xs hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 cursor-default">
                 <div className="w-6 h-6 rounded-full bg-[#E8EEF0] dark:bg-slate-800 group-hover:bg-[#1E56C8] dark:group-hover:bg-[#1E56C8] text-[#0B2546] dark:text-[#8CC9D9] group-hover:text-white flex items-center justify-center transition-all duration-300 group-hover:scale-110 shrink-0">
                   <Store className="w-3.5 h-3.5" />
                 </div>
-                <span className="text-[11px] sm:text-xs font-bold text-[#0B2546] dark:text-slate-200 group-hover:text-[#1E56C8] dark:group-hover:text-[#38BDF8] truncate whitespace-nowrap">Retail Stores</span>
+                <span className="text-[11px] sm:text-xs font-bold text-[#0B2546] dark:text-slate-200 group-hover:text-[#1E56C8] dark:group-hover:text-[#38BDF8] truncate">Retail Stores</span>
               </div>
 
               {/* Sector 4 */}
-              <div className="group flex-1 min-w-0 inline-flex items-center justify-center gap-1.5 sm:gap-2 px-2 sm:px-2.5 py-2 rounded-xl bg-white dark:bg-[#0B1B2F] border border-[#E8EEF0] dark:border-white/10 hover:border-[#1E56C8]/40 dark:hover:border-[#38BDF8]/50 shadow-2xs hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 cursor-default">
+              <div className="group min-w-0 inline-flex items-center justify-start sm:justify-center gap-2 px-2.5 sm:px-2.5 py-2 rounded-xl bg-white dark:bg-[#0B1B2F] border border-[#E8EEF0] dark:border-white/10 hover:border-[#1E56C8]/40 dark:hover:border-[#38BDF8]/50 shadow-2xs hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 cursor-default">
                 <div className="w-6 h-6 rounded-full bg-[#E8EEF0] dark:bg-slate-800 group-hover:bg-[#1E56C8] dark:group-hover:bg-[#1E56C8] text-[#0B2546] dark:text-[#8CC9D9] group-hover:text-white flex items-center justify-center transition-all duration-300 group-hover:scale-110 shrink-0">
                   <Globe2 className="w-3.5 h-3.5" />
                 </div>
-                <span className="text-[11px] sm:text-xs font-bold text-[#0B2546] dark:text-slate-200 group-hover:text-[#1E56C8] dark:group-hover:text-[#38BDF8] truncate whitespace-nowrap">Global Importers</span>
+                <span className="text-[11px] sm:text-xs font-bold text-[#0B2546] dark:text-slate-200 group-hover:text-[#1E56C8] dark:group-hover:text-[#38BDF8] truncate">Global Importers</span>
               </div>
             </div>
           </div>

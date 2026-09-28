@@ -83,6 +83,22 @@ export default function HeroSection({ onOpenStoryModal }) {
           />
         </div>
       </div>
+
+      {/* Mobile Quick Action Strip (only on mobile screens sm:hidden) */}
+      <div className="sm:hidden bg-[#380217] border-t border-white/10 px-4 py-3 flex items-center justify-around gap-2.5">
+        <Link
+          to="/products"
+          className="flex-1 py-2.5 px-3 text-center text-xs font-black uppercase tracking-wider bg-[#8CC9D9] hover:bg-[#78B9C9] text-[#123741] rounded-full shadow-md transition-all active:scale-95"
+        >
+          View Products
+        </Link>
+        <Link
+          to="/contact"
+          className="flex-1 py-2.5 px-3 text-center text-xs font-black uppercase tracking-wider bg-white/15 hover:bg-white/25 text-white border border-white/20 rounded-full shadow-md transition-all active:scale-95"
+        >
+          Send Enquiry
+        </Link>
+      </div>
     </section>
   );
 }

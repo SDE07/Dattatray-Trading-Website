@@ -47,6 +47,12 @@ export default function ColdChainInteractiveMap() {
       updateSlider(e.clientX);
     };
 
+    const handleTouchStart = (e) => {
+      if (e.touches && e.touches[0]) {
+        updateSlider(e.touches[0].clientX);
+      }
+    };
+
     const handleTouchMove = (e) => {
       if (e.touches && e.touches[0]) {
         updateSlider(e.touches[0].clientX);
@@ -59,11 +65,13 @@ export default function ColdChainInteractiveMap() {
     };
 
     container.addEventListener("mousemove", handleMouseMove);
+    container.addEventListener("touchstart", handleTouchStart, { passive: true });
     container.addEventListener("touchmove", handleTouchMove, { passive: true });
     container.addEventListener("mouseleave", handleMouseLeave);
 
     return () => {
       container.removeEventListener("mousemove", handleMouseMove);
+      container.removeEventListener("touchstart", handleTouchStart);
       container.removeEventListener("touchmove", handleTouchMove);
       container.removeEventListener("mouseleave", handleMouseLeave);
     };
@@ -86,7 +94,7 @@ export default function ColdChainInteractiveMap() {
         />
 
         {/* Right Label Pill (Schematic Mode) */}
-        <div className="absolute bottom-3 right-3 sm:bottom-4 sm:right-4 px-3 py-1 rounded-full bg-black/75 backdrop-blur-md border border-white/25 text-white text-[10px] sm:text-xs font-black uppercase tracking-wider flex items-center gap-1.5 shadow-lg pointer-events-none z-10">
+        <div className="absolute bottom-2.5 right-2.5 sm:bottom-4 sm:right-4 px-2.5 sm:px-3 py-1 rounded-full bg-black/80 backdrop-blur-md border border-white/25 text-white text-[9px] sm:text-xs font-black uppercase tracking-wider flex items-center gap-1.5 shadow-lg pointer-events-none z-10">
           <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
           <span>Ecosystem Diagram</span>
         </div>
@@ -122,9 +130,9 @@ export default function ColdChainInteractiveMap() {
           </div>
 
           {/* Left Label Pill (Real Life View) */}
-          <div className="absolute bottom-3 left-3 sm:bottom-4 sm:left-4 px-3 py-1 rounded-full bg-emerald-950/90 backdrop-blur-md border border-emerald-400 text-emerald-300 text-[10px] sm:text-xs font-black uppercase tracking-wider flex items-center gap-1.5 shadow-lg">
-            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-            <span>Real-Life Facility &amp; Fleet</span>
+          <div className="absolute bottom-2.5 left-2.5 sm:bottom-4 sm:left-4 px-2.5 sm:px-3 py-1 rounded-full bg-emerald-950/90 backdrop-blur-md border border-emerald-400 text-emerald-300 text-[9px] sm:text-xs font-black uppercase tracking-wider flex items-center gap-1.5 shadow-lg">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+            <span>Real-Life Facility</span>
           </div>
         </div>
       </div>
@@ -136,23 +144,23 @@ export default function ColdChainInteractiveMap() {
         style={{ left: "50%" }}
       >
         {/* Center Circular Grip Knob */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-slate-900 border-2 border-white shadow-[0_0_24px_rgba(56,189,248,0.9)] flex items-center justify-center text-white group-hover:scale-110 transition-transform">
-          <div className="flex items-center gap-0.5 text-xs font-black text-white">
-            <span className="text-emerald-400 text-sm">◀</span>
-            <span className="text-[#38BDF8] text-sm">▶</span>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-9 h-9 sm:w-12 sm:h-12 rounded-full bg-slate-900 border-2 border-white shadow-[0_0_24px_rgba(56,189,248,0.9)] flex items-center justify-center text-white group-hover:scale-110 transition-transform">
+          <div className="flex items-center gap-0.5 text-[10px] sm:text-xs font-black text-white">
+            <span className="text-emerald-400 text-xs sm:text-sm">◀</span>
+            <span className="text-[#38BDF8] text-xs sm:text-sm">▶</span>
           </div>
         </div>
 
         {/* Floating Top Indicator */}
-        <div className="absolute top-3 left-1/2 -translate-x-1/2 px-2.5 py-0.5 rounded-full bg-slate-900/90 border border-white/40 text-[9px] font-black uppercase tracking-widest text-white whitespace-nowrap shadow-md">
+        <div className="absolute top-2.5 sm:top-3 left-1/2 -translate-x-1/2 px-2 py-0.5 rounded-full bg-slate-900/90 border border-white/40 text-[8px] sm:text-[9px] font-black uppercase tracking-widest text-white whitespace-nowrap shadow-md">
           SLIDE
         </div>
       </div>
 
       {/* Top Floating Badge */}
-      <div className="absolute top-3 left-3 sm:top-4 sm:left-4 px-3 sm:px-3.5 py-1.5 rounded-full bg-black/75 backdrop-blur-md border border-white/20 text-white text-[11px] sm:text-xs font-black uppercase tracking-wider flex items-center gap-2 shadow-lg z-20 pointer-events-none">
-        <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-        <span>Real Facility vs Ecosystem Schematic</span>
+      <div className="absolute top-2.5 left-2.5 sm:top-4 sm:left-4 px-2.5 sm:px-3.5 py-1 sm:py-1.5 rounded-full bg-black/80 backdrop-blur-md border border-white/20 text-white text-[9.5px] sm:text-xs font-black uppercase tracking-wider flex items-center gap-1.5 sm:gap-2 shadow-lg z-20 pointer-events-none">
+        <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-emerald-400 animate-pulse" />
+        <span>Real Facility vs Ecosystem</span>
       </div>
     </div>
   );

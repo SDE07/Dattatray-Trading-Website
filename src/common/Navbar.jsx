@@ -22,7 +22,7 @@ import { useTheme } from "../context/ThemeContext";
 const navItems = [
   { name: "Home", to: "/" },
   { name: "About", to: "/about" },
-  { name: "Leadership", to: "/about#leadership" },
+  { name: "Leadership", to: "/leadership" },
   { name: "Product", to: "/products" },
   { name: "Quality", to: "/quality" },
   { name: "Trading", to: "/trading" },

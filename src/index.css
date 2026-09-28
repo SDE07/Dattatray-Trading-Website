@@ -28,6 +28,11 @@
   --muted-surface: #E8EEF0;
   --footer-bg: #241426;
   --text-main: #1E1520;
+
+  /* Emil Kowalski's Design Engineering Easing Tokens */
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+  --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
 }
 
 .dark {
@@ -40,6 +45,30 @@
   --footer-bg: #050B14;
   --text-main: #F1F5F9;
   color-scheme: dark;
+}
+
+/* Emil Kowalski Principle: Buttons & interactive controls feel physical and responsive */
+button:not(:disabled):active,
+.btn-press:active {
+  transform: scale(0.97);
+  transition: transform 140ms var(--ease-out);
+}
+
+/* Emil Kowalski Typography & Spacing Standard */
+h1, h2, h3, h4, h5, h6, .split-heading {
+  text-wrap: balance;
+  letter-spacing: -0.025em;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+/* Tabular numerals for aligned metrics, phone numbers, and dates */
+.tabular-nums,
+[data-tabular] {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1;
 }
 
 html,

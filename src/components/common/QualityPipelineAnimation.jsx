@@ -437,9 +437,9 @@ export default function QualityPipelineAnimation({ hideHeader = false, className
         </div>
 
         {/* TOP SECTION: 5 COLUMNS OF FOOD SAFETY CHECKPOINTS */}
-        <div className="grid grid-cols-5 gap-2.5 sm:gap-4 w-full z-10 justify-items-center mb-14">
+        <div className="grid grid-cols-5 gap-1.5 sm:gap-3.5 md:gap-4 w-full z-10 justify-items-center mb-10 sm:mb-14">
           {cols.map((colItems, colIdx) => (
-            <div key={colIdx} className="flex flex-col gap-2.5 sm:gap-4 items-center">
+            <div key={colIdx} className="flex flex-col gap-2 sm:gap-3.5 md:gap-4 items-center">
               {colItems.map((item) => {
                 const IconComponent = item.logo;
                 const isHovered = hoveredId === item.id;
@@ -447,17 +447,19 @@ export default function QualityPipelineAnimation({ hideHeader = false, className
                 return (
                   <motion.div
                     key={item.id}
+                    onClick={() => setHoveredId((prev) => (prev === item.id ? null : item.id))}
                     onMouseEnter={() => setHoveredId(item.id)}
                     onMouseLeave={() => setHoveredId(null)}
                     whileHover={{ scale: 1.09, y: -4 }}
+                    whileTap={{ scale: 0.95 }}
                     transition={{ type: "spring", stiffness: 400, damping: 22 }}
-                    className={`group relative w-14 h-14 sm:w-18 sm:h-18 md:w-20 md:h-20 rounded-2xl sm:rounded-3xl border flex flex-col items-center justify-center p-2 transition-all duration-300 cursor-pointer shadow-sm ${
+                    className={`group relative w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-xl sm:rounded-2xl md:rounded-3xl border flex flex-col items-center justify-center p-1.5 sm:p-2 transition-all duration-300 cursor-pointer shadow-sm ${
                       isHovered
                         ? "bg-white dark:bg-[#0E223D] border-[#1E56C8] dark:border-[#38BDF8] shadow-lg shadow-sky-500/20"
                         : "bg-white/95 dark:bg-[#0B1B2F]/95 border-slate-200/90 dark:border-white/10 hover:border-slate-300 dark:hover:border-white/25"
                     }`}
                   >
-                    <div className="flex items-center justify-center w-full h-full">
+                    <div className="flex items-center justify-center w-full h-full scale-90 sm:scale-100">
                       <IconComponent />
                     </div>
 

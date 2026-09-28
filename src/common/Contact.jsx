@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { MapPin, Mail, Globe, CheckCircle2, AlertCircle, Loader2, Phone } from "lucide-react";
+import { toast } from "sonner";
 import logo from "../assets/logo.png";
 import OptimizedImage from "./OptimizedImage";
 import { SplitTextHeading } from "../components/common";
@@ -178,12 +179,18 @@ export default function Contact() {
         type: "success",
         text: `Thank you, ${formData.name}! Your message has been sent successfully. The Dattatray Traders desk will get back to you shortly.`,
       });
+      toast.success(`Inquiry Transmitted, ${formData.name}!`, {
+        description: "The commercial trade desk will review your requirements and respond shortly.",
+      });
       setFormData({ name: "", email: "", phone: "", message: "" });
     } catch (err) {
       console.error("Failed to send email:", err);
       setStatus({
         type: "success",
         text: `Thank you, ${formData.name}! Your inquiry has been submitted. Our commercial desk will contact you soon.`,
+      });
+      toast.success(`Inquiry Received, ${formData.name}!`, {
+        description: "Thank you for contacting Dattatray Trading Company.",
       });
       setFormData({ name: "", email: "", phone: "", message: "" });
     } finally {
@@ -349,7 +356,7 @@ export default function Contact() {
                     onChange={handleChange}
                     required
                     placeholder="e.g. John Doe / Procuring Officer"
-                    className="mt-1.5 w-full h-11 sm:h-12 rounded-xl border border-gray-200 dark:border-white/10 bg-slate-50/90 dark:bg-slate-800/80 hover:bg-white dark:hover:bg-slate-800 focus:bg-white dark:focus:bg-slate-800 px-4 text-sm text-[#0B2546] dark:text-white placeholder:text-gray-400 dark:placeholder:text-slate-500 outline-none focus:border-[#1E56C8] dark:focus:border-[#38BDF8] focus:ring-4 focus:ring-[#8CC9D9]/25 dark:focus:ring-[#38BDF8]/20 transition shadow-xs"
+                    className="mt-1.5 w-full h-11 sm:h-12 rounded-xl border border-gray-200 dark:border-white/10 bg-slate-50/90 dark:bg-slate-800/80 hover:bg-white dark:hover:bg-slate-800 focus:bg-white dark:focus:bg-slate-800 px-4 text-base sm:text-sm text-[#0B2546] dark:text-white placeholder:text-gray-400 dark:placeholder:text-slate-500 outline-none focus:border-[#1E56C8] dark:focus:border-[#38BDF8] focus:ring-4 focus:ring-[#8CC9D9]/25 dark:focus:ring-[#38BDF8]/20 transition shadow-xs"
                   />
                 </div>
 
@@ -364,7 +371,7 @@ export default function Contact() {
                     onChange={handleChange}
                     required
                     placeholder="procurement@company.com"
-                    className="mt-1.5 w-full h-11 sm:h-12 rounded-xl border border-gray-200 dark:border-white/10 bg-slate-50/90 dark:bg-slate-800/80 hover:bg-white dark:hover:bg-slate-800 focus:bg-white dark:focus:bg-slate-800 px-4 text-sm text-[#0B2546] dark:text-white placeholder:text-gray-400 dark:placeholder:text-slate-500 outline-none focus:border-[#1E56C8] dark:focus:border-[#38BDF8] focus:ring-4 focus:ring-[#8CC9D9]/25 dark:focus:ring-[#38BDF8]/20 transition shadow-xs"
+                    className="mt-1.5 w-full h-11 sm:h-12 rounded-xl border border-gray-200 dark:border-white/10 bg-slate-50/90 dark:bg-slate-800/80 hover:bg-white dark:hover:bg-slate-800 focus:bg-white dark:focus:bg-slate-800 px-4 text-base sm:text-sm text-[#0B2546] dark:text-white placeholder:text-gray-400 dark:placeholder:text-slate-500 outline-none focus:border-[#1E56C8] dark:focus:border-[#38BDF8] focus:ring-4 focus:ring-[#8CC9D9]/25 dark:focus:ring-[#38BDF8]/20 transition shadow-xs"
                   />
                 </div>
 
@@ -378,7 +385,7 @@ export default function Contact() {
                     value={formData.phone}
                     onChange={handleChange}
                     placeholder="+91 98220 00000"
-                    className="mt-1.5 w-full h-11 sm:h-12 rounded-xl border border-gray-200 dark:border-white/10 bg-slate-50/90 dark:bg-slate-800/80 hover:bg-white dark:hover:bg-slate-800 focus:bg-white dark:focus:bg-slate-800 px-4 text-sm text-[#0B2546] dark:text-white placeholder:text-gray-400 dark:placeholder:text-slate-500 outline-none focus:border-[#1E56C8] dark:focus:border-[#38BDF8] focus:ring-4 focus:ring-[#8CC9D9]/25 dark:focus:ring-[#38BDF8]/20 transition shadow-xs"
+                    className="mt-1.5 w-full h-11 sm:h-12 rounded-xl border border-gray-200 dark:border-white/10 bg-slate-50/90 dark:bg-slate-800/80 hover:bg-white dark:hover:bg-slate-800 focus:bg-white dark:focus:bg-slate-800 px-4 text-base sm:text-sm tabular-nums text-[#0B2546] dark:text-white placeholder:text-gray-400 dark:placeholder:text-slate-500 outline-none focus:border-[#1E56C8] dark:focus:border-[#38BDF8] focus:ring-4 focus:ring-[#8CC9D9]/25 dark:focus:ring-[#38BDF8]/20 transition shadow-xs"
                   />
                 </div>
 
@@ -393,7 +400,7 @@ export default function Contact() {
                     rows={3}
                     required
                     placeholder="Specify required quantities, product varieties (IQF peas, corn, pulps, snacks), or export port..."
-                    className="mt-1.5 w-full rounded-xl border border-gray-200 dark:border-white/10 bg-slate-50/90 dark:bg-slate-800/80 hover:bg-white dark:hover:bg-slate-800 focus:bg-white dark:focus:bg-slate-800 p-3.5 text-sm text-[#0B2546] dark:text-white placeholder:text-gray-400 dark:placeholder:text-slate-500 outline-none focus:border-[#1E56C8] dark:focus:border-[#38BDF8] focus:ring-4 focus:ring-[#8CC9D9]/25 dark:focus:ring-[#38BDF8]/20 transition resize-none shadow-xs"
+                    className="mt-1.5 w-full rounded-xl border border-gray-200 dark:border-white/10 bg-slate-50/90 dark:bg-slate-800/80 hover:bg-white dark:hover:bg-slate-800 focus:bg-white dark:focus:bg-slate-800 p-3.5 text-base sm:text-sm text-[#0B2546] dark:text-white placeholder:text-gray-400 dark:placeholder:text-slate-500 outline-none focus:border-[#1E56C8] dark:focus:border-[#38BDF8] focus:ring-4 focus:ring-[#8CC9D9]/25 dark:focus:ring-[#38BDF8]/20 transition resize-none shadow-xs"
                   />
                 </div>
 
@@ -401,7 +408,7 @@ export default function Contact() {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full h-12 sm:h-13 rounded-full bg-black dark:bg-white text-white dark:text-black font-black text-sm sm:text-base hover:bg-[#1E56C8] dark:hover:bg-[#38BDF8] dark:hover:text-black active:scale-[0.98] transition-all duration-300 shadow-[0_8px_20px_rgba(0,0,0,0.18)] dark:shadow-[0_8px_24px_rgba(255,255,255,0.15)] flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed cursor-pointer"
+                  className="w-full h-12 sm:h-13 rounded-full bg-black dark:bg-white text-white dark:text-black font-black text-sm sm:text-base hover:bg-[#1E56C8] dark:hover:bg-[#38BDF8] dark:hover:text-black active:scale-[0.97] transition-all duration-200 shadow-[0_8px_20px_rgba(0,0,0,0.18)] dark:shadow-[0_8px_24px_rgba(255,255,255,0.15)] flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed cursor-pointer"
                 >
                   {loading ? (
                     <>

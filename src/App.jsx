@@ -3,12 +3,36 @@ import { lazy, Suspense, useEffect } from "react";
 import Navbar from "./common/Navbar";
 import Footer from "./common/Footer";
 import Contact from "./common/Contact";
-import { ThemeProvider } from "./context/ThemeContext";
+import { Toaster } from "sonner";
+import { ThemeProvider, useTheme } from "./context/ThemeContext";
 import { SmoothScroll } from "./components/common";
+
+// Senior Design Engineer Toaster with Dynamic Theme Synchronization (Emil Kowalski's Sonner)
+function SonnerToaster() {
+  const { isDark } = useTheme();
+  return (
+    <Toaster
+      position="top-right"
+      theme={isDark ? "dark" : "light"}
+      richColors
+      closeButton
+      duration={3200}
+      toastOptions={{
+        className: "sonner-toast-custom",
+        style: {
+          borderRadius: "14px",
+          fontFamily: "inherit",
+          padding: "12px 16px",
+        },
+      }}
+    />
+  );
+}
 
 // Lazy-loaded page components for fast initial bundle
 const HomePage           = lazy(() => import("./pages/HomePage"));
 const AboutPage          = lazy(() => import("./pages/AboutPage"));
+const LeadershipPage     = lazy(() => import("./pages/LeadershipPage"));
 const ProductsPage       = lazy(() => import("./pages/ProductsPage"));
 const TradingPage        = lazy(() => import("./pages/TradingPage"));
 const QualityPage        = lazy(() => import("./pages/QualityPage"));
@@ -49,6 +73,7 @@ function ScrollToTop() {
 function App() {
   return (
     <ThemeProvider>
+      <SonnerToaster />
       <Router>
         <SmoothScroll>
           <ScrollToTop />
@@ -64,7 +89,7 @@ function App() {
                 {/* Core Navigation Routes */}
                 <Route path="/" element={<HomePage />} />
                 <Route path="/about" element={<AboutPage />} />
-                <Route path="/leadership" element={<AboutPage />} />
+                <Route path="/leadership" element={<LeadershipPage />} />
                 
                 {/* Products & Commodity Categories */}
                 <Route path="/products" element={<ProductsPage />} />

@@ -5,3 +5,5 @@ export { default as SmoothScroll } from "./SmoothScroll";
 export { default as QualityPipelineAnimation } from "./QualityPipelineAnimation";
 export { default as SplitTextHeading } from "./SplitTextHeading";
 export { default as AnimatedNumber } from "./AnimatedNumber";
+export { default as HangingIdCard } from "./HangingIdCard";
+export { default as ThreeDImagePageflip } from "./ThreeDImagePageflip";

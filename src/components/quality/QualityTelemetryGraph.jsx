@@ -52,11 +52,11 @@ export default function QualityTelemetryGraph() {
       </div>
 
       {/* Chart Legend & Interactive Hover Readout */}
-      <div className="flex items-center justify-between gap-4 text-[11px] mb-3 pb-2 border-b border-white/10 z-10 relative">
-        <div className="flex items-center gap-3">
+      <div className="flex flex-wrap items-center justify-between gap-2.5 text-[10.5px] sm:text-[11px] mb-3 pb-2 border-b border-white/10 z-10 relative">
+        <div className="flex flex-wrap items-center gap-2.5 sm:gap-3">
           <div className="flex items-center gap-1.5 text-white font-medium">
             <span className="w-3 h-1 rounded-full bg-red-500 shadow-sm shadow-red-500/50" />
-            <span className="text-slate-200">Purity Grade (Sortex)</span>
+            <span className="text-slate-200">Purity Grade</span>
           </div>
           <div className="flex items-center gap-1.5 text-slate-300 font-medium">
             <span className="w-3 h-0.5 border-b border-dashed border-white/70" />
@@ -72,7 +72,7 @@ export default function QualityTelemetryGraph() {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.95 }}
             transition={{ duration: 0.15 }}
-            className="flex items-center gap-2 text-xs font-mono bg-[#8CC9D9]/20 border border-[#8CC9D9]/50 px-3 py-0.5 rounded-full shadow-sm backdrop-blur-sm"
+            className="flex items-center gap-1.5 sm:gap-2 text-[11px] sm:text-xs font-mono bg-[#8CC9D9]/20 border border-[#8CC9D9]/50 px-2.5 sm:px-3 py-0.5 rounded-full shadow-sm backdrop-blur-sm"
           >
             <span className="font-bold text-[#8CC9D9]">{activeData.month}:</span>
             <span className="font-black text-white">{activeData.purity}</span>
@@ -202,12 +202,12 @@ export default function QualityTelemetryGraph() {
       </div>
 
       {/* X-AXIS MONTH LABELS */}
-      <div className="flex items-center justify-between pt-2.5 px-1 text-[10px] sm:text-xs font-mono font-medium border-t border-white/10 text-slate-300">
+      <div className="flex items-center justify-between pt-2.5 px-0.5 sm:px-1 text-[8.5px] xs:text-[9.5px] sm:text-xs font-mono font-medium border-t border-white/10 text-slate-300">
         {qualityMonthlyData.map((d, idx) => (
           <span
             key={idx}
             onClick={() => setActiveBar(idx)}
-            className={`cursor-pointer transition-all ${
+            className={`cursor-pointer transition-all px-0.5 ${
               activeBar === idx
                 ? "text-red-400 font-bold scale-110 underline underline-offset-4"
                 : "hover:text-white text-slate-400"

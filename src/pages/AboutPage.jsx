@@ -979,6 +979,41 @@ export default function AboutPage() {
       </section>
 
       {/* ═════════════════════════════════════════════════════════════════════════════
+          ABOUT SECTION: LEADERSHIP ANCHOR SECTION (#leadership)
+      ═════════════════════════════════════════════════════════════════════════════ */}
+      <section id="leadership" className="w-full max-w-[94%] xl:max-w-[1440px] 2xl:max-w-[1580px] mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+        <div className={`p-8 sm:p-12 rounded-3xl border transition-all duration-300 ${
+          isDark
+            ? "bg-gradient-to-br from-[#0E223D] via-[#09172A] to-[#0B1F38] border-slate-800 shadow-2xl"
+            : "bg-gradient-to-br from-white via-[#F5FAF8] to-[#EBF5F1] border-slate-200 shadow-md"
+        }`}>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <div className="lg:col-span-8 space-y-4">
+              <h3 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 dark:text-white tracking-tight leading-tight">
+                Empowering Leaders, Transforming Organizations
+              </h3>
+              <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed max-w-2xl">
+                Comprehensive leadership solutions designed to unlock potential, inspire teams, and drive sustainable success for your organization through transformative leadership. Explore our solutions for Individuals, Organizations, and Government institutions.
+              </p>
+            </div>
+            <div className="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col gap-3 justify-end items-start lg:items-end">
+              <Link
+                to="/leadership"
+                className={`inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-bold text-xs sm:text-sm uppercase tracking-wider transition-all duration-300 shadow-lg ${
+                  isDark
+                    ? "bg-gradient-to-r from-[#38BDF8] to-[#0284C7] hover:from-[#60A5FA] hover:to-[#1E56C8] text-[#06101E]"
+                    : "bg-gradient-to-r from-emerald-500 to-teal-700 hover:from-emerald-400 hover:to-teal-600 text-white shadow-emerald-700/20"
+                }`}
+              >
+                <span>Visit Full Leadership Page</span>
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ═════════════════════════════════════════════════════════════════════════════
           ABOUT SECTION 7: GLOBAL PARTNERSHIP CTA BANNER WITH DRIVING REEFER TRUCK
       ═════════════════════════════════════════════════════════════════════════════ */}
       <section className="w-full max-w-[94%] xl:max-w-[1440px] 2xl:max-w-[1580px] mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">

@@ -28,6 +28,19 @@ export default function ImageSlider3D({
   const prefersReducedMotion = useReducedMotion();
   const animationDuration = prefersReducedMotion ? duration * 4 : duration;
   const [isHovered, setIsHovered] = useState(false);
+  const [windowWidth, setWindowWidth] = useState(
+    typeof window !== "undefined" ? window.innerWidth : 1024
+  );
+
+  React.useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const isMobile = windowWidth < 640;
+  const effectiveCardWidth = isMobile ? "16em" : cardWidth;
+  const effectivePerspective = isMobile ? "50em" : perspective;
 
   // rotation angles based on direction
   const rotationValues = rotationDirection === "left" ? [0, 360] : [360, 0];
@@ -45,9 +58,9 @@ export default function ImageSlider3D({
     <div
       onMouseEnter={() => pauseOnHover && setIsHovered(true)}
       onMouseLeave={() => pauseOnHover && setIsHovered(false)}
-      className={`relative grid w-full max-w-full h-full min-h-[380px] sm:min-h-[420px] overflow-hidden place-items-center ${containerClassName}`}
+      className={`relative grid w-full max-w-full h-full min-h-[360px] sm:min-h-[420px] overflow-hidden place-items-center ${containerClassName}`}
       style={{
-        perspective: perspective,
+        perspective: effectivePerspective,
         touchAction: "pan-y",
         ...maskStyles,
       }}
@@ -75,11 +88,11 @@ export default function ImageSlider3D({
             }}
             className="col-start-1 row-start-1 select-none pointer-events-auto cursor-pointer"
             style={{
-              width: cardWidth,
+              width: effectiveCardWidth,
               aspectRatio: cardAspectRatio,
               backfaceVisibility: "hidden",
               WebkitBackfaceVisibility: "hidden",
-              transform: `rotateY(calc(${i} * (1turn / ${n}))) translateZ(calc(-1 * (0.5 * ${cardWidth} + 0.4em) / tan(0.5 * (1turn / ${n}))))`,
+              transform: `rotateY(calc(${i} * (1turn / ${n}))) translateZ(calc(-1 * (0.5 * ${effectiveCardWidth} + 0.4em) / tan(0.5 * (1turn / ${n}))))`,
             }}
           >
             {/* Inner Card Wrapper with Hover Scale and Backface Culling */}

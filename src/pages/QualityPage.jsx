@@ -46,7 +46,7 @@ export default function QualityPage() {
              - Dark Theme: Blueish Palette (Deep Midnight Navy / Cyan / Sky Blue)
       ══════════════════════════════════════════════════════════════════════ */}
       <section
-        className={`relative w-full pt-28 sm:pt-32 pb-20 sm:pb-28 overflow-hidden text-white transition-all duration-500 ${
+        className={`relative w-full pt-24 sm:pt-28 md:pt-32 pb-16 sm:pb-20 md:pb-28 overflow-hidden text-white transition-all duration-500 ${
           isDark
             ? "bg-gradient-to-b from-[#06101E] via-[#09172A] to-[#0B1F38]"
             : "bg-gradient-to-b from-[#021A13] via-[#042A1E] to-[#01140E]"
@@ -77,13 +77,13 @@ export default function QualityPage() {
               
               {/* Top Luxury Badge */}
               <div
-                className={`inline-flex items-center gap-2 px-4 py-1.5 rounded-full backdrop-blur-md text-xs font-black uppercase tracking-[0.2em] shadow-sm transition-all duration-500 ${
+                className={`inline-flex items-center gap-2 px-3 sm:px-4 py-1 sm:py-1.5 rounded-full backdrop-blur-md text-[10px] sm:text-xs font-black uppercase tracking-[0.12em] sm:tracking-[0.2em] shadow-sm transition-all duration-500 ${
                   isDark
                     ? "bg-sky-950/70 border border-sky-500/35 text-[#38BDF8]"
                     : "bg-emerald-950/60 border border-emerald-500/30 text-emerald-300"
                 }`}
               >
-                <Sparkles className={`w-3.5 h-3.5 ${isDark ? "text-[#38BDF8]" : "text-emerald-400"}`} />
+                <Sparkles className={`w-3.5 h-3.5 shrink-0 ${isDark ? "text-[#38BDF8]" : "text-emerald-400"}`} />
                 <span>RIGOROUS PROTOCOLS • CERTIFIED GLOBAL STANDARDS</span>
               </div>
 
@@ -91,7 +91,7 @@ export default function QualityPage() {
               <div className="py-1 space-y-2">
                 <h1 className="font-sans tracking-tight leading-[1.08]">
                   <span
-                    className={`heading-bounce block text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-black text-transparent bg-clip-text select-none transition-all duration-500 ${
+                    className={`heading-bounce block text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black text-transparent bg-clip-text select-none transition-all duration-500 ${
                       isDark
                         ? "bg-gradient-to-r from-[#38BDF8] via-[#60A5FA] to-[#93C5FD] drop-shadow-[0_4px_30px_rgba(56,189,248,0.35)]"
                         : "bg-gradient-to-r from-emerald-400 via-emerald-300 to-teal-200 drop-shadow-[0_4px_30px_rgba(16,185,129,0.35)]"
@@ -99,7 +99,7 @@ export default function QualityPage() {
                   >
                     WORLD-CLASS COLD CHAIN
                   </span>
-                  <span className="heading-bounce block text-2xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-5xl font-black text-white tracking-tight drop-shadow-[0_4px_24px_rgba(0,0,0,0.65)] select-none mt-1">
+                  <span className="heading-bounce block text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black text-white tracking-tight drop-shadow-[0_4px_24px_rgba(0,0,0,0.65)] select-none mt-1">
                     FOOD SAFETY PROTOCOLS
                   </span>
                 </h1>
@@ -111,7 +111,7 @@ export default function QualityPage() {
                     }`}
                   />
                   <span
-                    className={`text-xs sm:text-sm font-black uppercase tracking-[0.25em] transition-all duration-500 ${
+                    className={`text-[10px] sm:text-xs md:text-sm font-black uppercase tracking-[0.14em] sm:tracking-[0.25em] transition-all duration-500 ${
                       isDark ? "text-[#38BDF8]" : "text-emerald-400"
                     }`}
                   >
@@ -122,7 +122,7 @@ export default function QualityPage() {
 
               {/* Subtitle */}
               <p
-                className={`text-sm sm:text-base leading-relaxed max-w-2xl transition-colors duration-500 ${
+                className={`text-xs sm:text-sm md:text-base leading-relaxed max-w-2xl transition-colors duration-500 ${
                   isDark ? "text-slate-300" : "text-emerald-100/80"
                 }`}
               >
@@ -130,17 +130,17 @@ export default function QualityPage() {
               </p>
 
               {/* Trust Badges Bar */}
-              <div className="heading-bounce pt-1 flex flex-wrap items-center gap-2.5 sm:gap-3.5 text-xs text-slate-300 font-bold">
-                <div className="flex items-center gap-2 bg-white/5 border border-white/10 px-3 py-1.5 rounded-full">
-                  <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
+              <div className="heading-bounce pt-1 flex flex-wrap items-center gap-2 sm:gap-3 text-[11px] sm:text-xs text-slate-300 font-bold">
+                <div className="flex items-center gap-1.5 sm:gap-2 bg-white/5 border border-white/10 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full">
+                  <ShieldCheck className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
                   <span>APEDA &amp; FSSAI Grade A Certified</span>
                 </div>
-                <div className="flex items-center gap-2 bg-white/5 border border-white/10 px-3 py-1.5 rounded-full">
-                  <ThermometerSnowflake className="w-3.5 h-3.5 text-[#8CC9D9]" />
+                <div className="flex items-center gap-1.5 sm:gap-2 bg-white/5 border border-white/10 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full">
+                  <ThermometerSnowflake className="w-3.5 h-3.5 text-[#8CC9D9] shrink-0" />
                   <span>-18°C GPS Monitored Cold Chain</span>
                 </div>
-                <div className="flex items-center gap-2 bg-white/5 border border-white/10 px-3 py-1.5 rounded-full">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-sky-400" />
+                <div className="flex items-center gap-1.5 sm:gap-2 bg-white/5 border border-white/10 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-sky-400 shrink-0" />
                   <span>100% Lot Traceability</span>
                 </div>
               </div>
@@ -289,32 +289,32 @@ export default function QualityPage() {
       {/* ══════════════════════════════════════════════════════════════════════
           4. COLD-CHAIN CONTINUOUS TEMPERATURE DATA LOGGING GUARANTEE BANNER
       ══════════════════════════════════════════════════════════════════════ */}
-      <section className="pb-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="rounded-3xl p-8 sm:p-10 bg-gradient-to-r from-[#0B2546] via-[#123766] to-[#0B2546] text-white flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl border border-white/10">
-          <div className="flex items-center gap-5">
-            <div className="w-14 h-14 rounded-2xl bg-[#8CC9D9]/20 border border-[#8CC9D9]/40 flex items-center justify-center shrink-0">
-              <ThermometerSnowflake className="w-7 h-7 text-[#8CC9D9]" />
+      <section className="pb-12 sm:pb-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="rounded-3xl p-6 sm:p-8 md:p-10 bg-gradient-to-r from-[#0B2546] via-[#123766] to-[#0B2546] text-white flex flex-col md:flex-row items-start md:items-center justify-between gap-6 shadow-xl border border-white/10">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-5">
+            <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-[#8CC9D9]/20 border border-[#8CC9D9]/40 flex items-center justify-center shrink-0">
+              <ThermometerSnowflake className="w-6 h-6 sm:w-7 sm:h-7 text-[#8CC9D9]" />
             </div>
             <div>
-              <span className="text-xs font-black uppercase tracking-widest text-[#8CC9D9]">
+              <span className="text-[10px] sm:text-xs font-black uppercase tracking-widest text-[#8CC9D9]">
                 -18°C Deep Freeze Assurance
               </span>
               <SplitTextHeading
                 as="h3"
-                className="text-xl sm:text-2xl font-black text-white mt-1"
+                className="text-lg sm:text-xl md:text-2xl font-black text-white mt-1 leading-snug"
               >
                 Continuous Cold-Chain Temperature Data Logging
               </SplitTextHeading>
-              <p className="text-xs sm:text-sm text-[#D0E2EC] mt-1 max-w-xl">
+              <p className="text-xs sm:text-sm text-[#D0E2EC] mt-1 max-w-xl leading-relaxed">
                 Every reefer container and cold room is equipped with GPS-synced continuous temperature dataloggers ensuring unbroken -18°C preservation.
               </p>
             </div>
           </div>
 
-          <div className="flex items-center gap-3 shrink-0">
+          <div className="flex items-center gap-3 shrink-0 w-full sm:w-auto">
             <Link
               to="/contact"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#8CC9D9] hover:bg-[#78B9C9] text-[#123741] font-black text-xs sm:text-sm shadow-md transition-all hover:scale-105"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-[#8CC9D9] hover:bg-[#78B9C9] text-[#123741] font-black text-xs sm:text-sm shadow-md transition-all hover:scale-105"
             >
               <span>Request QA Specs</span>
               <ArrowRight className="w-4 h-4" />
