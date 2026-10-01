@@ -1,11 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Sparkles } from "lucide-react";
 import packGreenPeas from "../../assets/pack_green_peas.jpg";
+import packSweetCorn from "../../assets/pack_sweet_corn.jpg";
 import packSamosaSpringrolls from "../../assets/pack_samosa_springrolls.jpg";
 import packMangoPulp from "../../assets/pack_mango_pulp.jpg";
 import packMomosFries from "../../assets/pack_momos_fries.jpg";
+import packMalabarParatha from "../../assets/pack_malabar_paratha.jpg";
+import packPureVegSnacks from "../../assets/pure_veg_snacks.jpg";
 
+// Mixed Type Blend 1: Balanced synergy of IQF Vegetables, Ready-to-Cook Snacks & Fruit Pulps
 const marqueeProductsRow1 = [
   {
     id: "peas-corn",
@@ -15,6 +19,13 @@ const marqueeProductsRow1 = [
     link: "/products?category=frozen-vegetables",
   },
   {
+    id: "samosa-rolls",
+    name: "Punjabi Samosas & Rolls",
+    category: "rte-snacks",
+    image: packSamosaSpringrolls,
+    link: "/products?category=rte-snacks",
+  },
+  {
     id: "mango-pulp",
     name: "Alphonso Mango Pulp",
     category: "fruit-pulps",
@@ -22,49 +33,50 @@ const marqueeProductsRow1 = [
     link: "/products?category=fruit-pulps",
   },
   {
+    id: "french-fries",
+    name: "Crispy Golden French Fries",
+    category: "rte-snacks",
+    image: packMomosFries,
+    link: "/products?category=rte-snacks",
+  },
+  {
     id: "sweet-corn",
-    name: "Sweet Corn Kernels",
+    name: "Golden Sweet Corn Kernels",
     category: "frozen-vegetables",
-    image: packGreenPeas,
+    image: packSweetCorn,
     link: "/products?category=frozen-vegetables",
   },
   {
-    id: "pure-pulp-can",
-    name: "Canned Alphonso Purée",
-    category: "fruit-pulps",
-    image: packMangoPulp,
-    link: "/products?category=fruit-pulps",
-  },
-  {
-    id: "mixed-veg",
-    name: "4-Way Diced Mixed Veg",
-    category: "frozen-vegetables",
-    image: packGreenPeas,
-    link: "/products?category=frozen-vegetables",
-  },
-  {
-    id: "green-peas-bulk",
-    name: "Bulk Green Peas (Grade A)",
-    category: "frozen-vegetables",
-    image: packGreenPeas,
-    link: "/products?category=frozen-vegetables",
+    id: "malabar-paratha",
+    name: "Flaky Malabar Parathas",
+    category: "rte-snacks",
+    image: packMalabarParatha,
+    link: "/products?category=rte-snacks",
   },
 ];
 
+// Mixed Type Blend 2: Interleaved gourmet snacks, diced vegetables and puree
 const marqueeProductsRow2 = [
-  {
-    id: "samosa-rolls",
-    name: "Punjabi Samosas & Spring Rolls",
-    category: "rte-snacks",
-    image: packSamosaSpringrolls,
-    link: "/products?category=rte-snacks",
-  },
   {
     id: "momos-fries",
     name: "Veg Momos & Golden Fries",
     category: "rte-snacks",
     image: packMomosFries,
     link: "/products?category=rte-snacks",
+  },
+  {
+    id: "pure-veg-mix",
+    name: "Chef Special Veg Medley",
+    category: "frozen-vegetables",
+    image: packPureVegSnacks,
+    link: "/products?category=frozen-vegetables",
+  },
+  {
+    id: "canned-pulp",
+    name: "Canned Alphonso Purée",
+    category: "fruit-pulps",
+    image: packMangoPulp,
+    link: "/products?category=fruit-pulps",
   },
   {
     id: "cocktail-samosa",
@@ -74,18 +86,11 @@ const marqueeProductsRow2 = [
     link: "/products?category=rte-snacks",
   },
   {
-    id: "french-fries-classic",
-    name: "Crispy Golden French Fries",
-    category: "rte-snacks",
-    image: packMomosFries,
-    link: "/products?category=rte-snacks",
-  },
-  {
-    id: "spring-rolls-deluxe",
-    name: "Authentic Veg Spring Rolls",
-    category: "rte-snacks",
-    image: packSamosaSpringrolls,
-    link: "/products?category=rte-snacks",
+    id: "green-peas-bulk",
+    name: "Bulk Grade-A Green Peas",
+    category: "frozen-vegetables",
+    image: packGreenPeas,
+    link: "/products?category=frozen-vegetables",
   },
   {
     id: "himalayan-momos",
@@ -97,40 +102,37 @@ const marqueeProductsRow2 = [
 ];
 
 /**
- * FrozenShowcaseSection: Rich Deep Navy / Ocean Blue theme in Dark Mode with dual opposite marquee.
+ * FrozenShowcaseSection: Senior Executive Design
+ * Clean Faint White / Warm Canvas matching the whole website seamlessly.
+ * No dividing lines, smooth organic edge masks, and rich mixed-type product cards.
  */
 export default function FrozenShowcaseSection() {
   return (
-    <section className="w-full bg-gradient-to-b from-[#0A192F] via-[#071324] to-[#040C18] dark:from-[#07111E] dark:via-[#09172A] dark:to-[#040B14] border-y border-[#38BDF8]/25 py-12 sm:py-16 lg:py-20 relative overflow-hidden text-[#E2E8F0]">
-      {/* Ambient Blue Glowing Flares */}
-      <div className="absolute -top-32 -left-32 w-96 h-96 bg-[#1E56C8]/25 dark:bg-[#0284C7]/20 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute -bottom-32 right-0 w-96 h-96 bg-[#38BDF8]/20 dark:bg-[#38BDF8]/15 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[300px] bg-[#0284C7]/10 rounded-full blur-[120px] pointer-events-none" />
+    <section className="relative w-full bg-white dark:bg-[#07111E] py-14 sm:py-18 lg:py-20 overflow-hidden text-[#1F2937] dark:text-[#E2E8F0] transition-colors duration-300">
+      {/* ── Soft Ambient Warm Golden & Emerald Glow Orbs ── */}
+      <div className="absolute -top-16 left-8 w-80 sm:w-96 h-80 sm:h-96 bg-[#C8A950]/8 dark:bg-[#D4AF37]/5 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute -bottom-16 right-8 w-80 sm:w-96 h-80 sm:h-96 bg-[#059669]/6 dark:bg-[#059669]/5 rounded-full blur-[140px] pointer-events-none" />
 
-      <div className="w-full max-w-[94%] xl:max-w-[1440px] 2xl:max-w-[1580px] mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center relative z-10">
+      <div className="relative z-10 w-full max-w-[94%] xl:max-w-[1440px] 2xl:max-w-[1580px] mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
         
         {/* Left Content Column */}
         <div className="lg:col-span-4 xl:col-span-4 space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#38BDF8]/15 border border-[#38BDF8]/35 text-[#38BDF8] text-[11px] font-black uppercase tracking-[0.18em]">
-            <span>Export &amp; HoReCa Packs</span>
-          </div>
-
-          <h3 className="text-3xl sm:text-4xl lg:text-[42px] font-black text-white tracking-tight leading-[1.12]">
-            Frozen Food &amp; <br />
-            <span className="bg-gradient-to-r from-[#38BDF8] via-[#8CC9D9] to-[#60A5FA] bg-clip-text text-transparent">
+          <h3 className="text-3xl sm:text-4xl lg:text-[44px] font-black text-[#1F2937] dark:text-white tracking-tight leading-[1.12]">
+            Frozen Food &amp;{" "}
+            <span className="block bg-gradient-to-r from-[#B4882F] via-[#D4AF37] to-[#C8A950] dark:from-[#D4AF37] dark:via-[#F3E5AB] dark:to-[#C8A950] bg-clip-text text-transparent">
               Ready-to-Cook
             </span>
           </h3>
 
-          <p className="text-sm sm:text-base text-slate-300 leading-relaxed max-w-md">
-            Frozen snacks, momos, parathas, green peas, sweet corn, and tropical pulps flash-frozen at their peak. Ready when you are.
+          <p className="text-sm sm:text-base text-[#4B5563] dark:text-slate-300 leading-relaxed max-w-md">
+            A diverse, harmonious blend of flash-frozen green peas, sweet corn, golden samosas, authentic momos, flaky parathas, and rich Alphonso mango pulp. Frozen at peak harvest freshness.
           </p>
 
-          {/* Button */}
+          {/* Senior High-Impact CTA Button */}
           <div className="pt-2">
             <Link
               to="/products"
-              className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full bg-gradient-to-r from-[#0284C7] to-[#1E56C8] hover:from-[#38BDF8] hover:to-[#0284C7] text-white font-black text-xs sm:text-sm uppercase tracking-wider shadow-xl shadow-[#0284C7]/25 hover:shadow-[#38BDF8]/40 transition-all duration-300 hover:scale-105 active:scale-95 group cursor-pointer"
+              className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full bg-gradient-to-r from-[#14532D] via-[#15803D] to-[#16A34A] hover:opacity-95 text-white font-black text-xs sm:text-sm uppercase tracking-wider shadow-lg shadow-[#15803D]/25 hover:shadow-[#15803D]/35 border border-[#22C55E]/30 transition-all duration-300 hover:scale-105 active:scale-95 group cursor-pointer"
             >
               <span>Explore All Products</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -138,31 +140,31 @@ export default function FrozenShowcaseSection() {
           </div>
         </div>
 
-        {/* Right Column: 2 Rows of Floating Food Products (Opposite Marquee) */}
-        <div className="lg:col-span-8 xl:col-span-8 relative overflow-hidden space-y-4">
-          {/* Gradient Fade Masks in Sleek Navy Blues */}
-          <div className="pointer-events-none absolute inset-y-0 left-0 w-16 sm:w-24 bg-gradient-to-r from-[#0A192F] dark:from-[#07111E] to-transparent z-20" />
-          <div className="pointer-events-none absolute inset-y-0 right-0 w-16 sm:w-24 bg-gradient-to-l from-[#040C18] dark:from-[#040B14] to-transparent z-20" />
+        {/* Right Column: 2 Rows of Floating Food Products (Opposite Marquee with Faint Fade Masks) */}
+        <div className="lg:col-span-8 xl:col-span-8 relative overflow-hidden space-y-4 sm:space-y-5">
+          {/* Extended Gradient Fade Masks for Flawless Blending into Pure White Canvas */}
+          <div className="pointer-events-none absolute inset-y-0 left-0 w-24 sm:w-36 lg:w-44 bg-gradient-to-r from-white via-white/85 to-transparent dark:from-[#07111E] dark:via-[#07111E]/85 dark:to-transparent z-20" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 w-20 sm:w-32 bg-gradient-to-l from-white via-white/85 to-transparent dark:from-[#07111E] dark:via-[#07111E]/85 dark:to-transparent z-20" />
 
-          {/* Row 1: Scrolling LEFT */}
+          {/* Row 1: Scrolling LEFT (Mixed Variety with Golden Gradient Cards) */}
           <div className="overflow-hidden py-1">
             <div className="animate-marquee-left flex items-center gap-4 sm:gap-5">
               {[...marqueeProductsRow1, ...marqueeProductsRow1].map((p, idx) => (
                 <Link
-                  key={`compact-r1-${p.id}-${idx}`}
+                  key={`mixed-r1-${p.id}-${idx}`}
                   to={p.link}
-                  className="group flex flex-col items-center justify-center p-3.5 sm:p-4 rounded-2xl bg-[#0F223A]/80 hover:bg-[#152E4E] border border-white/10 hover:border-[#38BDF8]/70 backdrop-blur-md w-36 sm:w-44 lg:w-48 shrink-0 transition-all duration-300 hover:scale-105 shadow-[0_8px_20px_rgba(0,0,0,0.35)] hover:shadow-[0_12px_28px_rgba(56,189,248,0.25)]"
+                  className="group flex flex-col items-center justify-center p-4 sm:p-5 rounded-3xl bg-gradient-to-b from-[#FFFDF7] via-[#FAF5EA] to-[#F5EBD7] dark:from-[#0E1A26] dark:via-[#091520] dark:to-[#07111A] border border-[#C8A950]/35 dark:border-[#D4AF37]/25 w-40 sm:w-48 lg:w-52 shrink-0 transition-all duration-300 hover:scale-105 shadow-[0_8px_24px_rgba(200,169,80,0.12)] hover:shadow-[0_14px_36px_rgba(200,169,80,0.25)] hover:border-[#C8A950]"
                   title={p.name}
                 >
                   <div className="w-28 h-28 sm:w-36 sm:h-36 lg:w-40 lg:h-40 flex items-center justify-center overflow-hidden">
                     <img
                       src={p.image}
                       alt={p.name}
-                      className="w-full h-full object-contain filter drop-shadow-2xl group-hover:scale-110 transition-transform duration-300"
+                      className="w-full h-full object-contain filter drop-shadow-md group-hover:scale-108 transition-transform duration-300"
                       loading="lazy"
                     />
                   </div>
-                  <span className="text-xs sm:text-sm font-bold text-white text-center truncate w-full mt-2.5 px-1 group-hover:text-[#38BDF8] transition-colors">
+                  <span className="text-xs sm:text-sm font-black text-[#1F2937] dark:text-white group-hover:text-[#15803D] dark:group-hover:text-[#D4AF37] text-center truncate w-full mt-3 px-1 transition-colors">
                     {p.name.split("&")[0].trim()}
                   </span>
                 </Link>
@@ -170,25 +172,25 @@ export default function FrozenShowcaseSection() {
             </div>
           </div>
 
-          {/* Row 2: Scrolling RIGHT */}
+          {/* Row 2: Scrolling RIGHT (Mixed Variety with Golden Gradient Cards) */}
           <div className="overflow-hidden py-1">
             <div className="animate-marquee-right flex items-center gap-4 sm:gap-5">
               {[...marqueeProductsRow2, ...marqueeProductsRow2].map((p, idx) => (
                 <Link
-                  key={`compact-r2-${p.id}-${idx}`}
+                  key={`mixed-r2-${p.id}-${idx}`}
                   to={p.link}
-                  className="group flex flex-col items-center justify-center p-3.5 sm:p-4 rounded-2xl bg-[#0F223A]/80 hover:bg-[#152E4E] border border-white/10 hover:border-[#38BDF8]/70 backdrop-blur-md w-36 sm:w-44 lg:w-48 shrink-0 transition-all duration-300 hover:scale-105 shadow-[0_8px_20px_rgba(0,0,0,0.35)] hover:shadow-[0_12px_28px_rgba(56,189,248,0.25)]"
+                  className="group flex flex-col items-center justify-center p-4 sm:p-5 rounded-3xl bg-gradient-to-b from-[#FFFDF7] via-[#FAF5EA] to-[#F5EBD7] dark:from-[#0E1A26] dark:via-[#091520] dark:to-[#07111A] border border-[#C8A950]/35 dark:border-[#D4AF37]/25 w-40 sm:w-48 lg:w-52 shrink-0 transition-all duration-300 hover:scale-105 shadow-[0_8px_24px_rgba(200,169,80,0.12)] hover:shadow-[0_14px_36px_rgba(200,169,80,0.25)] hover:border-[#C8A950]"
                   title={p.name}
                 >
                   <div className="w-28 h-28 sm:w-36 sm:h-36 lg:w-40 lg:h-40 flex items-center justify-center overflow-hidden">
                     <img
                       src={p.image}
                       alt={p.name}
-                      className="w-full h-full object-contain filter drop-shadow-2xl group-hover:scale-110 transition-transform duration-300"
+                      className="w-full h-full object-contain filter drop-shadow-md group-hover:scale-108 transition-transform duration-300"
                       loading="lazy"
                     />
                   </div>
-                  <span className="text-xs sm:text-sm font-bold text-white text-center truncate w-full mt-2.5 px-1 group-hover:text-[#38BDF8] transition-colors">
+                  <span className="text-xs sm:text-sm font-black text-[#1F2937] dark:text-white group-hover:text-[#15803D] dark:group-hover:text-[#D4AF37] text-center truncate w-full mt-3 px-1 transition-colors">
                     {p.name.split("&")[0].trim()}
                   </span>
                 </Link>

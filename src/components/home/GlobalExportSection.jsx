@@ -69,13 +69,13 @@ export default function GlobalExportSection() {
     <section
       ref={sectionRef}
       id="global-export"
-      className="relative py-16 sm:py-20 lg:py-24 bg-gradient-to-b from-[#F2F7FA] via-white to-[#F8FAFC] dark:from-[#06101E] dark:via-[#09172A] dark:to-[#07111E] overflow-hidden transition-colors duration-300"
+      className="relative py-16 sm:py-20 lg:py-24 bg-gradient-to-b from-white via-[#FCFAF5] to-white dark:from-[#06101E] dark:via-[#09172A] dark:to-[#07111E] overflow-hidden transition-colors duration-300"
     >
       {/* Dynamic Ambient Background Glows */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-gradient-to-r from-emerald-500/10 via-[#1E56C8]/10 to-teal-500/10 rounded-full blur-[140px]" />
-        <div className="absolute -top-12 -left-12 w-72 h-72 bg-emerald-500/10 rounded-full blur-[100px]" />
-        <div className="absolute -bottom-12 -right-12 w-80 h-80 bg-[#1E56C8]/12 rounded-full blur-[110px]" />
+        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-gradient-to-r from-emerald-500/8 via-[#C8A950]/8 to-teal-500/8 rounded-full blur-[140px]" />
+        <div className="absolute -top-12 -left-12 w-72 h-72 bg-emerald-500/8 rounded-full blur-[100px]" />
+        <div className="absolute -bottom-12 -right-12 w-80 h-80 bg-[#C8A950]/8 rounded-full blur-[110px]" />
       </div>
 
       <div className="w-full relative z-10">
@@ -87,17 +87,13 @@ export default function GlobalExportSection() {
           }`}
         >
           {/* Top Pill Tag */}
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800/80 text-emerald-800 dark:text-emerald-300 text-xs font-black uppercase tracking-[0.2em] mb-4 shadow-2xs">
-            <Globe2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
-            <span>EXPORT &amp; GLOBAL TRADE NETWORK</span>
-          </div>
-
+         
           <SplitTextHeading
             as="h2"
-            className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#0B2546] dark:text-white tracking-tight leading-[1.18]"
+            className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#1F2937] dark:text-white tracking-tight leading-[1.18]"
           >
             Dattatray Tradings <br />
-            <span className="bg-gradient-to-r from-[#059669] via-[#0284C7] to-[#1E56C8] dark:from-[#34D399] dark:via-[#38BDF8] dark:to-[#60A5FA] bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-[#B4882F] via-[#D4AF37] to-[#C8A950] dark:from-[#D4AF37] dark:via-[#F3E5AB] dark:to-[#C8A950] bg-clip-text text-transparent">
               Global Reach &amp; Merchant Export
             </span>
           </SplitTextHeading>
@@ -422,7 +418,7 @@ export default function GlobalExportSection() {
               <div className="flex items-center gap-2.5">
                 <Link
                   to="/contact"
-                  className="inline-flex items-center gap-1.5 px-4 sm:px-5 py-2 rounded-full bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-400 hover:to-teal-500 text-white text-xs sm:text-sm font-black shadow-lg shadow-emerald-900/40 hover:scale-105 transition-all"
+                  className="inline-flex items-center gap-1.5 px-4 sm:px-5 py-2 rounded-full bg-gradient-to-r from-[#14532D] via-[#15803D] to-[#16A34A] hover:opacity-95 text-white text-xs sm:text-sm font-black shadow-lg shadow-emerald-950/30 hover:scale-105 border border-[#22C55E]/30 transition-all"
                 >
                   <span>Export Inquiry</span>
                   <ArrowUpRight className="w-4 h-4" />
@@ -447,7 +443,7 @@ export default function GlobalExportSection() {
             return (
               <div
                 key={pillar.title}
-                className={`group p-5 rounded-2xl bg-white dark:bg-[#0B1B2F] border border-slate-200 dark:border-white/10 shadow-[0_4px_16px_rgba(11,37,70,0.05)] dark:shadow-[0_8px_24px_rgba(0,0,0,0.3)] hover:shadow-[0_12px_28px_rgba(5,150,105,0.12)] hover:border-emerald-500/40 dark:hover:border-emerald-400/40 transition-all duration-300 hover:-translate-y-1 ${
+                className={`group p-5 rounded-2xl bg-white dark:bg-[#0B1B2F] border border-[#E5E1D8] dark:border-white/10 shadow-[0_4px_16px_rgba(0,0,0,0.03)] dark:shadow-[0_8px_24px_rgba(0,0,0,0.3)] hover:shadow-[0_12px_28px_rgba(200,169,80,0.18)] hover:border-[#C8A950]/50 dark:hover:border-[#C8A950]/50 transition-all duration-300 hover:-translate-y-1 ${
                   isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
                 }`}
                 style={{ transitionDelay: isVisible ? `${delayMs}ms` : "0ms" }}
@@ -458,16 +454,16 @@ export default function GlobalExportSection() {
                   >
                     <Icon className="w-5 h-5 drop-shadow-sm" />
                   </div>
-                  <span className="text-[10px] font-black uppercase tracking-wider px-2.5 py-0.8 rounded-full bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800/60">
+                  <span className="text-[10px] font-black uppercase tracking-wider px-2.5 py-0.8 rounded-full bg-[#F5EDDA] dark:bg-white/10 text-[#9E8430] dark:text-[#D4AF37] border border-[#C8A950]/30">
                     {pillar.badge}
                   </span>
                 </div>
 
-                <h4 className="text-[14px] sm:text-[15px] font-black text-[#0B2546] dark:text-white tracking-tight leading-snug mb-1.5 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
+                <h4 className="text-[14px] sm:text-[15px] font-black text-[#1F2937] dark:text-white tracking-tight leading-snug mb-1.5 group-hover:text-[#15803D] dark:group-hover:text-[#4ADE80] transition-colors">
                   {pillar.title}
                 </h4>
 
-                <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                <p className="text-xs text-[#4B5563] dark:text-slate-300 leading-relaxed">
                   {pillar.desc}
                 </p>
               </div>

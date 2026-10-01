@@ -55,17 +55,17 @@ export default function Contact() {
               <!-- Main Card Container -->
               <table border="0" cellpadding="0" cellspacing="0" width="100%" class="email-card" style="max-width: 600px; background-color: #ffffff; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.08); border: 1px solid #e2e8f0;">
 
-                <!-- Header Section: Clean White Card with Soft Cyan Accent Lines -->
+                <!-- Header Section: Clean White Card with Warm Golden Accent Lines -->
                 <tr>
-                  <td align="center" class="header-padding" style="background-color: #ffffff; padding: 28px 24px; text-align: center; border-top: 6px solid #8CC9D9;">
+                  <td align="center" class="header-padding" style="background-color: #ffffff; padding: 28px 24px; text-align: center; border-top: 6px solid #D4AF37;">
                     
                     <!-- Dattatray Logo Brand Badge -->
                     <table border="0" cellpadding="0" cellspacing="0" style="margin: 0 auto 12px auto;">
                       <tr>
-                        <td align="center" style="background-color: #F0F8FA; border-radius: 10px; padding: 8px 20px; border: 1px solid #8CC9D9;">
+                        <td align="center" style="background-color: #FBF8F1; border-radius: 10px; padding: 8px 20px; border: 1px solid #D4AF37;">
                           <table border="0" cellpadding="0" cellspacing="0">
                             <tr>
-                              <td style="background-color: #8CC9D9; color: #123741; font-family: Arial, sans-serif; font-size: 20px; font-weight: 900; line-height: 1; padding: 6px 11px; border-radius: 6px; vertical-align: middle;">
+                              <td style="background-color: #D4AF37; color: #1F2937; font-family: Arial, sans-serif; font-size: 20px; font-weight: 900; line-height: 1; padding: 6px 11px; border-radius: 6px; vertical-align: middle;">
                                 D
                               </td>
                               <td style="color: #0B2546; font-family: Arial, sans-serif; font-size: 18px; font-weight: 900; letter-spacing: 1.5px; padding-left: 12px; vertical-align: middle;">
@@ -199,11 +199,11 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="relative overflow-hidden pt-6 sm:pt-10 pb-14 sm:pb-18 flex items-center bg-[#F9FBFC] dark:bg-[#07111E] transition-colors duration-300">
-      {/* Background ambient glow effects matching Dattatray palette */}
+    <section id="contact" className="relative overflow-hidden pt-8 sm:pt-12 pb-16 sm:pb-20 flex items-center bg-white dark:bg-[#07111E] transition-colors duration-300">
+      {/* Background ambient glow effects in warm golden & emerald palette */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute -top-20 left-4 sm:left-10 w-64 sm:w-80 h-64 sm:h-80 rounded-full bg-[#8CC9D9]/15 dark:bg-[#38BDF8]/10 blur-[130px]" />
-        <div className="absolute bottom-0 right-0 w-72 sm:w-96 h-72 sm:h-96 rounded-full bg-[#8CC9D9]/25 dark:bg-[#1E56C8]/15 blur-[150px]" />
+        <div className="absolute -top-20 left-4 sm:left-10 w-64 sm:w-80 h-64 sm:h-80 rounded-full bg-[#C8A950]/8 dark:bg-[#D4AF37]/5 blur-[130px]" />
+        <div className="absolute bottom-0 right-0 w-72 sm:w-96 h-72 sm:h-96 rounded-full bg-[#059669]/8 dark:bg-[#059669]/5 blur-[150px]" />
       </div>
 
       <div className="relative w-full max-w-[94%] xl:max-w-[1440px] 2xl:max-w-[1580px] mx-auto px-4 sm:px-6 lg:px-8">
@@ -212,19 +212,21 @@ export default function Contact() {
 
           {/* ================= LEFT SIDE ================= */}
           <div>
-            <span className="inline-flex items-center gap-2 bg-[#1E56C8]/8 dark:bg-[#38BDF8]/15 border border-[#1E56C8]/15 dark:border-[#38BDF8]/30 text-[#1E56C8] dark:text-[#38BDF8] text-xs font-black uppercase tracking-widest px-3.5 sm:px-4 py-1.5 rounded-full mb-3 sm:mb-4">
+            <span className="inline-flex items-center gap-2 bg-[#F0FDF4] dark:bg-emerald-950/60 border border-[#15803D]/25 dark:border-emerald-800/80 text-[#15803D] dark:text-emerald-300 text-xs font-black uppercase tracking-widest px-3.5 sm:px-4 py-1.5 rounded-full mb-3 sm:mb-4 shadow-2xs">
               Get In Touch
             </span>
 
             <SplitTextHeading
               as="h2"
-              className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-black text-[#0B2546] dark:text-white leading-tight mt-2"
+              className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-black text-[#1F2937] dark:text-white leading-tight mt-2"
             >
               Let's Build Something{" "}
-              <span className="block text-[#1E56C8] dark:text-[#38BDF8]">Great Together</span>
+              <span className="block bg-gradient-to-r from-[#B4882F] via-[#D4AF37] to-[#C8A950] dark:from-[#D4AF37] dark:via-[#F3E5AB] dark:to-[#C8A950] bg-clip-text text-transparent">
+                Great Together
+              </span>
             </SplitTextHeading>
 
-            <p className="mt-4 sm:mt-6 text-[#475569] dark:text-slate-300 text-sm sm:text-base lg:text-lg leading-7 sm:leading-8 max-w-xl">
+            <p className="mt-4 sm:mt-6 text-[#4B5563] dark:text-slate-300 text-sm sm:text-base lg:text-lg leading-7 sm:leading-8 max-w-xl">
               Whether you're looking for premium IQF frozen vegetables, wholesale food service supply, or a dependable export trading partner, our experienced desk is ready to assist your procurement needs.
             </p>
 
@@ -232,12 +234,12 @@ export default function Contact() {
             <div className="mt-8 sm:mt-10 mb-8 sm:mb-10 space-y-4 sm:space-y-6">
               {/* Location */}
               <div className="flex items-center gap-4 sm:gap-5 group">
-                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-[#8CC9D9]/15 dark:bg-[#8CC9D9]/20 border border-[#8CC9D9]/35 dark:border-[#8CC9D9]/40 flex items-center justify-center shadow-sm group-hover:bg-[#8CC9D9] transition-all duration-300 shrink-0">
-                  <MapPin className="w-4 h-4 sm:w-5 sm:h-5 text-[#123741] dark:text-[#8CC9D9] group-hover:text-[#123741]" />
+                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-[#F5EDDA] dark:bg-[#D4AF37]/15 border border-[#C8A950]/40 flex items-center justify-center shadow-xs group-hover:bg-[#15803D] group-hover:border-[#15803D] transition-all duration-300 shrink-0">
+                  <MapPin className="w-4 h-4 sm:w-5 sm:h-5 text-[#9E8430] dark:text-[#D4AF37] group-hover:text-white transition-colors" />
                 </div>
                 <div>
-                  <h4 className="text-[#0B2546] dark:text-white font-semibold text-sm sm:text-base lg:text-lg">Location</h4>
-                  <p className="text-[#475569] dark:text-slate-300 text-xs sm:text-sm leading-relaxed">
+                  <h4 className="text-[#1F2937] dark:text-white font-semibold text-sm sm:text-base lg:text-lg">Location</h4>
+                  <p className="text-[#4B5563] dark:text-slate-300 text-xs sm:text-sm leading-relaxed">
                     Dattatray Trading Company, Cold Storage Complex, Main APMC Market Yard, Nashik / Ahilyanagar Highway, Maharashtra 422001, India.
                   </p>
                 </div>
@@ -245,12 +247,12 @@ export default function Contact() {
 
               {/* Direct Phone / WhatsApp */}
               <div className="flex items-center gap-4 sm:gap-5 group">
-                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-[#8CC9D9]/15 dark:bg-[#8CC9D9]/20 border border-[#8CC9D9]/35 dark:border-[#8CC9D9]/40 flex items-center justify-center shadow-sm group-hover:bg-[#8CC9D9] transition-all duration-300 shrink-0">
-                  <Phone className="w-4 h-4 sm:w-5 sm:h-5 text-[#123741] dark:text-[#8CC9D9] group-hover:text-[#123741]" />
+                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-[#F5EDDA] dark:bg-[#D4AF37]/15 border border-[#C8A950]/40 flex items-center justify-center shadow-xs group-hover:bg-[#15803D] group-hover:border-[#15803D] transition-all duration-300 shrink-0">
+                  <Phone className="w-4 h-4 sm:w-5 sm:h-5 text-[#9E8430] dark:text-[#D4AF37] group-hover:text-white transition-colors" />
                 </div>
                 <div>
-                  <h4 className="text-[#0B2546] dark:text-white font-semibold text-sm sm:text-base lg:text-lg">Phone &amp; WhatsApp</h4>
-                  <a href="tel:+919822000000" className="text-[#475569] dark:text-slate-300 hover:text-[#123741] dark:hover:text-[#8CC9D9] text-xs sm:text-sm font-semibold transition-colors">
+                  <h4 className="text-[#1F2937] dark:text-white font-semibold text-sm sm:text-base lg:text-lg">Phone &amp; WhatsApp</h4>
+                  <a href="tel:+919822000000" className="text-[#4B5563] dark:text-slate-300 hover:text-[#15803D] dark:hover:text-[#4ADE80] text-xs sm:text-sm font-semibold transition-colors">
                     +91 98220 00000
                   </a>
                 </div>
@@ -258,12 +260,12 @@ export default function Contact() {
 
               {/* Email */}
               <div className="flex items-center gap-4 sm:gap-5 group">
-                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-[#8CC9D9]/15 dark:bg-[#8CC9D9]/20 border border-[#8CC9D9]/35 dark:border-[#8CC9D9]/40 flex items-center justify-center shadow-sm group-hover:bg-[#8CC9D9] transition-all duration-300 shrink-0">
-                  <Mail className="w-4 h-4 sm:w-5 sm:h-5 text-[#123741] dark:text-[#8CC9D9] group-hover:text-[#123741]" />
+                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-[#F5EDDA] dark:bg-[#D4AF37]/15 border border-[#C8A950]/40 flex items-center justify-center shadow-xs group-hover:bg-[#15803D] group-hover:border-[#15803D] transition-all duration-300 shrink-0">
+                  <Mail className="w-4 h-4 sm:w-5 sm:h-5 text-[#9E8430] dark:text-[#D4AF37] group-hover:text-white transition-colors" />
                 </div>
                 <div>
-                  <h4 className="text-[#0B2546] dark:text-white font-semibold text-sm sm:text-base lg:text-lg">Email</h4>
-                  <a href="mailto:trade@dattatraytraders.com" className="text-[#475569] dark:text-slate-300 hover:text-[#123741] dark:hover:text-[#8CC9D9] text-xs sm:text-sm font-semibold transition-colors">
+                  <h4 className="text-[#1F2937] dark:text-white font-semibold text-sm sm:text-base lg:text-lg">Email</h4>
+                  <a href="mailto:trade@dattatraytraders.com" className="text-[#4B5563] dark:text-slate-300 hover:text-[#15803D] dark:hover:text-[#4ADE80] text-xs sm:text-sm font-semibold transition-colors">
                     trade@dattatraytraders.com
                   </a>
                 </div>
@@ -271,12 +273,12 @@ export default function Contact() {
 
               {/* Export Markets */}
               <div className="flex items-center gap-4 sm:gap-5 group">
-                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-[#8CC9D9]/15 dark:bg-[#8CC9D9]/20 border border-[#8CC9D9]/35 dark:border-[#8CC9D9]/40 flex items-center justify-center shadow-sm group-hover:bg-[#8CC9D9] transition-all duration-300 shrink-0">
-                  <Globe className="w-4 h-4 sm:w-5 sm:h-5 text-[#123741] dark:text-[#8CC9D9] group-hover:text-[#123741]" />
+                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-[#F5EDDA] dark:bg-[#D4AF37]/15 border border-[#C8A950]/40 flex items-center justify-center shadow-xs group-hover:bg-[#15803D] group-hover:border-[#15803D] transition-all duration-300 shrink-0">
+                  <Globe className="w-4 h-4 sm:w-5 sm:h-5 text-[#9E8430] dark:text-[#D4AF37] group-hover:text-white transition-colors" />
                 </div>
                 <div>
-                  <h4 className="text-[#0B2546] dark:text-white font-semibold text-sm sm:text-base lg:text-lg">Distribution &amp; Export</h4>
-                  <p className="text-[#475569] dark:text-slate-300 text-xs sm:text-sm">Pan-India &amp; 12+ Global Markets</p>
+                  <h4 className="text-[#1F2937] dark:text-white font-semibold text-sm sm:text-base lg:text-lg">Distribution &amp; Export</h4>
+                  <p className="text-[#4B5563] dark:text-slate-300 text-xs sm:text-sm">Pan-India &amp; 12+ Global Markets</p>
                 </div>
               </div>
             </div>
@@ -285,13 +287,13 @@ export default function Contact() {
             <div className="flex flex-wrap gap-3 sm:gap-4">
               <a
                 href="mailto:trade@dattatraytraders.com"
-                className="px-5 sm:px-8 py-3 sm:py-3.5 rounded-full bg-white dark:bg-[#0B1B2F] text-[#123741] dark:text-white font-extrabold text-sm sm:text-base border border-[#8CC9D9]/60 hover:bg-[#8CC9D9]/15 dark:hover:bg-slate-800 shadow-sm transition-all"
+                className="px-5 sm:px-8 py-3 sm:py-3.5 rounded-full bg-white dark:bg-[#0B1B2F] text-[#1F2937] dark:text-white font-extrabold text-sm sm:text-base border-2 border-[#D4AF37]/50 hover:border-[#D4AF37] hover:bg-[#F5EDDA]/30 dark:hover:bg-slate-800 shadow-sm transition-all"
               >
                 Contact Us
               </a>
               <a
                 href="mailto:trade@dattatraytraders.com?subject=Wholesale%20Quotation%20Request"
-                className="px-5 sm:px-8 py-3 sm:py-3.5 rounded-full bg-[#8CC9D9] hover:bg-[#78B9C9] text-[#123741] font-extrabold text-sm sm:text-base shadow-md shadow-[#8CC9D9]/25 hover:shadow-[#8CC9D9]/35 hover:-translate-y-0.5 transition-all"
+                className="px-5 sm:px-8 py-3 sm:py-3.5 rounded-full bg-gradient-to-r from-[#14532D] via-[#15803D] to-[#16A34A] hover:opacity-95 text-white font-extrabold text-sm sm:text-base shadow-md shadow-[#15803D]/25 hover:shadow-[#15803D]/35 hover:-translate-y-0.5 border border-[#22C55E]/30 transition-all"
               >
                 Request Quote
               </a>
@@ -301,14 +303,14 @@ export default function Contact() {
           {/* ================= RIGHT SIDE (LIGHTSWIND UI ANIMATED FORM CARD) ================= */}
           <div className="relative group">
             {/* Animated Ambient Multi-Color Aurora Glow Mesh behind Card */}
-            <div className="absolute -inset-1.5 rounded-[2.5rem] bg-gradient-to-r from-[#8CC9D9]/40 via-[#1E56C8]/30 to-[#10B981]/35 dark:from-[#38BDF8]/25 dark:via-[#1E56C8]/30 dark:to-[#34D399]/25 blur-2xl opacity-60 dark:opacity-50 group-hover:opacity-90 transition-opacity duration-700 animate-pulse pointer-events-none" />
+            <div className="absolute -inset-1.5 rounded-[2.5rem] bg-gradient-to-r from-[#D4AF37]/30 via-[#15803D]/25 to-[#C8A950]/30 dark:from-[#D4AF37]/20 dark:via-[#15803D]/25 dark:to-[#C8A950]/20 blur-2xl opacity-60 dark:opacity-50 group-hover:opacity-90 transition-opacity duration-700 animate-pulse pointer-events-none" />
 
             {/* Main Glassmorphic Form Card Body */}
-            <div className="relative rounded-3xl sm:rounded-[2.25rem] p-6 sm:p-8 lg:p-10 bg-white/95 dark:bg-[#0B1B2F]/95 backdrop-blur-2xl border border-white/80 dark:border-white/12 shadow-[0_20px_50px_rgba(11,37,70,0.12)] dark:shadow-[0_25px_60px_rgba(0,0,0,0.6)] transition-all duration-300">
+            <div className="relative rounded-3xl sm:rounded-[2.25rem] p-6 sm:p-8 lg:p-10 bg-white/98 dark:bg-[#0B1B2F]/95 backdrop-blur-2xl border border-[#E5E7EB] dark:border-white/12 shadow-[0_20px_50px_rgba(212,175,55,0.08)] dark:shadow-[0_25px_60px_rgba(0,0,0,0.6)] transition-all duration-300">
               
               {/* Card Header with Brand Seal */}
               <div className="flex items-center gap-3.5 sm:gap-4.5 mb-6 sm:mb-7">
-                <div className="bg-gradient-to-br from-[#F0F8FA] to-white dark:from-[#0E2542] dark:to-[#07111E] p-2.5 sm:p-3 rounded-2xl border-2 border-[#8CC9D9]/40 dark:border-[#38BDF8]/30 shadow-sm shrink-0">
+                <div className="bg-gradient-to-br from-[#FAF8F3] to-white dark:from-[#0E2542] dark:to-[#07111E] p-2.5 sm:p-3 rounded-2xl border-2 border-[#D4AF37]/35 dark:border-[#C8A950]/30 shadow-sm shrink-0">
                   <OptimizedImage
                     src={logo}
                     alt="Dattatray Trading Company"
@@ -317,10 +319,10 @@ export default function Contact() {
                   />
                 </div>
                 <div>
-                  <h3 className="text-2xl sm:text-3xl font-black text-[#0B2546] dark:text-white tracking-tight leading-tight">
+                  <h3 className="text-2xl sm:text-3xl font-black text-[#1F2937] dark:text-white tracking-tight leading-tight">
                     Send us a Message
                   </h3>
-                  <p className="text-xs sm:text-sm text-[#5D6B7E] dark:text-slate-300 font-medium mt-0.5">
+                  <p className="text-xs sm:text-sm text-[#4B5563] dark:text-slate-300 font-medium mt-0.5">
                     Direct commercial trade &amp; wholesale quotation desk
                   </p>
                 </div>
@@ -346,7 +348,7 @@ export default function Contact() {
 
               <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-4.5">
                 <div>
-                  <label className="font-bold text-[#0B2546] dark:text-slate-200 text-xs sm:text-sm flex items-center justify-between">
+                  <label className="font-bold text-[#1F2937] dark:text-slate-200 text-xs sm:text-sm flex items-center justify-between">
                     <span>Full Name <span className="text-red-500">*</span></span>
                   </label>
                   <input
@@ -356,12 +358,12 @@ export default function Contact() {
                     onChange={handleChange}
                     required
                     placeholder="e.g. John Doe / Procuring Officer"
-                    className="mt-1.5 w-full h-11 sm:h-12 rounded-xl border border-gray-200 dark:border-white/10 bg-slate-50/90 dark:bg-slate-800/80 hover:bg-white dark:hover:bg-slate-800 focus:bg-white dark:focus:bg-slate-800 px-4 text-base sm:text-sm text-[#0B2546] dark:text-white placeholder:text-gray-400 dark:placeholder:text-slate-500 outline-none focus:border-[#1E56C8] dark:focus:border-[#38BDF8] focus:ring-4 focus:ring-[#8CC9D9]/25 dark:focus:ring-[#38BDF8]/20 transition shadow-xs"
+                    className="mt-1.5 w-full h-11 sm:h-12 rounded-xl border border-gray-200 dark:border-white/10 bg-slate-50/90 dark:bg-slate-800/80 hover:bg-white dark:hover:bg-slate-800 focus:bg-white dark:focus:bg-slate-800 px-4 text-base sm:text-sm text-[#1F2937] dark:text-white placeholder:text-gray-400 dark:placeholder:text-slate-500 outline-none focus:border-[#15803D] dark:focus:border-[#4ADE80] focus:ring-4 focus:ring-[#15803D]/15 dark:focus:ring-[#4ADE80]/20 transition shadow-xs"
                   />
                 </div>
 
                 <div>
-                  <label className="font-bold text-[#0B2546] dark:text-slate-200 text-xs sm:text-sm">
+                  <label className="font-bold text-[#1F2937] dark:text-slate-200 text-xs sm:text-sm">
                     Email Address <span className="text-red-500">*</span>
                   </label>
                   <input
@@ -371,12 +373,12 @@ export default function Contact() {
                     onChange={handleChange}
                     required
                     placeholder="procurement@company.com"
-                    className="mt-1.5 w-full h-11 sm:h-12 rounded-xl border border-gray-200 dark:border-white/10 bg-slate-50/90 dark:bg-slate-800/80 hover:bg-white dark:hover:bg-slate-800 focus:bg-white dark:focus:bg-slate-800 px-4 text-base sm:text-sm text-[#0B2546] dark:text-white placeholder:text-gray-400 dark:placeholder:text-slate-500 outline-none focus:border-[#1E56C8] dark:focus:border-[#38BDF8] focus:ring-4 focus:ring-[#8CC9D9]/25 dark:focus:ring-[#38BDF8]/20 transition shadow-xs"
+                    className="mt-1.5 w-full h-11 sm:h-12 rounded-xl border border-gray-200 dark:border-white/10 bg-slate-50/90 dark:bg-slate-800/80 hover:bg-white dark:hover:bg-slate-800 focus:bg-white dark:focus:bg-slate-800 px-4 text-base sm:text-sm text-[#1F2937] dark:text-white placeholder:text-gray-400 dark:placeholder:text-slate-500 outline-none focus:border-[#15803D] dark:focus:border-[#4ADE80] focus:ring-4 focus:ring-[#15803D]/15 dark:focus:ring-[#4ADE80]/20 transition shadow-xs"
                   />
                 </div>
 
                 <div>
-                  <label className="font-bold text-[#0B2546] dark:text-slate-200 text-xs sm:text-sm">
+                  <label className="font-bold text-[#1F2937] dark:text-slate-200 text-xs sm:text-sm">
                     Phone &amp; WhatsApp Number
                   </label>
                   <input
@@ -385,12 +387,12 @@ export default function Contact() {
                     value={formData.phone}
                     onChange={handleChange}
                     placeholder="+91 98220 00000"
-                    className="mt-1.5 w-full h-11 sm:h-12 rounded-xl border border-gray-200 dark:border-white/10 bg-slate-50/90 dark:bg-slate-800/80 hover:bg-white dark:hover:bg-slate-800 focus:bg-white dark:focus:bg-slate-800 px-4 text-base sm:text-sm tabular-nums text-[#0B2546] dark:text-white placeholder:text-gray-400 dark:placeholder:text-slate-500 outline-none focus:border-[#1E56C8] dark:focus:border-[#38BDF8] focus:ring-4 focus:ring-[#8CC9D9]/25 dark:focus:ring-[#38BDF8]/20 transition shadow-xs"
+                    className="mt-1.5 w-full h-11 sm:h-12 rounded-xl border border-gray-200 dark:border-white/10 bg-slate-50/90 dark:bg-slate-800/80 hover:bg-white dark:hover:bg-slate-800 focus:bg-white dark:focus:bg-slate-800 px-4 text-base sm:text-sm tabular-nums text-[#1F2937] dark:text-white placeholder:text-gray-400 dark:placeholder:text-slate-500 outline-none focus:border-[#15803D] dark:focus:border-[#4ADE80] focus:ring-4 focus:ring-[#15803D]/15 dark:focus:ring-[#4ADE80]/20 transition shadow-xs"
                   />
                 </div>
 
                 <div>
-                  <label className="font-bold text-[#0B2546] dark:text-slate-200 text-xs sm:text-sm">
+                  <label className="font-bold text-[#1F2937] dark:text-slate-200 text-xs sm:text-sm">
                     Message / Procurement Needs <span className="text-red-500">*</span>
                   </label>
                   <textarea
@@ -400,15 +402,15 @@ export default function Contact() {
                     rows={3}
                     required
                     placeholder="Specify required quantities, product varieties (IQF peas, corn, pulps, snacks), or export port..."
-                    className="mt-1.5 w-full rounded-xl border border-gray-200 dark:border-white/10 bg-slate-50/90 dark:bg-slate-800/80 hover:bg-white dark:hover:bg-slate-800 focus:bg-white dark:focus:bg-slate-800 p-3.5 text-base sm:text-sm text-[#0B2546] dark:text-white placeholder:text-gray-400 dark:placeholder:text-slate-500 outline-none focus:border-[#1E56C8] dark:focus:border-[#38BDF8] focus:ring-4 focus:ring-[#8CC9D9]/25 dark:focus:ring-[#38BDF8]/20 transition resize-none shadow-xs"
+                    className="mt-1.5 w-full rounded-xl border border-gray-200 dark:border-white/10 bg-slate-50/90 dark:bg-slate-800/80 hover:bg-white dark:hover:bg-slate-800 focus:bg-white dark:focus:bg-slate-800 p-3.5 text-base sm:text-sm text-[#1F2937] dark:text-white placeholder:text-gray-400 dark:placeholder:text-slate-500 outline-none focus:border-[#15803D] dark:focus:border-[#4ADE80] focus:ring-4 focus:ring-[#15803D]/15 dark:focus:ring-[#4ADE80]/20 transition resize-none shadow-xs"
                   />
                 </div>
 
-                {/* Lightswind Style High-Contrast Submit Button */}
+                {/* Senior Emerald Gradient High-Impact Submit Button */}
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full h-12 sm:h-13 rounded-full bg-black dark:bg-white text-white dark:text-black font-black text-sm sm:text-base hover:bg-[#1E56C8] dark:hover:bg-[#38BDF8] dark:hover:text-black active:scale-[0.97] transition-all duration-200 shadow-[0_8px_20px_rgba(0,0,0,0.18)] dark:shadow-[0_8px_24px_rgba(255,255,255,0.15)] flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed cursor-pointer"
+                  className="w-full h-12 sm:h-13 rounded-full bg-gradient-to-r from-[#14532D] via-[#15803D] to-[#16A34A] text-white font-black text-sm sm:text-base hover:opacity-95 shadow-md shadow-[#15803D]/25 hover:shadow-[#15803D]/35 hover:-translate-y-0.5 border border-[#22C55E]/30 active:scale-[0.98] transition-all duration-200 flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed cursor-pointer"
                 >
                   {loading ? (
                     <>
@@ -426,7 +428,7 @@ export default function Contact() {
                 <div className="absolute inset-0 flex items-center">
                   <div className="w-full border-t border-gray-200 dark:border-white/10" />
                 </div>
-                <div className="relative inline-flex justify-center px-3.5 bg-white dark:bg-[#0B1B2F] text-[11px] font-bold text-gray-500 dark:text-slate-400 uppercase tracking-wider rounded-full">
+                <div className="relative inline-flex justify-center px-3.5 bg-white dark:bg-[#0B1B2F] text-[11px] font-bold text-[#4B5563] dark:text-slate-400 uppercase tracking-wider rounded-full">
                   Or connect instantly with
                 </div>
               </div>
@@ -447,7 +449,7 @@ export default function Contact() {
 
                 <a
                   href="tel:+919822000000"
-                  className="w-full h-11 sm:h-12 rounded-full bg-black dark:bg-slate-900 text-white font-bold text-xs sm:text-sm border border-gray-800 dark:border-white/15 hover:bg-[#1E56C8] hover:border-[#1E56C8] dark:hover:bg-[#38BDF8] dark:hover:text-black dark:hover:border-[#38BDF8] transition-all duration-300 flex items-center justify-center gap-2.5 shadow-sm active:scale-[0.98]"
+                  className="w-full h-11 sm:h-12 rounded-full bg-black dark:bg-slate-900 text-white font-bold text-xs sm:text-sm border border-gray-800 dark:border-white/15 hover:bg-[#15803D] hover:border-[#15803D] dark:hover:bg-[#15803D] dark:hover:text-white dark:hover:border-[#15803D] transition-all duration-300 flex items-center justify-center gap-2.5 shadow-sm active:scale-[0.98]"
                 >
                   <Phone size={15} />
                   <span>Call Trade Desk (+91 98220 00000)</span>

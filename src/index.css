@@ -3,47 +3,67 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-  --color-navbar: #FFFFFF;
-  --color-primary: #3B1F3A;
-  --color-primary-dark: #2A1429;
-  --color-primary-light: #532C52;
-  --color-secondary: #8CC9D9;
-  --color-secondary-hover: #78B9C9;
-  --color-secondary-dark: #123741;
-  --color-canvas: #F9FBFC;
+  /* ═══ Dattatray Traders — Golden + Emerald Green Palette ═══ */
+  --color-golden: #C8A950;
+  --color-golden-faint: #F5EDDA;
+  --color-golden-warm: #D4B95E;
+  --color-golden-deep: #9E8430;
+  --color-golden-ultra-faint: #FBF8F0;
+  --color-emerald: #059669;
+  --color-emerald-bright: #10B981;
+  --color-emerald-deep: #047857;
+  --color-emerald-faint: #ECFDF5;
+
+  /* Surface & Canvas */
+  --color-navbar: #FDFCFA;
+  --color-primary: #C8A950;
+  --color-primary-dark: #9E8430;
+  --color-primary-light: #D4B95E;
+  --color-secondary: #059669;
+  --color-secondary-hover: #047857;
+  --color-secondary-dark: #065F46;
+  --color-canvas: #FDFCFA;
   --color-surface: #FFFFFF;
-  --color-muted: #E8EEF0;
+  --color-muted: #E5E1D8;
   --color-footer: #241426;
   --color-footer-dark: #190C1A;
 
+  /* Typography */
   --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-heading: 'Playfair Display', 'Georgia', serif;
+  --font-counter: 'DM Sans', 'Inter', system-ui, sans-serif;
 }
 
 :root {
-  --navbar-bg: #FFFFFF;
-  --primary-accent: #3B1F3A;
-  --secondary-accent: #8CC9D9;
-  --canvas-bg: #F9FBFC;
+  --navbar-bg: #FDFCFA;
+  --primary-accent: #C8A950;
+  --secondary-accent: #059669;
+  --canvas-bg: #FDFCFA;
   --card-surface: #FFFFFF;
-  --muted-surface: #E8EEF0;
+  --muted-surface: #E5E1D8;
   --footer-bg: #241426;
-  --text-main: #1E1520;
+  --text-main: #374151;
+  --text-muted: #6B7280;
+  --border-soft: #E5E1D8;
 
   /* Emil Kowalski's Design Engineering Easing Tokens */
   --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
   --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
   --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
+  --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .dark {
-  --navbar-bg: #0B1B2F;
-  --primary-accent: #8CC9D9;
-  --secondary-accent: #38BDF8;
-  --canvas-bg: #07111E;
-  --card-surface: #0E223D;
-  --muted-surface: #172E4D;
+  --navbar-bg: #0A0F1A;
+  --primary-accent: #D4B95E;
+  --secondary-accent: #34D399;
+  --canvas-bg: #0A0F1A;
+  --card-surface: #111827;
+  --muted-surface: #1F2937;
   --footer-bg: #050B14;
   --text-main: #F1F5F9;
+  --text-muted: #94A3B8;
+  --border-soft: rgba(255, 255, 255, 0.1);
   color-scheme: dark;
 }
 
@@ -62,6 +82,18 @@ h1, h2, h3, h4, h5, h6, .split-heading {
 
 p {
   text-wrap: pretty;
+}
+
+/* Heading font family — Playfair Display for premium feel */
+.font-heading {
+  font-family: 'Playfair Display', 'Georgia', serif;
+}
+
+/* Counter/stats font family — DM Sans for tabular numerals */
+.font-counter {
+  font-family: 'DM Sans', 'Inter', system-ui, sans-serif;
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1;
 }
 
 /* Tabular numerals for aligned metrics, phone numbers, and dates */
@@ -121,8 +153,8 @@ body {
   padding: 0;
   width: 100%;
   max-width: 100vw;
-  background-color: #F9FBFC;
-  color: #1E1520;
+  background-color: #FDFCFA;
+  color: #374151;
   transition: background-color 0.25s ease, color 0.25s ease;
   overflow-x: hidden;
   position: relative;
@@ -131,7 +163,7 @@ body {
 }
 
 html.dark body {
-  background-color: #07111E;
+  background-color: #0A0F1A;
   color: #F1F5F9;
 }
 
@@ -155,21 +187,48 @@ html.dark body {
 }
 
 
-/* Glassmorphism & custom utility shadows */
+/* ═══ Glassmorphism & Custom Utility Shadows (Warm Golden Tones) ═══ */
 .shadow-navbar {
-  box-shadow: 0 4px 20px rgba(36, 20, 38, 0.05);
+  box-shadow: 0 4px 20px rgba(200, 169, 80, 0.06);
 }
 
 .shadow-navbar-scrolled {
-  box-shadow: 0 8px 30px rgba(36, 20, 38, 0.09);
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.04);
 }
 
 .shadow-card {
-  box-shadow: 0 4px 24px rgba(59, 31, 58, 0.06);
+  box-shadow: 0 4px 24px rgba(200, 169, 80, 0.06);
 }
 
 .shadow-card-hover {
-  box-shadow: 0 12px 36px rgba(59, 31, 58, 0.12);
+  box-shadow: 0 12px 36px rgba(200, 169, 80, 0.12);
+}
+
+/* Golden shimmer sweep animation for counter numbers */
+@keyframes golden-shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-golden-shimmer {
+  background: linear-gradient(90deg, #C8A950 25%, #F5EDDA 50%, #C8A950 75%);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: golden-shimmer 3s ease-in-out;
+}
+
+/* Scale-pulse on stat counter completion */
+@keyframes stat-pulse {
+  0%   { transform: scale(1); }
+  40%  { transform: scale(1.06); }
+  70%  { transform: scale(0.98); }
+  100% { transform: scale(1); }
 }
 
 /* Shimmer animation for loading states */
@@ -183,7 +242,7 @@ html.dark body {
 }
 
 .animate-shimmer {
-  background: linear-gradient(90deg, rgba(232, 238, 240, 0.5) 25%, rgba(255, 255, 255, 0.8) 50%, rgba(232, 238, 240, 0.5) 75%);
+  background: linear-gradient(90deg, rgba(229, 225, 216, 0.5) 25%, rgba(255, 255, 255, 0.8) 50%, rgba(229, 225, 216, 0.5) 75%);
   background-size: 200% 100%;
   animation: shimmer 2s infinite ease-in-out;
 }
@@ -226,6 +285,60 @@ html.dark body {
 .animate-marquee-right:hover {
   animation-play-state: paused;
 }
+
+
+/* ═══ Content Protection — No Copy, No Drag, No Save ═══ */
+
+/* Disable image dragging globally */
+img {
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-drag: none;
+  -webkit-touch-callout: none; /* iOS long-press save */
+}
+
+/* Disable text selection on branded/protected content */
+.no-select,
+.protected-content {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+}
+
+/* Transparent overlay to block direct image interaction */
+.image-shield {
+  position: relative;
+}
+.image-shield::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  pointer-events: auto;
+  background: transparent;
+}
+
+/* Print protection — hide sensitive images when printing */
+@media print {
+  .no-print,
+  .protected-content img {
+    display: none !important;
+  }
+  body::before {
+    content: 'Dattatray Traders — Confidential. Do not distribute.';
+    display: block;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 900;
+    padding: 2rem;
+    color: #C8A950;
+  }
+}
+
 
 /* ═══ Mobile-First Responsiveness Utilities ═══ */
 
@@ -281,4 +394,3 @@ html.dark body {
     overflow-x: clip;
   }
 }
-

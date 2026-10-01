@@ -6,6 +6,7 @@ import Contact from "./common/Contact";
 import { Toaster } from "sonner";
 import { ThemeProvider, useTheme } from "./context/ThemeContext";
 import { SmoothScroll } from "./components/common";
+import { useContentProtection } from "./hooks/useContentProtection";
 
 // Senior Design Engineer Toaster with Dynamic Theme Synchronization (Emil Kowalski's Sonner)
 function SonnerToaster() {
@@ -71,13 +72,15 @@ function ScrollToTop() {
 }
 
 function App() {
+  useContentProtection();
+
   return (
     <ThemeProvider>
       <SonnerToaster />
       <Router>
         <SmoothScroll>
           <ScrollToTop />
-          <div className="min-h-screen flex flex-col bg-[#F9FBFC] dark:bg-[#07111E] text-[#1E1520] dark:text-[#E2E8F0] transition-colors duration-300">
+          <div className="min-h-screen flex flex-col bg-[#FDFCFA] dark:bg-[#0A0F1A] text-[#374151] dark:text-[#E2E8F0] transition-colors duration-300">
             
             {/* Navigation Bar (Navbar: #FFFFFF) */}
             <Navbar />

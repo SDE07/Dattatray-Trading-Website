@@ -120,7 +120,7 @@ export default function WhyChooseUsSection() {
 
     return (
       <div
-        className={`group relative w-full max-w-[350px] sm:max-w-[370px] xl:max-w-[390px] flex items-center justify-between gap-3 sm:gap-3.5 px-4 py-2.5 sm:px-5 sm:py-3 rounded-full bg-white dark:bg-[#0B1B2F] border-2 border-[#1E56C8] dark:border-[#38BDF8]/60 shadow-[0_4px_16px_rgba(30,86,200,0.08)] dark:shadow-[0_4px_16px_rgba(0,0,0,0.5)] hover:shadow-[0_8px_24px_rgba(30,86,200,0.18)] dark:hover:shadow-[0_8px_24px_rgba(56,189,248,0.25)] hover:border-[#13429E] dark:hover:border-[#38BDF8] transition-all duration-300 hover:-translate-y-0.5 cursor-default ${
+        className={`group relative w-full max-w-[350px] sm:max-w-[370px] xl:max-w-[390px] flex items-center justify-between gap-3 sm:gap-3.5 px-4 py-2.5 sm:px-5 sm:py-3 rounded-full bg-white dark:bg-[#0B1B2F] border-2 border-[#D4AF37]/70 dark:border-[#D4AF37]/50 shadow-[0_4px_16px_rgba(200,169,80,0.06)] dark:shadow-[0_4px_16px_rgba(0,0,0,0.5)] hover:shadow-[0_8px_24px_rgba(200,169,80,0.20)] dark:hover:shadow-[0_8px_24px_rgba(212,175,55,0.25)] hover:border-[#B4882F] dark:hover:border-[#D4AF37] transition-all duration-300 hover:-translate-y-0.5 cursor-default ${
           isVisible ? "opacity-100 translate-x-0" : `opacity-0 ${slideDir}`
         }`}
         style={{ transitionDelay: isVisible ? `${delayMs}ms` : "0ms" }}
@@ -136,10 +136,10 @@ export default function WhyChooseUsSection() {
         )}
 
         <div className={`flex-1 min-w-0 ${isLeft ? "text-right pr-1 sm:pr-2" : "text-left pl-1 sm:pl-2"}`}>
-          <h4 className="text-[14px] sm:text-[15px] font-black text-[#0B2546] dark:text-white tracking-tight leading-snug mb-0.5">
+          <h4 className="text-[14px] sm:text-[15px] font-black text-[#1F2937] dark:text-white tracking-tight leading-snug mb-0.5">
             {feature.title}
           </h4>
-          <p className="text-[11px] sm:text-[12px] text-[#475569] dark:text-slate-300 leading-snug">
+          <p className="text-[11px] sm:text-[12px] text-[#4B5563] dark:text-slate-300 leading-snug">
             {feature.desc}
           </p>
         </div>
@@ -160,28 +160,25 @@ export default function WhyChooseUsSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative bg-gradient-to-b from-[#F9FBFC] via-white to-[#F4F8FA] dark:from-[#07111E] dark:via-[#09172A] dark:to-[#07111E] py-14 sm:py-18 lg:py-20 overflow-hidden transition-colors duration-300"
+      className="relative bg-gradient-to-b from-[#FDFCFA] via-white to-[#FBF8F0] dark:from-[#07111E] dark:via-[#09172A] dark:to-[#07111E] py-14 sm:py-18 lg:py-20 overflow-hidden transition-colors duration-300"
     >
       {/* Ambient light behind central woman */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[550px] bg-gradient-to-b from-[#8CC9D9]/15 dark:from-[#38BDF8]/10 to-transparent rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[550px] bg-gradient-to-b from-[#C8A950]/15 via-[#059669]/8 to-transparent rounded-full blur-3xl pointer-events-none" />
 
       <div className="w-full max-w-[94%] xl:max-w-[1440px] 2xl:max-w-[1580px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
         {/* Section Title */}
         <div className="text-center mb-10 sm:mb-14">
-          <div
-            className={`inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#1E56C8]/8 dark:bg-[#38BDF8]/15 border border-[#1E56C8]/15 dark:border-[#38BDF8]/30 text-[#1E56C8] dark:text-[#38BDF8] text-[11px] font-black uppercase tracking-[0.2em] mb-3.5 transition-all duration-700 ${
-              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-            }`}
-          >
-            <Sparkles className="w-3.5 h-3.5 text-[#1E56C8] dark:text-[#38BDF8]" />
-            Why Choose Us
-          </div>
+        
           <SplitTextHeading
             as="h2"
-            className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#0B2546] dark:text-white tracking-tight leading-[1.15]"
+            className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#1F2937] dark:text-white tracking-tight leading-[1.15]"
           >
-            Why Choose <span className="text-[#1E56C8] dark:text-[#38BDF8]">Dattatray</span> Trading?
+            Why Choose{" "}
+            <span className="bg-gradient-to-r from-[#B4882F] via-[#D4AF37] to-[#C8A950] dark:from-[#D4AF37] dark:via-[#F3E5AB] dark:to-[#C8A950] bg-clip-text text-transparent">
+              Dattatray
+            </span>{" "}
+            Trading?
           </SplitTextHeading>
         </div>
 
@@ -204,9 +201,9 @@ export default function WhyChooseUsSection() {
             <div className="relative flex flex-col items-center">
               {/* Dattatray Watermark Logo & Halo */}
               <div className="absolute top-[38%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[320px] sm:w-[400px] lg:w-[440px] xl:w-[460px] h-[320px] sm:h-[400px] lg:h-[440px] xl:h-[460px] pointer-events-none -z-10 flex items-center justify-center">
-                <div className="absolute inset-0 bg-gradient-to-tr from-[#8CC9D9]/25 via-[#1E56C8]/15 dark:from-[#38BDF8]/25 dark:via-[#1E56C8]/20 to-transparent rounded-full blur-2xl transform scale-100" />
-                <div className="absolute inset-2 sm:inset-3 rounded-full border border-dashed border-[#1E56C8]/25 dark:border-[#38BDF8]/35 animate-[spin_90s_linear_infinite]" />
-                <div className="absolute inset-7 sm:inset-9 rounded-full border border-[#8CC9D9]/35 dark:border-[#8CC9D9]/45" />
+                <div className="absolute inset-0 bg-gradient-to-tr from-[#C8A950]/20 via-[#059669]/12 dark:from-[#D4AF37]/20 dark:via-[#059669]/18 to-transparent rounded-full blur-2xl transform scale-100" />
+                <div className="absolute inset-2 sm:inset-3 rounded-full border border-dashed border-[#C8A950]/35 dark:border-[#C8A950]/45 animate-[spin_90s_linear_infinite]" />
+                <div className="absolute inset-7 sm:inset-9 rounded-full border border-[#059669]/30 dark:border-[#059669]/40" />
 
                 <img
                   src={dattatrayLogo}
@@ -223,19 +220,19 @@ export default function WhyChooseUsSection() {
                 loading="lazy"
               />
 
-              {/* Luxury Branded Ribbon Banner */}
+              {/* Luxury Branded Slogan Banner (Clean Transparent - No Box / No Border) */}
               <div
                 className={`text-center mt-3.5 sm:mt-4 transition-all duration-700 delay-500 overflow-visible ${
                   isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
                 }`}
               >
-                <div className="relative inline-flex flex-col items-center px-5 sm:px-7 py-2 sm:py-2.5 rounded-2xl bg-gradient-to-b from-white via-[#F6FAFC] to-[#E5F1F5] dark:from-[#0B1B2F] dark:via-[#0E2542] dark:to-[#07111E] border-2 border-[#8CC9D9]/50 dark:border-[#38BDF8]/40 shadow-[0_8px_20px_rgba(30,86,200,0.10)] dark:shadow-[0_8px_24px_rgba(0,0,0,0.4)] backdrop-blur-md hover:scale-105 transition-transform duration-300">
+                <div className="relative inline-flex flex-col items-center px-4 py-1">
                   <div className="flex items-center justify-center gap-1.5 sm:gap-2">
-                    <Sparkles className="w-3.5 h-3.5 text-emerald-500 dark:text-emerald-400" />
-                    <span className="text-sm sm:text-base lg:text-lg font-black tracking-tight bg-gradient-to-r from-[#0B2546] via-[#1E56C8] to-[#0284C7] dark:from-white dark:via-[#8CC9D9] dark:to-[#38BDF8] bg-clip-text text-transparent uppercase">
+                    <Sparkles className="w-3.5 h-3.5 text-[#C8A950] dark:text-[#D4AF37]" />
+                    <span className="text-sm sm:text-base lg:text-lg font-black tracking-tight bg-gradient-to-r from-[#1F2937] via-[#C8A950] to-[#059669] dark:from-white dark:via-[#D4B95E] dark:to-[#34D399] bg-clip-text text-transparent uppercase">
                       Connecting Good Food
                     </span>
-                    <Sparkles className="w-3.5 h-3.5 text-emerald-500 dark:text-emerald-400" />
+                    <Sparkles className="w-3.5 h-3.5 text-[#C8A950] dark:text-[#D4AF37]" />
                   </div>
                   <div className="flex items-center justify-center gap-1 mt-0.5">
                     <span className="text-xs sm:text-[13px] font-extrabold italic tracking-wide bg-gradient-to-r from-[#059669] via-[#10B981] to-[#047857] dark:from-[#34D399] dark:via-[#6EE7B7] dark:to-[#10B981] bg-clip-text text-transparent font-serif">
