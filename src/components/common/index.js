@@ -7,3 +7,5 @@ export { default as SplitTextHeading } from "./SplitTextHeading";
 export { default as AnimatedNumber } from "./AnimatedNumber";
 export { default as HangingIdCard } from "./HangingIdCard";
 export { default as ThreeDImagePageflip } from "./ThreeDImagePageflip";
+export { default as FocusFrameBorder } from "./FocusFrameBorder";
+export { Spinner } from "../ui/spinner-1";

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Layers, ShieldCheck, CheckCircle2, ChevronRight, Sparkles } from "lucide-react";
+import { Layers, CheckCircle2 } from "lucide-react";
 
 // ============================================================================
 // HIGH-FIDELITY VECTOR SVG LOGOS FOR FOOD SAFETY & QUALITY CHECKPOINTS
@@ -455,8 +455,8 @@ export default function QualityPipelineAnimation({ hideHeader = false, className
                     transition={{ type: "spring", stiffness: 400, damping: 22 }}
                     className={`group relative w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-xl sm:rounded-2xl md:rounded-3xl border flex flex-col items-center justify-center p-1.5 sm:p-2 transition-all duration-300 cursor-pointer shadow-sm ${
                       isHovered
-                        ? "bg-white dark:bg-[#0E223D] border-[#1E56C8] dark:border-[#38BDF8] shadow-lg shadow-sky-500/20"
-                        : "bg-white/95 dark:bg-[#0B1B2F]/95 border-slate-200/90 dark:border-white/10 hover:border-slate-300 dark:hover:border-white/25"
+                        ? "bg-white dark:bg-[#14261E] border-[#1E56C8] dark:border-[#38BDF8] shadow-lg shadow-sky-500/20"
+                        : "bg-white/95 dark:bg-[#0E1B15]/95 border-slate-200/90 dark:border-white/10 hover:border-slate-300 dark:hover:border-white/25"
                     }`}
                   >
                     <div className="flex items-center justify-center w-full h-full scale-90 sm:scale-100">
@@ -484,7 +484,7 @@ export default function QualityPipelineAnimation({ hideHeader = false, className
                 animate={{ opacity: 1, y: 0, scale: 1 }}
                 exit={{ opacity: 0, y: -8, scale: 0.96 }}
                 transition={{ duration: 0.2 }}
-                className="w-full max-w-lg p-3.5 sm:p-4 rounded-2xl bg-white/95 dark:bg-[#0B1B2F]/95 border border-[#1E56C8]/30 dark:border-[#38BDF8]/40 shadow-xl backdrop-blur-md flex items-center justify-between gap-3 text-left"
+                className="w-full max-w-lg p-3.5 sm:p-4 rounded-2xl bg-white/95 dark:bg-[#0E1B15]/95 border border-[#1E56C8]/30 dark:border-[#38BDF8]/40 shadow-xl backdrop-blur-md flex items-center justify-between gap-3 text-left"
               >
                 <div className="space-y-0.5 min-w-0">
                   <div className="flex items-center gap-2">
@@ -511,7 +511,7 @@ export default function QualityPipelineAnimation({ hideHeader = false, className
 
         {/* BOTTOM SECTION: 5 CORE ACCREDITED STANDARDS HUB */}
         <div className="w-full max-w-md z-10 flex flex-col items-center pt-4">
-          <div className="flex items-center justify-center gap-4 sm:gap-6 px-5 py-2.5 rounded-2xl bg-white/95 dark:bg-[#0B1B2F]/95 border border-slate-200/90 dark:border-white/10 shadow-md">
+          <div className="flex items-center justify-center gap-4 sm:gap-6 px-5 py-2.5 rounded-2xl bg-white/95 dark:bg-[#0E1B15]/95 border border-slate-200/90 dark:border-white/10 shadow-md">
             <div title="APEDA Government of India Export License" className="hover:scale-115 transition-transform cursor-pointer">
               <APEDAHubLogo />
             </div>

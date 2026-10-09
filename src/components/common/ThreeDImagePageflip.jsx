@@ -150,22 +150,13 @@ export const ThreeDImagePageflip = forwardRef(({
           {/* Outer Leather/Spine Binding Crease */}
           {showSpineBinding && (
             <div
-              className="absolute top-0 bottom-0 left-[-6px] w-[12px] rounded-l-md bg-gradient-to-r from-black/90 via-zinc-800 to-black/50 shadow-2xl z-40 pointer-events-none"
+              className="absolute top-0 bottom-0 left-[-6px] w-[12px] rounded-l-md bg-gradient-to-r from-black/80 via-zinc-800 to-black/40 shadow-md z-40 pointer-events-none"
               style={{
-                opacity: isOpen ? 0.95 : 0.6,
+                opacity: isOpen ? 0.9 : 0.5,
                 transition: `opacity ${duration}s ease`,
               }}
             />
           )}
-
-          {/* Dynamic Ground Ambience Drop Shadow */}
-          <div
-            className="absolute -bottom-8 left-[-15%] w-[130%] h-12 bg-black/45 rounded-full blur-2xl pointer-events-none transition-all duration-500"
-            style={{
-              opacity: isOpen ? 0.75 : 0.45,
-              transform: isOpen ? "scale(1.15)" : "scale(0.85)",
-            }}
-          />
 
           {/* Book Leaves Stacking Loop */}
           {pages.map((leaf, index) => {
@@ -206,12 +197,12 @@ export const ThreeDImagePageflip = forwardRef(({
               >
                 {/* ─── FRONT FACE (Visible when page is on the right) ─── */}
                 <div
-                  className="absolute inset-0 w-full h-full bg-white dark:bg-[#0A1829] overflow-hidden border border-slate-200/80 dark:border-slate-800 shadow-xl"
+                  className="absolute inset-0 w-full h-full bg-white dark:bg-[#0A1829] overflow-hidden border border-slate-200/90 dark:border-emerald-500/20 shadow-md"
                   style={{
                     backfaceVisibility: "hidden",
                     WebkitBackfaceVisibility: "hidden",
                     borderRadius: parsedRadius,
-                    boxShadow: `0 14px 32px rgba(0, 0, 0, ${shadowIntensity})`,
+                    boxShadow: `0 4px 16px rgba(0, 0, 0, ${Math.min(shadowIntensity, 0.15)})`,
                   }}
                 >
                   {/* Rich Front Content or Full-Bleed Image */}
@@ -274,13 +265,13 @@ export const ThreeDImagePageflip = forwardRef(({
 
                 {/* ─── BACK FACE (Visible when page is turned to the left) ─── */}
                 <div
-                  className="absolute inset-0 w-full h-full bg-white dark:bg-[#0A1829] overflow-hidden border border-slate-200/80 dark:border-slate-800 shadow-xl"
+                  className="absolute inset-0 w-full h-full bg-white dark:bg-[#0A1829] overflow-hidden border border-slate-200/90 dark:border-emerald-500/20 shadow-md"
                   style={{
                     backfaceVisibility: "hidden",
                     WebkitBackfaceVisibility: "hidden",
                     transform: "rotateY(180deg)",
                     borderRadius: parsedRadius,
-                    boxShadow: `0 14px 32px rgba(0, 0, 0, ${shadowIntensity})`,
+                    boxShadow: `0 4px 16px rgba(0, 0, 0, ${Math.min(shadowIntensity, 0.15)})`,
                   }}
                 >
                   {/* Rich Back Content or Full-Bleed Image */}
@@ -354,7 +345,7 @@ export const ThreeDImagePageflip = forwardRef(({
             onClick={flipPrev}
             disabled={currentTurned === 0}
             aria-label="Previous Page"
-            className="px-4 py-2 rounded-xl flex items-center gap-1.5 text-xs font-bold bg-white dark:bg-[#0E223D] border border-slate-200 dark:border-slate-800 text-slate-800 dark:text-slate-100 hover:bg-slate-50 dark:hover:bg-[#132A4A] hover:scale-105 active:scale-95 disabled:opacity-30 disabled:pointer-events-none transition-all shadow-sm cursor-pointer"
+            className="px-4 py-2 rounded-xl flex items-center gap-1.5 text-xs font-bold bg-white dark:bg-[#0E1B15] border border-slate-200 dark:border-slate-800 text-slate-800 dark:text-slate-100 hover:bg-slate-50 dark:hover:bg-[#14261E] hover:scale-105 active:scale-95 disabled:opacity-30 disabled:pointer-events-none transition-all shadow-sm cursor-pointer"
           >
             <ChevronLeft className="w-4 h-4" />
             <span>Prev</span>
@@ -365,13 +356,13 @@ export const ThreeDImagePageflip = forwardRef(({
             onClick={resetBook}
             disabled={currentTurned === 0}
             aria-label="Reset Book"
-            className="px-3.5 py-2 rounded-xl flex items-center gap-1.5 text-xs font-bold bg-white dark:bg-[#0E223D] border border-slate-200 dark:border-slate-800 text-slate-800 dark:text-slate-100 hover:bg-slate-50 dark:hover:bg-[#132A4A] hover:scale-105 active:scale-95 disabled:opacity-30 disabled:pointer-events-none transition-all shadow-sm cursor-pointer"
+            className="px-3.5 py-2 rounded-xl flex items-center gap-1.5 text-xs font-bold bg-white dark:bg-[#0E1B15] border border-slate-200 dark:border-slate-800 text-slate-800 dark:text-slate-100 hover:bg-slate-50 dark:hover:bg-[#14261E] hover:scale-105 active:scale-95 disabled:opacity-30 disabled:pointer-events-none transition-all shadow-sm cursor-pointer"
           >
             <RotateCcw className="w-3.5 h-3.5" />
             <span>Cover</span>
           </button>
 
-          <div className="px-4 py-2 rounded-xl bg-white dark:bg-[#0E223D] border border-slate-200 dark:border-slate-800 text-xs font-mono text-slate-600 dark:text-slate-300 shadow-sm flex items-center gap-1.5">
+          <div className="px-4 py-2 rounded-xl bg-white dark:bg-[#0E1B15] border border-slate-200 dark:border-slate-800 text-xs font-mono text-slate-600 dark:text-slate-300 shadow-sm flex items-center gap-1.5">
             <BookOpen className="w-3.5 h-3.5" style={{ color: accentColor }} />
             <span className="font-bold text-slate-900 dark:text-white">{currentTurned}</span>
             <span className="opacity-50">/</span>
@@ -383,7 +374,7 @@ export const ThreeDImagePageflip = forwardRef(({
             onClick={flipNext}
             disabled={currentTurned === totalLeaves}
             aria-label="Next Page"
-            className="px-4 py-2 rounded-xl flex items-center gap-1.5 text-xs font-bold bg-white dark:bg-[#0E223D] border border-slate-200 dark:border-slate-800 text-slate-800 dark:text-slate-100 hover:bg-slate-50 dark:hover:bg-[#132A4A] hover:scale-105 active:scale-95 disabled:opacity-30 disabled:pointer-events-none transition-all shadow-sm cursor-pointer"
+            className="px-4 py-2 rounded-xl flex items-center gap-1.5 text-xs font-bold bg-white dark:bg-[#0E1B15] border border-slate-200 dark:border-slate-800 text-slate-800 dark:text-slate-100 hover:bg-slate-50 dark:hover:bg-[#14261E] hover:scale-105 active:scale-95 disabled:opacity-30 disabled:pointer-events-none transition-all shadow-sm cursor-pointer"
           >
             <span>Next</span>
             <ChevronRight className="w-4 h-4" />

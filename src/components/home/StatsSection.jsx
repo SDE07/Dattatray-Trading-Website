@@ -53,7 +53,7 @@ export default function StatsSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full bg-white dark:bg-[#0A1017] py-8 sm:py-10 lg:py-12 overflow-hidden transition-colors duration-300"
+      className="relative w-full bg-white dark:bg-[#06100B] py-8 sm:py-10 lg:py-12 overflow-hidden transition-colors duration-300"
     >
       <div className="relative w-full max-w-[94%] xl:max-w-[1440px] 2xl:max-w-[1580px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">

@@ -5,18 +5,13 @@ import {
   X,
   ArrowUpRight,
   ChevronDown,
-  Snowflake,
-  Layers,
-  ShieldCheck,
-  Building,
-  Truck,
   PhoneCall,
-  Sparkles,
   Sun,
-  Moon
+  Moon,
 } from "lucide-react";
 import logo from "../assets/logo.png";
 import { useTheme } from "../context/ThemeContext";
+import { preloadRoute } from "../utils/preloadRoute";
 
 /* ─── Navigation Items matching user specification ───────────── */
 const navItems = [
@@ -35,7 +30,7 @@ export default function Navbar() {
   const [scrollProgress, setScrollProgress] = useState(0);
   const [activeDropdown, setActiveDropdown] = useState(null);
 
-  const { theme, toggleTheme, isDark } = useTheme();
+  const { toggleTheme, isDark } = useTheme();
   const location = useLocation();
   const dropdownRef = useRef(null);
 
@@ -116,8 +111,8 @@ export default function Navbar() {
       ref={dropdownRef}
       className={`fixed top-0 inset-x-0 w-full z-50 transition-all duration-500 ease-in-out backdrop-blur-md ${
         isScrolled
-          ? "bg-[#FAF4E2]/98 dark:bg-[#0A121A]/98 border-b border-[#D4AF37]/40 shadow-sm dark:shadow-none"
-          : "bg-[#FAF7EE]/40 dark:bg-[#07111E]/40 border-b border-[#E6D9B8]/30 dark:border-white/10 shadow-none"
+          ? "bg-[#FAF4E2]/98 dark:bg-[#010E09]/98 border-b border-[#D4AF37]/40 shadow-sm dark:shadow-[0_4px_25px_rgba(0,0,0,0.7)]"
+          : "bg-[#010E09]/45 dark:bg-[#010E09]/50 border-b border-[#D4AF37]/20 shadow-none"
       }`}
     >
       {/* Dynamic Embedded Scroll Reading Loader Bar across entire bottom edge */}
@@ -129,20 +124,20 @@ export default function Navbar() {
       </div>
 
       {/* Full-width Inner Container */}
-      <div className="w-full max-w-[96%] xl:max-w-[1540px] 2xl:max-w-[1720px] mx-auto px-4 sm:px-6 lg:px-8 py-1 sm:py-1.5 min-h-[58px] sm:min-h-[64px] lg:min-h-[68px] flex items-center justify-between">
+      <div className="w-full max-w-[98%] xl:max-w-[1580px] 2xl:max-w-[1760px] mx-auto px-2.5 sm:px-4 lg:px-6 py-1.5 sm:py-2 min-h-[64px] sm:min-h-[70px] lg:min-h-[74px] flex items-center justify-between">
 
-        {/* Brand Logo & Name */}
+        {/* Brand Logo & Name (Clean left aligned & prominent sizing) */}
         <Link
           to="/"
           onClick={handleNavClick}
-          className="flex items-center gap-2.5 sm:gap-3 group cursor-pointer shrink-0 py-0.5 outline-none focus:outline-none select-none"
+          className="flex items-center gap-2 group cursor-pointer shrink-0 py-0.5 ml-1 sm:ml-2.5 lg:ml-3 outline-none focus:outline-none select-none"
           aria-label="Dattatray Trading Company Home"
         >
           <div className="relative flex items-center justify-center transition-all duration-300 group-hover:scale-105 shrink-0">
             <img
               src={logo}
               alt="Dattatray Trading Company - Frozen Foods"
-              className="h-12 sm:h-14 md:h-16 lg:h-[66px] xl:h-[70px] w-auto max-w-[240px] sm:max-w-[290px] lg:max-w-[340px] object-contain select-none filter drop-shadow-[0_2px_10px_rgba(200,169,80,0.22)] dark:drop-shadow-[0_2px_12px_rgba(212,175,55,0.35)] group-hover:drop-shadow-[0_3px_16px_rgba(200,169,80,0.32)] transition-all duration-300"
+              className="h-10 sm:h-12 md:h-[50px] lg:h-[54px] xl:h-[58px] w-auto max-w-[140px] sm:max-w-[180px] lg:max-w-[240px] object-contain select-none filter drop-shadow-[0_2px_10px_rgba(200,169,80,0.25)] dark:drop-shadow-[0_2px_12px_rgba(212,175,55,0.4)] group-hover:drop-shadow-[0_4px_16px_rgba(200,169,80,0.4)] transition-all duration-300"
               style={{ imageRendering: "auto" }}
               draggable="false"
               onContextMenu={(e) => e.preventDefault()}
@@ -169,21 +164,27 @@ export default function Navbar() {
                     className={`flex items-center gap-1.5 text-xs xl:text-[13px] uppercase tracking-[0.14em] font-bold transition-colors duration-200 py-1 cursor-pointer outline-none focus:outline-none select-none ${
                       active || isDropdownOpen
                         ? "text-[#15803D] dark:text-[#4ADE80]"
-                        : "text-[#3D3328] dark:text-slate-300 hover:text-[#15803D] dark:hover:text-[#4ADE80]"
+                        : isScrolled
+                        ? "text-[#2A231C] dark:text-slate-200 hover:text-[#15803D] dark:hover:text-[#D4AF37]"
+                        : "text-[#D4AF37] dark:text-[#F3D375] hover:text-[#22C55E] dark:hover:text-[#4ADE80]"
                     }`}
                   >
                     <span>{item.name}</span>
                     <ChevronDown
                       size={14}
                       className={`transition-transform duration-200 ${
-                        isDropdownOpen ? "rotate-180 text-[#15803D] dark:text-[#4ADE80]" : "text-[#5C5042] dark:text-slate-400"
+                        isDropdownOpen
+                          ? "rotate-180 text-[#15803D] dark:text-[#4ADE80]"
+                          : isScrolled
+                          ? "text-[#5C5042] dark:text-slate-400"
+                          : "text-[#D4AF37] dark:text-[#F3D375]"
                       }`}
                     />
                   </button>
 
                   {/* Dropdown Flyout Panel */}
                   {isDropdownOpen && (
-                    <div className="absolute top-[calc(100%+8px)] -left-4 bg-gradient-to-b from-[#FFFDF7] via-[#FAF5E6] to-[#F5EED8] dark:from-[#0B1522] dark:via-[#0D1C2E] dark:to-[#07111C] border border-[#E6D9B8] dark:border-white/15 rounded-2xl shadow-[0_16px_40px_rgba(212,175,55,0.18),_inset_0_1px_0_#FFFFFF] dark:shadow-[0_16px_40px_rgba(0,0,0,0.6)] p-2.5 w-[290px] z-50 animate-in fade-in duration-150 backdrop-blur-2xl">
+                    <div className="absolute top-[calc(100%+8px)] -left-4 bg-gradient-to-b from-[#FFFDF7] via-[#FAF5E6] to-[#F5EED8] dark:from-[#0E1B15] dark:via-[#14261E] dark:to-[#06100B] border border-[#E6D9B8] dark:border-white/15 rounded-2xl shadow-[0_16px_40px_rgba(212,175,55,0.18),_inset_0_1px_0_#FFFFFF] dark:shadow-[0_16px_40px_rgba(0,0,0,0.6)] p-2.5 w-[290px] z-50 animate-in fade-in duration-150 backdrop-blur-2xl">
                       <div className="space-y-1">
                         {item.subItems.map((sub) => {
                           const Icon = sub.icon;
@@ -191,10 +192,12 @@ export default function Navbar() {
                             <Link
                               key={sub.to}
                               to={sub.to}
+                              onMouseEnter={() => preloadRoute(sub.to)}
+                              onTouchStart={() => preloadRoute(sub.to)}
                               onClick={() => handleNavClick(sub.to)}
                               className="w-full text-left p-2.5 rounded-xl hover:bg-[#EFE5CA]/80 dark:hover:bg-slate-800/80 transition-all duration-150 flex items-start gap-2.5 group cursor-pointer outline-none focus:outline-none"
                             >
-                              <div className="p-2 rounded-lg bg-[#EFE5CA] dark:bg-slate-800 text-[#15803D] dark:text-[#4ADE80] group-hover:bg-[#15803D] group-hover:text-white dark:group-hover:bg-[#22C55E] dark:group-hover:text-[#07111C] transition-colors mt-0.5">
+                              <div className="p-2 rounded-lg bg-[#EFE5CA] dark:bg-slate-800 text-[#15803D] dark:text-[#4ADE80] group-hover:bg-[#15803D] group-hover:text-white dark:group-hover:bg-[#22C55E] dark:group-hover:text-[#06100B] transition-colors mt-0.5">
                                 <Icon size={16} />
                               </div>
                               <div className="flex-1">
@@ -223,11 +226,15 @@ export default function Navbar() {
               <Link
                 key={item.name}
                 to={item.to}
+                onMouseEnter={() => preloadRoute(item.to)}
+                onTouchStart={() => preloadRoute(item.to)}
                 onClick={() => handleNavClick(item.to)}
                 className={`text-xs xl:text-[13px] uppercase tracking-[0.14em] font-bold transition-colors duration-200 relative py-1 outline-none focus:outline-none select-none ${
                   active
                     ? "text-[#15803D] dark:text-[#4ADE80]"
-                    : "text-[#3D3328] dark:text-slate-300 hover:text-[#15803D] dark:hover:text-[#4ADE80]"
+                    : isScrolled
+                    ? "text-[#2A231C] dark:text-slate-200 hover:text-[#15803D] dark:hover:text-[#D4AF37]"
+                    : "text-[#D4AF37] dark:text-[#F3D375] hover:text-[#22C55E] dark:hover:text-[#4ADE80]"
                 }`}
               >
                 <span>{item.name}</span>
@@ -248,7 +255,7 @@ export default function Navbar() {
             onClick={toggleTheme}
             className={`group relative flex items-center justify-center w-9 h-9 sm:w-9.5 sm:h-9.5 rounded-full border transition-all duration-300 cursor-pointer outline-none focus:outline-none select-none hover:scale-105 active:scale-95 ${
               isScrolled
-                ? "bg-[#F2ECE0]/90 dark:bg-[#07111E] border-[#DFD5BF] dark:border-white/20 text-[#3D3328] dark:text-amber-300"
+                ? "bg-[#F2ECE0]/90 dark:bg-[#0E1B15] border-[#DFD5BF] dark:border-white/20 text-[#3D3328] dark:text-amber-300"
                 : "bg-[#F2ECE0]/60 dark:bg-white/10 border-[#DFD5BF]/60 dark:border-white/20 text-[#2C241B] dark:text-amber-300 backdrop-blur-sm"
             }`}
             title={isDark ? "Switch to Day Mode (Light Theme)" : "Switch to Night Mode (Dark Theme)"}
@@ -288,17 +295,17 @@ export default function Navbar() {
 
       {/* ── Mobile Drawer Menu (Full-Width Edge-to-Edge) ── */}
       {mobileMenuOpen && (
-        <div className="w-full bg-[#FAF7EE]/98 dark:bg-[#0A121A]/98 backdrop-blur-2xl border-t border-[#E6D9B8] dark:border-white/10 shadow-2xl transition-all duration-300 text-[#2A231C] dark:text-slate-100 animate-in slide-in-from-top-2 duration-200">
+        <div className="w-full bg-[#FAF7EE]/98 dark:bg-[#010E09]/98 backdrop-blur-2xl border-t border-[#E6D9B8] dark:border-[#D4AF37]/20 shadow-2xl transition-all duration-300 text-[#2A231C] dark:text-slate-100 animate-in slide-in-from-top-2 duration-200">
           <div className="max-w-7xl mx-auto px-5 sm:px-8 py-5 space-y-4">
             {/* Mobile Day/Night Switcher Bar */}
-            <div className="flex items-center justify-between pb-3 border-b border-[#E6D9B8]/70 dark:border-white/10">
-              <span className="text-xs font-bold text-[#5C5042] dark:text-slate-300 uppercase tracking-wider">
+            <div className="flex items-center justify-between pb-3 border-b border-[#E6D9B8]/70 dark:border-[#D4AF37]/20">
+              <span className="text-xs font-bold text-[#5C5042] dark:text-[#D4AF37] uppercase tracking-wider">
                 Display Mode ({isDark ? "Night" : "Day"})
               </span>
               <button
                 type="button"
                 onClick={toggleTheme}
-                className="group relative flex items-center w-[58px] h-[28px] p-0.5 rounded-full bg-[#EFE5CA] dark:bg-[#07111E] border border-[#DFD5BF] dark:border-white/20 shadow-inner cursor-pointer outline-none select-none"
+                className="group relative flex items-center w-[58px] h-[28px] p-0.5 rounded-full bg-[#EFE5CA] dark:bg-[#021A13] border border-[#DFD5BF] dark:border-[#D4AF37]/30 shadow-inner cursor-pointer outline-none select-none"
                 aria-label="Toggle Day and Night Theme"
               >
                 <div className="absolute inset-0 flex items-center justify-between px-2 pointer-events-none">
@@ -308,7 +315,7 @@ export default function Navbar() {
                 <div
                   className={`relative z-10 flex items-center justify-center w-5.5 h-5.5 rounded-full shadow-md transition-transform duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)] transform-gpu ${
                     isDark
-                      ? "translate-x-[29px] bg-gradient-to-tr from-[#1E56C8] to-[#38BDF8] text-white shadow-[0_0_10px_rgba(56,189,248,0.7)]"
+                      ? "translate-x-[29px] bg-gradient-to-tr from-[#15803D] to-[#D4AF37] text-white shadow-[0_0_10px_rgba(212,175,55,0.7)]"
                       : "translate-x-0 bg-amber-400 text-amber-950 shadow-[0_2px_6px_rgba(251,191,36,0.5)]"
                   }`}
                 >
@@ -328,6 +335,8 @@ export default function Navbar() {
                   <div key={item.name} className="border-b border-[#E6D9B8]/70 dark:border-white/10 pb-1">
                     <Link
                       to={item.to}
+                      onMouseEnter={() => preloadRoute(item.to)}
+                      onTouchStart={() => preloadRoute(item.to)}
                       onClick={handleNavClick}
                       className={`block text-xs uppercase tracking-widest font-semibold py-2 transition-colors ${
                         active
@@ -345,6 +354,8 @@ export default function Navbar() {
                           <Link
                             key={sub.to}
                             to={sub.to}
+                            onMouseEnter={() => preloadRoute(sub.to)}
+                            onTouchStart={() => preloadRoute(sub.to)}
                             onClick={handleNavClick}
                             className="block text-[11px] text-[#5C5042] dark:text-slate-400 hover:text-[#15803D] dark:hover:text-[#4ADE80] py-1"
                           >

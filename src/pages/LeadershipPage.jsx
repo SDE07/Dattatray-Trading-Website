@@ -12,17 +12,25 @@ import {
   Users,
   Globe2,
   ThermometerSnowflake,
+  GraduationCap,
+  Microscope,
+  Ship,
+  Sparkles,
   Mail,
   Phone,
   Copy,
   Check,
   BookOpen,
   Compass,
-  RotateCcw
 } from "lucide-react";
 import { useTheme } from "../context/ThemeContext";
 import { toast } from "sonner";
-import { AnimatedNumber, HangingIdCard, ThreeDImagePageflip, SplitTextHeading } from "../components/common";
+import {
+  AnimatedNumber,
+  HangingIdCard,
+  ThreeDImagePageflip,
+  SplitTextHeading,
+} from "../components/common";
 
 // Assets
 import logoImg from "../assets/logo.png";
@@ -47,7 +55,7 @@ export default function LeadershipPage() {
     if (!email) return;
     navigator.clipboard.writeText(email);
     setCopiedEmail(email);
-    toast.success(`Copied email to clipboard`, {
+    toast.success(`Copied ${name}'s email to clipboard`, {
       description: email,
     });
     setTimeout(() => setCopiedEmail(null), 2000);
@@ -79,7 +87,7 @@ export default function LeadershipPage() {
           opacity: 0,
           duration: 1.1,
           ease: "power3.out",
-          delay: 0.25
+          delay: 0.25,
         });
       }
     }, headingRef);
@@ -92,27 +100,31 @@ export default function LeadershipPage() {
     {
       number: "01",
       title: "Ethical Farm Economics",
-      description: "Direct empowerment of regional growers with guaranteed floor pricing, technical harvest advisory, and zero intermediary exploitation.",
-      icon: Users
+      description:
+        "Direct empowerment of regional growers with guaranteed floor pricing, technical harvest advisory, and zero intermediary exploitation.",
+      icon: Users,
     },
     {
       number: "02",
       title: "Unbroken Cryo Integrity",
-      description: "Every metric governed by scientific precision: maintaining the -18°C setpoint without compromise from harvest blanching to maritime container discharge.",
-      icon: ThermometerSnowflake
+      description:
+        "Every metric governed by scientific precision: maintaining the -18°C setpoint without compromise from harvest blanching to maritime container discharge.",
+      icon: ThermometerSnowflake,
     },
     {
       number: "03",
       title: "Global Regulatory Stewardship",
-      description: "Zero pesticide residues, strict APEDA registration, and full traceability ensuring Indian agro produce meets the highest worldwide benchmarks.",
-      icon: ShieldCheck
+      description:
+        "Zero pesticide residues, strict APEDA registration, and full traceability ensuring Indian agro produce meets the highest worldwide benchmarks.",
+      icon: ShieldCheck,
     },
     {
       number: "04",
       title: "Sustainable Infrastructure",
-      description: "Investing in solar-assisted cold stores, energy-efficient IQF blast freezers, and recyclable packaging materials to protect future generations.",
-      icon: Globe2
-    }
+      description:
+        "Investing in solar-assisted cold stores, energy-efficient IQF blast freezers, and recyclable packaging materials to protect future generations.",
+      icon: Globe2,
+    },
   ];
 
   // Quick navigation director tabs & synchronized active leader data
@@ -127,11 +139,11 @@ export default function LeadershipPage() {
       phone: "+91 94220 00000 / Executive Protocol Office",
       bio: "Established in 1994, Dattatray Traders' executive board oversees unbroken -18°C cryo-telemetry, 5,000+ MT cold-chain scale, and direct partnerships with 15,000+ regional farmers across Maharashtra.",
       credentials: [
-        "Three Decades of Agro Trade Stewardship",
-        "APEDA Registered Multi-Corridor Export Network",
-        "State-of-the-Art IQF & Blast Cryo Facilities"
+        { text: "Three Decades of Agro Trade Stewardship", icon: Award },
+        { text: "APEDA Registered Multi-Corridor Export Network", icon: Globe2 },
+        { text: "State-of-the-Art IQF & Blast Cryo Facilities", icon: ThermometerSnowflake },
       ],
-      ctaText: "Inquire Corporate Advisory"
+      ctaText: "Inquire Corporate Advisory",
     },
     {
       shortName: "Shri Dattatray",
@@ -143,11 +155,11 @@ export default function LeadershipPage() {
       phone: "+91 94220 00000 / Board Secretariat",
       bio: "Pioneered modern agricultural trading in Maharashtra's primary harvest belt in 1994. Under his stewardship, Dattatray Traders scaled into an unbroken multi-crore cold-chain enterprise commanding 5,000+ MT capacity.",
       credentials: [
-        "Excellence in Agro-Logistics Lifetime Award",
-        "Maharashtra APMC Committee Board Advisory",
-        "Pioneer in Regional IQF Cryo-Storage Integration"
+        { text: "Excellence in Agro-Logistics Lifetime Award", icon: Award },
+        { text: "Maharashtra APMC Committee Board Advisory", icon: Users },
+        { text: "Pioneer in Regional IQF Cryo-Storage Integration", icon: ThermometerSnowflake },
       ],
-      ctaText: "Connect with Chairman"
+      ctaText: "Connect with Chairman",
     },
     {
       shortName: "Dr. Meera",
@@ -159,11 +171,11 @@ export default function LeadershipPage() {
       phone: "+91 94220 00001 / Quality Protocol Division",
       bio: "Oversees microbiological food safety protocols, APEDA phytosanitary export documentation, and continuous -18°C cryo-telemetry across all processing hubs. Lead auditor for ISO 22000 and HACCP compliance.",
       credentials: [
-        "Ph.D. in Food Processing & Cryo-Technology",
-        "Senior APEDA Technical Advisory Consultant",
-        "Certified Lead Auditor: ISO 22000 & HACCP"
+        { text: "Ph.D. in Food Processing & Cryo-Technology", icon: GraduationCap },
+        { text: "Senior APEDA Technical Advisory Consultant", icon: ShieldCheck },
+        { text: "Certified Lead Auditor: ISO 22000 & HACCP", icon: Microscope },
       ],
-      ctaText: "Connect with QA Director"
+      ctaText: "Connect with QA Director",
     },
     {
       shortName: "Vikramaditya",
@@ -175,11 +187,11 @@ export default function LeadershipPage() {
       phone: "+91 94220 00002 / JNPT & Mundra Export Desk",
       bio: "Directs multimodal reefer shipping corridors linking JNPT (Nhava Sheva) and Mundra with GCC, UK, and European distribution hubs. Specialist in large-scale institutional procurement contracts.",
       credentials: [
-        "MBA in International Supply Chain Management",
-        "Executive Member, Indo-Arab Chamber of Commerce",
-        "Architect of Zero-Loss Maritime Reefer Corridors"
+        { text: "MBA in International Supply Chain Management", icon: GraduationCap },
+        { text: "Executive Member, Indo-Arab Chamber of Commerce", icon: Globe2 },
+        { text: "Architect of Zero-Loss Maritime Reefer Corridors", icon: Ship },
       ],
-      ctaText: "Connect with Export Desk"
+      ctaText: "Connect with Export Desk",
     },
     {
       shortName: "Master Chef",
@@ -191,16 +203,18 @@ export default function LeadershipPage() {
       phone: "+91 94220 00003 / Sensory Testing Kitchen",
       bio: "Formulates recipe protocols and sensory quality baselines for quick-frozen vegetables, purees, and snacks, ensuring original farm freshness and nutritional texture are sealed without artificial stabilizers.",
       credentials: [
-        "Board Certified Executive Culinary Director",
-        "Sensory Quality Assessment & Texture Specialist",
-        "Architect of HoReCa Ready-to-Cook Standards"
+        { text: "Board Certified Executive Culinary Director", icon: Award },
+        { text: "Sensory Quality Assessment & Texture Specialist", icon: Sparkles },
+        { text: "Architect of HoReCa Ready-to-Cook Standards", icon: CheckCircle2 },
       ],
-      ctaText: "Connect with Culinary Team"
+      ctaText: "Connect with Culinary Team",
     },
   ];
 
   // Active director object based on turned leaf
-  const activeDirector = directorDirectory.find(d => d.leafIndex === currentTurnedLeaf) || directorDirectory[1];
+  const activeDirector =
+    directorDirectory.find((d) => d.leafIndex === currentTurnedLeaf) ||
+    directorDirectory[1];
 
   // ─── 3D Book Leaves Setup (Open 2-Page Spreads with Reduced Content) ──────────
   const bookPages = [
@@ -264,7 +278,7 @@ export default function LeadershipPage() {
             className="w-full h-full object-cover object-top select-none"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent pointer-events-none" />
-          
+
           <div className="absolute top-3.5 left-3.5 z-10">
             <span className="px-2.5 py-0.5 rounded-full text-[9px] font-black uppercase tracking-wider bg-black/70 backdrop-blur-md text-amber-300 border border-amber-400/40">
               VISIONARY FOUNDER
@@ -293,34 +307,43 @@ export default function LeadershipPage() {
       id: 1,
       frontContent: (
         // RIGHT PAGE OF SPREAD 1: Dossier Details of Shri Dattatray Shinde (Reduced Content)
-        <div className="w-full h-full p-4 sm:p-5 flex flex-col bg-white dark:bg-[#081526] text-slate-800 dark:text-slate-100 select-none overflow-hidden">
+        <div className="w-full h-full p-4 sm:p-5 flex flex-col bg-white dark:bg-[#021A13] text-slate-800 dark:text-slate-100 select-none overflow-hidden">
           <div className="space-y-2.5">
             <div className="flex items-center justify-between">
-              <span className="px-2 py-0.5 rounded-full text-[8.5px] font-black uppercase tracking-widest bg-emerald-50 dark:bg-sky-950/80 text-emerald-700 dark:text-[#38BDF8] border border-emerald-200 dark:border-sky-800/40">
+              <span className="px-2 py-0.5 rounded-full text-[8.5px] font-black uppercase tracking-widest bg-emerald-50 dark:bg-[#01140E] text-emerald-700 dark:text-[#F3E5AB] border border-emerald-200 dark:border-[#D4AF37]/40">
                 BOARD EXECUTIVE
               </span>
-              <span className="text-[9.5px] font-mono text-slate-400">PAGE 01</span>
+              <span className="text-[9.5px] font-mono text-slate-400">
+                PAGE 01
+              </span>
             </div>
 
             <div>
               <h3 className="text-lg sm:text-xl font-black text-slate-900 dark:text-white leading-tight">
                 Shri Dattatray Shinde
               </h3>
-              <p className="text-xs font-bold text-emerald-600 dark:text-[#38BDF8] mt-0.5">
+              <p className="text-xs font-bold text-emerald-600 dark:text-[#D4AF37] mt-0.5">
                 Founder &amp; Chairman of the Board
               </p>
             </div>
 
-            <div className="py-2.5 px-3 rounded-xl bg-slate-50 dark:bg-[#0E223D] border border-slate-200/90 dark:border-slate-800/80 space-y-2">
+            <div className="py-2.5 px-3 rounded-xl bg-slate-50 dark:bg-[#01140E] border border-slate-200/90 dark:border-[#D4AF37]/30 space-y-2">
               <div className="flex items-center justify-between text-[11px]">
                 <div className="flex items-center gap-2 text-slate-700 dark:text-slate-200 min-w-0 pr-1">
-                  <Mail className="w-3.5 h-3.5 text-emerald-600 dark:text-[#38BDF8] shrink-0" />
-                  <span className="truncate font-sans font-medium tracking-tight text-[11.5px] select-all">dattatray.shinde@dattatraytraders.com</span>
+                  <Mail className="w-3.5 h-3.5 text-emerald-600 dark:text-[#D4AF37] shrink-0" />
+                  <span className="truncate font-sans font-medium tracking-tight text-[11.5px] select-all">
+                    dattatray.shinde@dattatraytraders.com
+                  </span>
                 </div>
                 <button
                   type="button"
-                  onClick={() => handleCopyEmail("dattatray.shinde@dattatraytraders.com", "Shri Dattatray Shinde")}
-                  className="p-1 rounded hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-400 hover:text-slate-700 dark:hover:text-white transition-all active:scale-90 shrink-0 cursor-pointer"
+                  onClick={() =>
+                    handleCopyEmail(
+                      "dattatray.shinde@dattatraytraders.com",
+                      "Shri Dattatray Shinde",
+                    )
+                  }
+                  className="p-1 rounded hover:bg-slate-200 dark:hover:bg-emerald-950 text-slate-400 hover:text-slate-700 dark:hover:text-white transition-all active:scale-90 shrink-0 cursor-pointer"
                   title="Copy email"
                 >
                   {copiedEmail === "dattatray.shinde@dattatraytraders.com" ? (
@@ -331,15 +354,19 @@ export default function LeadershipPage() {
                 </button>
               </div>
 
-              <div className="flex items-center justify-between text-[10px] text-slate-500 dark:text-slate-400 pt-1.5 border-t border-slate-200/60 dark:border-slate-800/60">
+              <div className="flex items-center justify-between text-[10px] text-slate-500 dark:text-slate-400 pt-1.5 border-t border-slate-200/60 dark:border-[#D4AF37]/20">
                 <div className="flex items-center gap-1.5 truncate">
                   <Phone className="w-2.5 h-2.5 text-slate-400 shrink-0" />
-                  <span className="font-medium tracking-tight truncate">+91 94220 00000 • Executive Protocol</span>
+                  <span className="font-medium tracking-tight truncate">
+                    +91 94220 00000 • Executive Protocol
+                  </span>
                 </div>
                 <button
                   type="button"
-                  onClick={() => handleCopyPhone("+91 94220 00000", "Shri Dattatray Shinde")}
-                  className="p-0.5 rounded hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-400 hover:text-slate-700 dark:hover:text-white transition-all active:scale-90 shrink-0 cursor-pointer"
+                  onClick={() =>
+                    handleCopyPhone("+91 94220 00000", "Shri Dattatray Shinde")
+                  }
+                  className="p-0.5 rounded hover:bg-slate-200 dark:hover:bg-emerald-950 text-slate-400 hover:text-slate-700 dark:hover:text-white transition-all active:scale-90 shrink-0 cursor-pointer"
                   title="Copy phone"
                 >
                   <Copy className="w-2.5 h-2.5" />
@@ -348,30 +375,40 @@ export default function LeadershipPage() {
             </div>
 
             <p className="text-[11px] text-slate-600 dark:text-slate-300 leading-snug">
-              Pioneered modern agricultural trade in Maharashtra in 1994, expanding into an unbroken 5,000+ MT cold-chain network.
+              Pioneered modern agricultural trade in Maharashtra in 1994,
+              expanding into an unbroken 5,000+ MT cold-chain network.
             </p>
 
-            <div className="space-y-1 pt-0.5">
+            <div className="space-y-1.5 pt-0.5">
               <p className="text-[9px] font-black uppercase tracking-wider text-slate-400">
                 Key Credentials:
               </p>
               {[
-                "Excellence in Agro-Logistics Award",
-                "Maharashtra APMC Committee Board Advisory",
-                "Pioneer in Regional IQF Cryo-Storage"
-              ].map((item, idx) => (
-                <div key={idx} className="flex items-center gap-1.5 text-[10px] text-slate-700 dark:text-slate-300">
-                  <CheckCircle2 className="w-2.5 h-2.5 text-emerald-500 shrink-0" />
-                  <span>{item}</span>
-                </div>
-              ))}
+                { text: "Excellence in Agro-Logistics Award", icon: Award },
+                { text: "Maharashtra APMC Committee Board Advisory", icon: Users },
+                { text: "Pioneer in Regional IQF Cryo-Storage", icon: ThermometerSnowflake },
+              ].map((item, idx) => {
+                const itemText = typeof item === "string" ? item : (item?.text || "");
+                const ItemIcon = (typeof item === "object" && item?.icon) ? item.icon : CheckCircle2;
+                return (
+                  <div
+                    key={idx}
+                    className="flex items-center gap-2 text-[10px] text-slate-700 dark:text-slate-300"
+                  >
+                    <div className="w-4 h-4 rounded-full bg-emerald-500/15 dark:bg-emerald-500/25 border border-emerald-500/40 flex items-center justify-center shrink-0">
+                      <ItemIcon className="w-2.5 h-2.5 text-emerald-600 dark:text-emerald-400" />
+                    </div>
+                    <span>{itemText}</span>
+                  </div>
+                );
+              })}
             </div>
           </div>
 
-          <div className="mt-auto pt-3 border-t border-slate-100 dark:border-slate-800">
+          <div className="mt-auto pt-3 border-t border-slate-100 dark:border-[#D4AF37]/20">
             <Link
               to="/contact"
-              className="w-full py-2.5 px-3 rounded-xl text-xs font-black uppercase tracking-wider flex items-center justify-center gap-2 bg-gradient-to-r from-emerald-500 via-emerald-600 to-teal-600 hover:from-emerald-400 hover:to-teal-500 text-white shadow-md shadow-emerald-600/30 dark:from-[#1E56C8] dark:via-[#0284C7] dark:to-[#38BDF8] dark:hover:from-[#2563EB] dark:hover:to-[#60A5FA] dark:text-white transition-all duration-300 hover:scale-[1.02] active:scale-95 cursor-pointer"
+              className="w-full py-2.5 px-3 rounded-xl text-xs font-black uppercase tracking-wider flex items-center justify-center gap-2 bg-gradient-to-r from-emerald-600 via-emerald-700 to-teal-700 hover:from-emerald-500 hover:to-teal-600 text-white shadow-md dark:from-[#D4AF37] dark:via-[#F3E5AB] dark:to-[#C8A950] dark:text-[#01140E] transition-all duration-300 hover:scale-[1.02] active:scale-95 cursor-pointer"
             >
               <span>Connect with Chairman</span>
               <ArrowRight className="w-3.5 h-3.5" />
@@ -388,7 +425,7 @@ export default function LeadershipPage() {
             className="w-full h-full object-cover object-top select-none"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent pointer-events-none" />
-          
+
           <div className="absolute top-3.5 left-3.5 z-10">
             <span className="px-2.5 py-0.5 rounded-full text-[9px] font-black uppercase tracking-wider bg-black/70 backdrop-blur-md text-sky-300 border border-sky-400/40">
               TECHNICAL &amp; QA GOVERNANCE
@@ -416,35 +453,44 @@ export default function LeadershipPage() {
     {
       id: 2,
       frontContent: (
-        // RIGHT PAGE OF SPREAD 2: Dossier Details of Dr. Meera Deshmukh (Reduced Content)
-        <div className="w-full h-full p-4 sm:p-5 flex flex-col bg-white dark:bg-[#081526] text-slate-800 dark:text-slate-100 select-none overflow-hidden">
+        // RIGHT PAGE OF SPREAD 2: Dossier Details of Dr. Meera Deshmukh
+        <div className="w-full h-full p-4 sm:p-5 flex flex-col bg-white dark:bg-[#021A13] text-slate-800 dark:text-slate-100 select-none overflow-hidden">
           <div className="space-y-2.5">
             <div className="flex items-center justify-between">
-              <span className="px-2 py-0.5 rounded-full text-[8.5px] font-black uppercase tracking-widest bg-emerald-50 dark:bg-sky-950/80 text-emerald-700 dark:text-[#38BDF8] border border-emerald-200 dark:border-sky-800/40">
+              <span className="px-2 py-0.5 rounded-full text-[8.5px] font-black uppercase tracking-widest bg-emerald-50 dark:bg-[#01140E] text-emerald-700 dark:text-[#F3E5AB] border border-emerald-200 dark:border-[#D4AF37]/40">
                 QUALITY COUNCIL
               </span>
-              <span className="text-[9.5px] font-mono text-slate-400">PAGE 02</span>
+              <span className="text-[9.5px] font-mono text-slate-400">
+                PAGE 02
+              </span>
             </div>
 
             <div>
               <h3 className="text-lg sm:text-xl font-black text-slate-900 dark:text-white leading-tight">
                 Dr. Meera Deshmukh
               </h3>
-              <p className="text-xs font-bold text-emerald-600 dark:text-[#38BDF8] mt-0.5">
+              <p className="text-xs font-bold text-emerald-600 dark:text-[#D4AF37] mt-0.5">
                 Director – Cryo-Quality &amp; Global Compliance
               </p>
             </div>
 
-            <div className="py-2.5 px-3 rounded-xl bg-slate-50 dark:bg-[#0E223D] border border-slate-200/90 dark:border-slate-800/80 space-y-2">
+            <div className="py-2.5 px-3 rounded-xl bg-slate-50 dark:bg-[#01140E] border border-slate-200/90 dark:border-[#D4AF37]/30 space-y-2">
               <div className="flex items-center justify-between text-[11px]">
                 <div className="flex items-center gap-2 text-slate-700 dark:text-slate-200 min-w-0 pr-1">
-                  <Mail className="w-3.5 h-3.5 text-emerald-600 dark:text-[#38BDF8] shrink-0" />
-                  <span className="truncate font-sans font-medium tracking-tight text-[11.5px] select-all">meera.deshmukh@dattatraytraders.com</span>
+                  <Mail className="w-3.5 h-3.5 text-emerald-600 dark:text-[#D4AF37] shrink-0" />
+                  <span className="truncate font-sans font-medium tracking-tight text-[11.5px] select-all">
+                    meera.deshmukh@dattatraytraders.com
+                  </span>
                 </div>
                 <button
                   type="button"
-                  onClick={() => handleCopyEmail("meera.deshmukh@dattatraytraders.com", "Dr. Meera Deshmukh")}
-                  className="p-1 rounded hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-400 hover:text-slate-700 dark:hover:text-white transition-all active:scale-90 shrink-0 cursor-pointer"
+                  onClick={() =>
+                    handleCopyEmail(
+                      "meera.deshmukh@dattatraytraders.com",
+                      "Dr. Meera Deshmukh",
+                    )
+                  }
+                  className="p-1 rounded hover:bg-slate-200 dark:hover:bg-emerald-950 text-slate-400 hover:text-slate-700 dark:hover:text-white transition-all active:scale-90 shrink-0 cursor-pointer"
                   title="Copy email"
                 >
                   {copiedEmail === "meera.deshmukh@dattatraytraders.com" ? (
@@ -455,15 +501,19 @@ export default function LeadershipPage() {
                 </button>
               </div>
 
-              <div className="flex items-center justify-between text-[10px] text-slate-500 dark:text-slate-400 pt-1.5 border-t border-slate-200/60 dark:border-slate-800/60">
+              <div className="flex items-center justify-between text-[10px] text-slate-500 dark:text-slate-400 pt-1.5 border-t border-slate-200/60 dark:border-[#D4AF37]/20">
                 <div className="flex items-center gap-1.5 truncate">
                   <Phone className="w-2.5 h-2.5 text-slate-400 shrink-0" />
-                  <span className="font-medium tracking-tight truncate">+91 94220 00001 • Quality Protocol</span>
+                  <span className="font-medium tracking-tight truncate">
+                    +91 94220 00001 • Quality Protocol
+                  </span>
                 </div>
                 <button
                   type="button"
-                  onClick={() => handleCopyPhone("+91 94220 00001", "Dr. Meera Deshmukh")}
-                  className="p-0.5 rounded hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-400 hover:text-slate-700 dark:hover:text-white transition-all active:scale-90 shrink-0 cursor-pointer"
+                  onClick={() =>
+                    handleCopyPhone("+91 94220 00001", "Dr. Meera Deshmukh")
+                  }
+                  className="p-0.5 rounded hover:bg-slate-200 dark:hover:bg-emerald-950 text-slate-400 hover:text-slate-700 dark:hover:text-white transition-all active:scale-90 shrink-0 cursor-pointer"
                   title="Copy phone"
                 >
                   <Copy className="w-2.5 h-2.5" />
@@ -471,31 +521,42 @@ export default function LeadershipPage() {
               </div>
             </div>
 
-            <p className="text-[11px] text-slate-600 dark:text-slate-300 leading-snug">
-              Oversees microbiological safety, APEDA phytosanitary export certifications, and continuous -18°C cryo-telemetry across all processing hubs.
+            <p className="text-[11px] text-slate-600 dark:text-slate-300 leading-snug text-justify [text-justify:inter-word] [text-wrap:pretty]">
+              Oversees microbiological safety, APEDA phytosanitary export
+              certifications, and continuous -18°C cryo-telemetry across all
+              processing hubs.
             </p>
 
-            <div className="space-y-1 pt-0.5">
+            <div className="space-y-1.5 pt-0.5">
               <p className="text-[9px] font-black uppercase tracking-wider text-slate-400">
                 Key Credentials:
               </p>
               {[
-                "Ph.D. in Food Processing & Cryo-Technology",
-                "Senior APEDA Technical Advisory Consultant",
-                "Certified Lead Auditor: ISO 22000 & HACCP"
-              ].map((item, idx) => (
-                <div key={idx} className="flex items-center gap-1.5 text-[10px] text-slate-700 dark:text-slate-300">
-                  <CheckCircle2 className="w-2.5 h-2.5 text-emerald-500 shrink-0" />
-                  <span>{item}</span>
-                </div>
-              ))}
+                { text: "Ph.D. in Food Processing & Cryo-Technology", icon: GraduationCap },
+                { text: "Senior APEDA Technical Advisory Consultant", icon: ShieldCheck },
+                { text: "Certified Lead Auditor: ISO 22000 & HACCP", icon: Microscope },
+              ].map((item, idx) => {
+                const itemText = typeof item === "string" ? item : (item?.text || "");
+                const ItemIcon = (typeof item === "object" && item?.icon) ? item.icon : CheckCircle2;
+                return (
+                  <div
+                    key={idx}
+                    className="flex items-center gap-2 text-[10px] text-slate-700 dark:text-slate-300"
+                  >
+                    <div className="w-4 h-4 rounded-full bg-emerald-500/15 dark:bg-emerald-500/25 border border-emerald-500/40 flex items-center justify-center shrink-0">
+                      <ItemIcon className="w-2.5 h-2.5 text-emerald-600 dark:text-emerald-400" />
+                    </div>
+                    <span>{itemText}</span>
+                  </div>
+                );
+              })}
             </div>
           </div>
 
-          <div className="mt-auto pt-3 border-t border-slate-100 dark:border-slate-800">
+          <div className="mt-auto pt-3 border-t border-slate-100 dark:border-[#D4AF37]/20">
             <Link
               to="/contact"
-              className="w-full py-2.5 px-3 rounded-xl text-xs font-black uppercase tracking-wider flex items-center justify-center gap-2 bg-gradient-to-r from-emerald-500 via-emerald-600 to-teal-600 hover:from-emerald-400 hover:to-teal-500 text-white shadow-md shadow-emerald-600/30 dark:from-[#1E56C8] dark:via-[#0284C7] dark:to-[#38BDF8] dark:hover:from-[#2563EB] dark:hover:to-[#60A5FA] dark:text-white transition-all duration-300 hover:scale-[1.02] active:scale-95 cursor-pointer"
+              className="w-full py-2.5 px-3 rounded-xl text-xs font-black uppercase tracking-wider flex items-center justify-center gap-2 bg-gradient-to-r from-emerald-600 via-emerald-700 to-teal-700 hover:from-emerald-500 hover:to-teal-600 text-white shadow-md dark:from-[#D4AF37] dark:via-[#F3E5AB] dark:to-[#C8A950] dark:text-[#01140E] transition-all duration-300 hover:scale-[1.02] active:scale-95 cursor-pointer"
             >
               <span>Connect with QA Director</span>
               <ArrowRight className="w-3.5 h-3.5" />
@@ -512,9 +573,9 @@ export default function LeadershipPage() {
             className="w-full h-full object-cover object-top select-none"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent pointer-events-none" />
-          
+
           <div className="absolute top-3.5 left-3.5 z-10">
-            <span className="px-2.5 py-0.5 rounded-full text-[9px] font-black uppercase tracking-wider bg-black/70 backdrop-blur-md text-emerald-300 border border-emerald-400/40">
+            <span className="px-2.5 py-0.5 rounded-full text-[9px] font-black uppercase tracking-wider bg-black/70 backdrop-blur-md text-[#F3E5AB] border border-[#D4AF37]/40">
               GLOBAL COMMERCE &amp; LOGISTICS
             </span>
           </div>
@@ -540,35 +601,44 @@ export default function LeadershipPage() {
     {
       id: 3,
       frontContent: (
-        // RIGHT PAGE OF SPREAD 3: Dossier Details of Vikramaditya Shinde (Reduced Content)
-        <div className="w-full h-full p-4 sm:p-5 flex flex-col bg-white dark:bg-[#081526] text-slate-800 dark:text-slate-100 select-none overflow-hidden">
+        // RIGHT PAGE OF SPREAD 3: Dossier Details of Vikramaditya Shinde
+        <div className="w-full h-full p-4 sm:p-5 flex flex-col bg-white dark:bg-[#021A13] text-slate-800 dark:text-slate-100 select-none overflow-hidden">
           <div className="space-y-2.5">
             <div className="flex items-center justify-between">
-              <span className="px-2 py-0.5 rounded-full text-[8.5px] font-black uppercase tracking-widest bg-emerald-50 dark:bg-sky-950/80 text-emerald-700 dark:text-[#38BDF8] border border-emerald-200 dark:border-sky-800/40">
+              <span className="px-2 py-0.5 rounded-full text-[8.5px] font-black uppercase tracking-widest bg-emerald-50 dark:bg-[#01140E] text-emerald-700 dark:text-[#F3E5AB] border border-emerald-200 dark:border-[#D4AF37]/40">
                 TRADE GOVERNANCE
               </span>
-              <span className="text-[9.5px] font-mono text-slate-400">PAGE 03</span>
+              <span className="text-[9.5px] font-mono text-slate-400">
+                PAGE 03
+              </span>
             </div>
 
             <div>
               <h3 className="text-lg sm:text-xl font-black text-slate-900 dark:text-white leading-tight">
                 Vikramaditya Shinde
               </h3>
-              <p className="text-xs font-bold text-emerald-600 dark:text-[#38BDF8] mt-0.5">
+              <p className="text-xs font-bold text-emerald-600 dark:text-[#D4AF37] mt-0.5">
                 Chief Commercial Officer &amp; Export Head
               </p>
             </div>
 
-            <div className="py-2.5 px-3 rounded-xl bg-slate-50 dark:bg-[#0E223D] border border-slate-200/90 dark:border-slate-800/80 space-y-2">
+            <div className="py-2.5 px-3 rounded-xl bg-slate-50 dark:bg-[#01140E] border border-slate-200/90 dark:border-[#D4AF37]/30 space-y-2">
               <div className="flex items-center justify-between text-[11px]">
                 <div className="flex items-center gap-2 text-slate-700 dark:text-slate-200 min-w-0 pr-1">
-                  <Mail className="w-3.5 h-3.5 text-emerald-600 dark:text-[#38BDF8] shrink-0" />
-                  <span className="truncate font-sans font-medium tracking-tight text-[11.5px] select-all">vikramaditya@dattatraytraders.com</span>
+                  <Mail className="w-3.5 h-3.5 text-emerald-600 dark:text-[#D4AF37] shrink-0" />
+                  <span className="truncate font-sans font-medium tracking-tight text-[11.5px] select-all">
+                    vikramaditya@dattatraytraders.com
+                  </span>
                 </div>
                 <button
                   type="button"
-                  onClick={() => handleCopyEmail("vikramaditya@dattatraytraders.com", "Vikramaditya Shinde")}
-                  className="p-1 rounded hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-400 hover:text-slate-700 dark:hover:text-white transition-all active:scale-90 shrink-0 cursor-pointer"
+                  onClick={() =>
+                    handleCopyEmail(
+                      "vikramaditya@dattatraytraders.com",
+                      "Vikramaditya Shinde",
+                    )
+                  }
+                  className="p-1 rounded hover:bg-slate-200 dark:hover:bg-emerald-950 text-slate-400 hover:text-slate-700 dark:hover:text-white transition-all active:scale-90 shrink-0 cursor-pointer"
                   title="Copy email"
                 >
                   {copiedEmail === "vikramaditya@dattatraytraders.com" ? (
@@ -579,15 +649,19 @@ export default function LeadershipPage() {
                 </button>
               </div>
 
-              <div className="flex items-center justify-between text-[10px] text-slate-500 dark:text-slate-400 pt-1.5 border-t border-slate-200/60 dark:border-slate-800/60">
+              <div className="flex items-center justify-between text-[10px] text-slate-500 dark:text-slate-400 pt-1.5 border-t border-slate-200/60 dark:border-[#D4AF37]/20">
                 <div className="flex items-center gap-1.5 truncate">
                   <Phone className="w-2.5 h-2.5 text-slate-400 shrink-0" />
-                  <span className="font-medium tracking-tight truncate">+91 94220 00002 • Export Trade Desk</span>
+                  <span className="font-medium tracking-tight truncate">
+                    +91 94220 00002 • Export Trade Desk
+                  </span>
                 </div>
                 <button
                   type="button"
-                  onClick={() => handleCopyPhone("+91 94220 00002", "Vikramaditya Shinde")}
-                  className="p-0.5 rounded hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-400 hover:text-slate-700 dark:hover:text-white transition-all active:scale-90 shrink-0 cursor-pointer"
+                  onClick={() =>
+                    handleCopyPhone("+91 94220 00002", "Vikramaditya Shinde")
+                  }
+                  className="p-0.5 rounded hover:bg-slate-200 dark:hover:bg-emerald-950 text-slate-400 hover:text-slate-700 dark:hover:text-white transition-all active:scale-90 shrink-0 cursor-pointer"
                   title="Copy phone"
                 >
                   <Copy className="w-2.5 h-2.5" />
@@ -595,31 +669,41 @@ export default function LeadershipPage() {
               </div>
             </div>
 
-            <p className="text-[11px] text-slate-600 dark:text-slate-300 leading-snug">
-              Directs multimodal reefer container shipping corridors linking JNPT and Mundra with GCC and European distribution hubs.
+            <p className="text-[11px] text-slate-600 dark:text-slate-300 leading-snug text-justify [text-justify:inter-word] [text-wrap:pretty]">
+              Directs multimodal reefer container shipping corridors linking
+              JNPT and Mundra with GCC and European distribution hubs.
             </p>
 
-            <div className="space-y-1 pt-0.5">
+            <div className="space-y-1.5 pt-0.5">
               <p className="text-[9px] font-black uppercase tracking-wider text-slate-400">
                 Key Credentials:
               </p>
               {[
-                "MBA in International Supply Chain Management",
-                "Executive Member, Indo-Arab Chamber of Commerce",
-                "Architect of Zero-Loss Maritime Reefer Corridors"
-              ].map((item, idx) => (
-                <div key={idx} className="flex items-center gap-1.5 text-[10px] text-slate-700 dark:text-slate-300">
-                  <CheckCircle2 className="w-2.5 h-2.5 text-emerald-500 shrink-0" />
-                  <span>{item}</span>
-                </div>
-              ))}
+                { text: "MBA in International Supply Chain Management", icon: GraduationCap },
+                { text: "Executive Member, Indo-Arab Chamber of Commerce", icon: Globe2 },
+                { text: "Architect of Zero-Loss Maritime Reefer Corridors", icon: Ship },
+              ].map((item, idx) => {
+                const itemText = typeof item === "string" ? item : (item?.text || "");
+                const ItemIcon = (typeof item === "object" && item?.icon) ? item.icon : CheckCircle2;
+                return (
+                  <div
+                    key={idx}
+                    className="flex items-center gap-2 text-[10px] text-slate-700 dark:text-slate-300"
+                  >
+                    <div className="w-4 h-4 rounded-full bg-emerald-500/15 dark:bg-emerald-500/25 border border-emerald-500/40 flex items-center justify-center shrink-0">
+                      <ItemIcon className="w-2.5 h-2.5 text-emerald-600 dark:text-emerald-400" />
+                    </div>
+                    <span>{itemText}</span>
+                  </div>
+                );
+              })}
             </div>
           </div>
 
-          <div className="mt-auto pt-3 border-t border-slate-100 dark:border-slate-800">
+          <div className="mt-auto pt-3 border-t border-slate-100 dark:border-[#D4AF37]/20">
             <Link
               to="/contact"
-              className="w-full py-2.5 px-3 rounded-xl text-xs font-black uppercase tracking-wider flex items-center justify-center gap-2 bg-gradient-to-r from-emerald-500 via-emerald-600 to-teal-600 hover:from-emerald-400 hover:to-teal-500 text-white shadow-md shadow-emerald-600/30 dark:from-[#1E56C8] dark:via-[#0284C7] dark:to-[#38BDF8] dark:hover:from-[#2563EB] dark:hover:to-[#60A5FA] dark:text-white transition-all duration-300 hover:scale-[1.02] active:scale-95 cursor-pointer"
+              className="w-full py-2.5 px-3 rounded-xl text-xs font-black uppercase tracking-wider flex items-center justify-center gap-2 bg-gradient-to-r from-emerald-600 via-emerald-700 to-teal-700 hover:from-emerald-500 hover:to-teal-600 text-white shadow-md dark:from-[#D4AF37] dark:via-[#F3E5AB] dark:to-[#C8A950] dark:text-[#01140E] transition-all duration-300 hover:scale-[1.02] active:scale-95 cursor-pointer"
             >
               <span>Connect with Export Desk</span>
               <ArrowRight className="w-3.5 h-3.5" />
@@ -630,7 +714,7 @@ export default function LeadershipPage() {
       backContent: (
         // LEFT PAGE OF SPREAD 4: Photo of Master Chef Leadership
         <div className="w-full h-full relative overflow-hidden bg-gradient-to-b from-[#021A13] via-[#042A1E] to-[#01140E] flex flex-col items-center justify-center p-4 text-center">
-          <div className="w-28 h-28 sm:w-32 sm:h-32 rounded-full bg-white/15 backdrop-blur-md p-2 border-2 border-white/40 shadow-2xl mb-3">
+          <div className="w-28 h-28 sm:w-32 sm:h-32 rounded-full bg-emerald-950/80 backdrop-blur-md p-2 border-2 border-[#D4AF37]/60 shadow-2xl mb-3">
             <img
               src={chefleadshipImg}
               alt="Master Chef Leadership"
@@ -638,7 +722,7 @@ export default function LeadershipPage() {
             />
           </div>
 
-          <span className="px-2.5 py-0.5 rounded-full text-[8.5px] font-black uppercase tracking-wider bg-black/60 backdrop-blur-md text-emerald-300 border border-emerald-400/40 mb-1.5">
+          <span className="px-2.5 py-0.5 rounded-full text-[8.5px] font-black uppercase tracking-wider bg-black/60 backdrop-blur-md text-[#F3E5AB] border border-[#D4AF37]/40 mb-1.5">
             DIRECTOR OF CULINARY &amp; QUALITY
           </span>
 
@@ -658,38 +742,48 @@ export default function LeadershipPage() {
     {
       id: 4,
       frontContent: (
-        // RIGHT PAGE OF SPREAD 4: Dossier Details of Master Chef Leadership (Reduced Content)
-        <div className="w-full h-full p-4 sm:p-5 flex flex-col bg-white dark:bg-[#081526] text-slate-800 dark:text-slate-100 select-none overflow-hidden">
+        // RIGHT PAGE OF SPREAD 4: Dossier Details of Master Chef Leadership
+        <div className="w-full h-full p-4 sm:p-5 flex flex-col bg-white dark:bg-[#021A13] text-slate-800 dark:text-slate-100 select-none overflow-hidden">
           <div className="space-y-2.5">
             <div className="flex items-center justify-between">
-              <span className="px-2 py-0.5 rounded-full text-[8.5px] font-black uppercase tracking-widest bg-emerald-50 dark:bg-sky-950/80 text-emerald-700 dark:text-[#38BDF8] border border-emerald-200 dark:border-sky-800/40">
+              <span className="px-2 py-0.5 rounded-full text-[8.5px] font-black uppercase tracking-widest bg-emerald-50 dark:bg-[#01140E] text-emerald-700 dark:text-[#F3E5AB] border border-emerald-200 dark:border-[#D4AF37]/40">
                 CULINARY R&amp;D
               </span>
-              <span className="text-[9.5px] font-mono text-slate-400">PAGE 04</span>
+              <span className="text-[9.5px] font-mono text-slate-400">
+                PAGE 04
+              </span>
             </div>
 
             <div>
               <h3 className="text-lg sm:text-xl font-black text-slate-900 dark:text-white leading-tight">
                 Master Chef Leadership
               </h3>
-              <p className="text-xs font-bold text-emerald-600 dark:text-[#38BDF8] mt-0.5">
+              <p className="text-xs font-bold text-emerald-600 dark:text-[#D4AF37] mt-0.5">
                 Director of Culinary &amp; Quality
               </p>
             </div>
 
-            <div className="py-2.5 px-3 rounded-xl bg-slate-50 dark:bg-[#0E223D] border border-slate-200/90 dark:border-slate-800/80 space-y-2">
+            <div className="py-2.5 px-3 rounded-xl bg-slate-50 dark:bg-[#01140E] border border-slate-200/90 dark:border-[#D4AF37]/30 space-y-2">
               <div className="flex items-center justify-between text-[11px]">
                 <div className="flex items-center gap-2 text-slate-700 dark:text-slate-200 min-w-0 pr-1">
-                  <Mail className="w-3.5 h-3.5 text-emerald-600 dark:text-[#38BDF8] shrink-0" />
-                  <span className="truncate font-sans font-medium tracking-tight text-[11.5px] select-all">culinary.leadership@dattatraytraders.com</span>
+                  <Mail className="w-3.5 h-3.5 text-emerald-600 dark:text-[#D4AF37] shrink-0" />
+                  <span className="truncate font-sans font-medium tracking-tight text-[11.5px] select-all">
+                    culinary.leadership@dattatraytraders.com
+                  </span>
                 </div>
                 <button
                   type="button"
-                  onClick={() => handleCopyEmail("culinary.leadership@dattatraytraders.com", "Chef Rajesh Ranveer")}
-                  className="p-1 rounded hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-400 hover:text-slate-700 dark:hover:text-white transition-all active:scale-90 shrink-0 cursor-pointer"
+                  onClick={() =>
+                    handleCopyEmail(
+                      "culinary.leadership@dattatraytraders.com",
+                      "Chef Rajesh Ranveer",
+                    )
+                  }
+                  className="p-1 rounded hover:bg-slate-200 dark:hover:bg-emerald-950 text-slate-400 hover:text-slate-700 dark:hover:text-white transition-all active:scale-90 shrink-0 cursor-pointer"
                   title="Copy email"
                 >
-                  {copiedEmail === "culinary.leadership@dattatraytraders.com" ? (
+                  {copiedEmail ===
+                  "culinary.leadership@dattatraytraders.com" ? (
                     <Check className="w-3 h-3 text-emerald-500" />
                   ) : (
                     <Copy className="w-3 h-3" />
@@ -697,15 +791,19 @@ export default function LeadershipPage() {
                 </button>
               </div>
 
-              <div className="flex items-center justify-between text-[10px] text-slate-500 dark:text-slate-400 pt-1.5 border-t border-slate-200/60 dark:border-slate-800/60">
+              <div className="flex items-center justify-between text-[10px] text-slate-500 dark:text-slate-400 pt-1.5 border-t border-slate-200/60 dark:border-[#D4AF37]/20">
                 <div className="flex items-center gap-1.5 truncate">
                   <Phone className="w-2.5 h-2.5 text-slate-400 shrink-0" />
-                  <span className="font-medium tracking-tight truncate">+91 94220 00003 • Sensory Testing Kitchen</span>
+                  <span className="font-medium tracking-tight truncate">
+                    +91 94220 00003 • Sensory Testing Kitchen
+                  </span>
                 </div>
                 <button
                   type="button"
-                  onClick={() => handleCopyPhone("+91 94220 00003", "Chef Rajesh Ranveer")}
-                  className="p-0.5 rounded hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-400 hover:text-slate-700 dark:hover:text-white transition-all active:scale-90 shrink-0 cursor-pointer"
+                  onClick={() =>
+                    handleCopyPhone("+91 94220 00003", "Chef Rajesh Ranveer")
+                  }
+                  className="p-0.5 rounded hover:bg-slate-200 dark:hover:bg-emerald-950 text-slate-400 hover:text-slate-700 dark:hover:text-white transition-all active:scale-90 shrink-0 cursor-pointer"
                   title="Copy phone"
                 >
                   <Copy className="w-2.5 h-2.5" />
@@ -713,31 +811,41 @@ export default function LeadershipPage() {
               </div>
             </div>
 
-            <p className="text-[11px] text-slate-600 dark:text-slate-300 leading-snug">
-              Formulates recipe protocols and sensory quality baselines for quick-frozen vegetables and snacks, sealing original farm flavour.
+            <p className="text-[11px] text-slate-600 dark:text-slate-300 leading-snug text-justify [text-justify:inter-word] [text-wrap:pretty]">
+              Formulates recipe protocols and sensory quality baselines for
+              quick-frozen vegetables and snacks, sealing original farm freshness.
             </p>
 
-            <div className="space-y-1 pt-0.5">
+            <div className="space-y-1.5 pt-0.5">
               <p className="text-[9px] font-black uppercase tracking-wider text-slate-400">
                 Key Credentials:
               </p>
               {[
-                "Board Certified Executive Culinary Director",
-                "Sensory Quality Assessment Specialist",
-                "Architect of HoReCa Frozen Standards"
-              ].map((item, idx) => (
-                <div key={idx} className="flex items-center gap-1.5 text-[10px] text-slate-700 dark:text-slate-300">
-                  <CheckCircle2 className="w-2.5 h-2.5 text-emerald-500 shrink-0" />
-                  <span>{item}</span>
-                </div>
-              ))}
+                { text: "Board Certified Executive Culinary Director", icon: Award },
+                { text: "Sensory Quality Assessment Specialist", icon: Sparkles },
+                { text: "Architect of HoReCa Frozen Standards", icon: CheckCircle2 },
+              ].map((item, idx) => {
+                const itemText = typeof item === "string" ? item : (item?.text || "");
+                const ItemIcon = (typeof item === "object" && item?.icon) ? item.icon : CheckCircle2;
+                return (
+                  <div
+                    key={idx}
+                    className="flex items-center gap-2 text-[10px] text-slate-700 dark:text-slate-300"
+                  >
+                    <div className="w-4 h-4 rounded-full bg-emerald-500/15 dark:bg-emerald-500/25 border border-emerald-500/40 flex items-center justify-center shrink-0">
+                      <ItemIcon className="w-2.5 h-2.5 text-emerald-600 dark:text-emerald-400" />
+                    </div>
+                    <span>{itemText}</span>
+                  </div>
+                );
+              })}
             </div>
           </div>
 
-          <div className="mt-auto pt-3 border-t border-slate-100 dark:border-slate-800">
+          <div className="mt-auto pt-3 border-t border-slate-100 dark:border-[#D4AF37]/20">
             <Link
               to="/contact"
-              className="w-full py-2.5 px-3 rounded-xl text-xs font-black uppercase tracking-wider flex items-center justify-center gap-2 bg-gradient-to-r from-emerald-500 via-emerald-600 to-teal-600 hover:from-emerald-400 hover:to-teal-500 text-white shadow-md shadow-emerald-600/30 dark:from-[#1E56C8] dark:via-[#0284C7] dark:to-[#38BDF8] dark:hover:from-[#2563EB] dark:hover:to-[#60A5FA] dark:text-white transition-all duration-300 hover:scale-[1.02] active:scale-95 cursor-pointer"
+              className="w-full py-2.5 px-3 rounded-xl text-xs font-black uppercase tracking-wider flex items-center justify-center gap-2 bg-gradient-to-r from-emerald-600 via-emerald-700 to-teal-700 hover:from-emerald-500 hover:to-teal-600 text-white shadow-md dark:from-[#D4AF37] dark:via-[#F3E5AB] dark:to-[#C8A950] dark:text-[#01140E] transition-all duration-300 hover:scale-[1.02] active:scale-95 cursor-pointer"
             >
               <span>Connect with Culinary Team</span>
               <ArrowRight className="w-3.5 h-3.5" />
@@ -746,51 +854,60 @@ export default function LeadershipPage() {
         </div>
       ),
       backContent: (
-        // ENDPLATE: Corporate Governance Summary (Content Reduced to fit comfortably)
-        <div className="w-full h-full p-4 sm:p-5 flex flex-col bg-gradient-to-br from-[#06101E] via-[#09172A] to-[#0B1F38] text-white border-2 border-slate-700 select-none overflow-hidden">
+        // ENDPLATE: Corporate Governance Summary
+        <div className="w-full h-full p-4 sm:p-5 flex flex-col bg-gradient-to-br from-[#021A13] via-[#042A1E] to-[#01140E] text-white border-2 border-[#D4AF37]/40 select-none overflow-hidden">
           <div className="space-y-2.5">
             <div className="flex items-center justify-between">
-              <span className="px-2 py-0.5 rounded-full text-[8.5px] font-black uppercase tracking-widest bg-sky-950 border border-sky-500/40 text-sky-300">
+              <span className="px-2 py-0.5 rounded-full text-[8.5px] font-black uppercase tracking-widest bg-emerald-950 border border-[#D4AF37]/40 text-[#F3E5AB]">
                 GOVERNANCE LEDGER
               </span>
-              <span className="text-[9.5px] font-mono text-slate-400">ENDPLATE</span>
+              <span className="text-[9.5px] font-mono text-[#D4AF37]">
+                ENDPLATE
+              </span>
             </div>
 
             <h3 className="text-base sm:text-lg font-black text-white tracking-tight leading-tight">
               Corporate Governance
             </h3>
 
-            <p className="text-[11px] text-slate-300 leading-snug">
-              Unbroken -18°C cold-chain integrity, APEDA export standards, and grower welfare governed under direct board oversight.
+            <p className="text-[11px] text-slate-200 leading-snug text-justify [text-justify:inter-word] [text-wrap:pretty]">
+              Unbroken -18°C cold-chain integrity, APEDA export standards, and
+              grower welfare governed under direct board oversight.
             </p>
 
-            <div className="pt-1.5 space-y-1.5 border-t border-slate-800">
-              <div className="flex items-center gap-2 text-[10.5px] text-slate-300">
-                <ShieldCheck className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+            <div className="pt-2 space-y-2 border-t border-emerald-500/20">
+              <div className="flex items-center gap-2.5 text-[10.5px] text-slate-200">
+                <div className="w-4 h-4 rounded-full bg-amber-500/20 border border-amber-400/40 flex items-center justify-center shrink-0">
+                  <ShieldCheck className="w-2.5 h-2.5 text-[#F3E5AB]" />
+                </div>
                 <span>APEDA Phytosanitary &amp; FSSAI Standard Compliant</span>
               </div>
-              <div className="flex items-center gap-2 text-[10.5px] text-slate-300">
-                <ThermometerSnowflake className="w-3.5 h-3.5 text-sky-400 shrink-0" />
+              <div className="flex items-center gap-2.5 text-[10.5px] text-slate-200">
+                <div className="w-4 h-4 rounded-full bg-emerald-500/20 border border-emerald-400/40 flex items-center justify-center shrink-0">
+                  <ThermometerSnowflake className="w-2.5 h-2.5 text-emerald-300" />
+                </div>
                 <span>-18°C Cryo-Telemetry Continuous Audit Logs</span>
               </div>
-              <div className="flex items-center gap-2 text-[10.5px] text-slate-300">
-                <Globe2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+              <div className="flex items-center gap-2.5 text-[10.5px] text-slate-200">
+                <div className="w-4 h-4 rounded-full bg-amber-500/20 border border-amber-400/40 flex items-center justify-center shrink-0">
+                  <Globe2 className="w-2.5 h-2.5 text-[#F3E5AB]" />
+                </div>
                 <span>Direct Export Corridors: JNPT &amp; Mundra</span>
               </div>
             </div>
           </div>
 
-          <div className="mt-auto pt-3 border-t border-slate-800 flex items-center justify-between">
+          <div className="mt-auto pt-3 border-t border-emerald-500/20 flex items-center justify-between">
             <button
               type="button"
               onClick={() => bookRef.current?.reset()}
-              className="text-xs font-bold text-[#38BDF8] hover:underline flex items-center gap-1 cursor-pointer"
+              className="text-xs font-bold text-[#D4AF37] hover:underline flex items-center gap-1 cursor-pointer"
             >
               <span>← Return to Cover</span>
             </button>
             <Link
               to="/contact"
-              className="px-3.5 py-1.5 rounded-xl text-[10px] font-black uppercase tracking-wider bg-gradient-to-r from-emerald-500 via-emerald-600 to-teal-600 hover:from-emerald-400 hover:to-teal-500 text-white shadow-md shadow-emerald-600/30 transition-all hover:scale-105 active:scale-95"
+              className="px-3.5 py-1.5 rounded-xl text-[10px] font-black uppercase tracking-wider bg-gradient-to-r from-[#D4AF37] via-[#F3E5AB] to-[#C8A950] text-[#01140E] shadow-md transition-all hover:scale-105 active:scale-95 font-black"
             >
               Contact Board
             </Link>
@@ -803,91 +920,59 @@ export default function LeadershipPage() {
   ];
 
   return (
-    <div className="bg-[#F9FBFC] dark:bg-[#07111E] min-h-screen text-[#0B2546] dark:text-[#F1F5F9] transition-colors duration-300 overflow-x-hidden">
-      
+    <div className="bg-[#F9FBFC] dark:bg-[#06100B] min-h-screen text-[#0B2546] dark:text-[#F1F5F9] transition-colors duration-300 overflow-x-hidden">
       {/* ═════════════════════════════════════════════════════════════════════════════
-          TOP GRAND HERO BANNER
-          - Single 1-Line Horizontal Heading: "Empowering Leaders, Transforming Organizations"
-          - Minimized 2-Line Subtitle Description
-          - Interactive Hanging ID Badge with Chef Leadership & Continuous Sway Physics
+          TOP GRAND HERO BANNER WITH CONDITIONAL THEME ADAPTATION:
+          - Matching AboutPage dimensions, typography hierarchy, font sizes & responsive spacing
       ═════════════════════════════════════════════════════════════════════════════ */}
       <section
-        className={`relative w-full pt-28 sm:pt-32 pb-24 sm:pb-32 overflow-hidden text-white transition-all duration-500 ${
+        className={`relative w-full pt-20 sm:pt-24 pb-16 sm:pb-16 overflow-hidden text-white transition-all duration-500 ${
           isDark
-            ? "bg-gradient-to-b from-[#06101E] via-[#09172A] to-[#0B1F38]"
+            ? "bg-gradient-to-b from-[#01140E] via-[#022117] to-[#010E09]"
             : "bg-gradient-to-b from-[#021A13] via-[#042A1E] to-[#01140E]"
         }`}
       >
-        {/* Ambient Glow Orbs */}
-        <div
-          className={`absolute top-10 left-10 w-96 h-96 rounded-full blur-[140px] pointer-events-none transition-all duration-500 ${
-            isDark ? "bg-[#1E56C8]/25" : "bg-emerald-600/20"
-          }`}
-        />
-        <div
-          className={`absolute top-20 right-10 w-96 h-96 rounded-full blur-[140px] pointer-events-none transition-all duration-500 ${
-            isDark ? "bg-[#38BDF8]/20" : "bg-emerald-400/15"
-          }`}
-        />
-        <div
-          className={`absolute -bottom-10 left-1/2 -translate-x-1/2 w-[800px] h-64 rounded-full blur-[160px] pointer-events-none transition-all duration-500 ${
-            isDark ? "bg-[#0284C7]/15" : "bg-teal-600/15"
-          }`}
-        />
+        {/* Ambient Glow Orbs in Golden & Emerald Harmony */}
+        <div className="absolute top-10 left-10 w-96 h-96 rounded-full blur-[140px] pointer-events-none bg-[#D4AF37]/20" />
+        <div className="absolute top-20 right-10 w-96 h-96 rounded-full blur-[140px] pointer-events-none bg-emerald-600/20" />
+        <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 w-[800px] h-64 rounded-full blur-[160px] pointer-events-none bg-[#C8A950]/15" />
 
         <div className="relative w-full max-w-[94%] xl:max-w-[1440px] 2xl:max-w-[1580px] mx-auto px-4 sm:px-6 lg:px-8 z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 xl:gap-16 items-center">
+            {/* ── Left Side: Interactive GSAP Bounce-In Heading & Subheading ── */}
+            <div className="lg:col-span-7 xl:col-span-7 space-y-4">
+              {/* Badge */}
             
-            {/* ── Left Side: 1-Line Horizontal Heading & Subheading ── */}
-            <div className="lg:col-span-7 xl:col-span-7 space-y-5" ref={headingRef}>
-              
-              {/* ✦ 1-LINE HORIZONTAL DUAL HEADING ("Empowering Leaders, Transforming Organizations") ✦ */}
-              <div className="py-1 space-y-2">
-                <h1 className="font-sans tracking-tight leading-tight select-none">
-                  <span className="heading-bounce inline text-3xl sm:text-4xl md:text-5xl lg:text-[44px] xl:text-[52px] font-black text-emerald-400 dark:text-[#38BDF8] drop-shadow-md">
-                    Empowering Leaders,{" "}
+
+              {/* ✦ GSAP Bounce-In Animated Heading (Golden & White) ✦ */}
+              <div ref={headingRef} className="py-2 space-y-2">
+                <h1 className="font-sans tracking-tight leading-[1.05]">
+                  <span className="heading-bounce block text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black bg-gradient-to-r from-[#D4AF37] via-[#F3E5AB] to-[#C8A950] bg-clip-text text-transparent drop-shadow-[0_4px_30px_rgba(212,175,55,0.35)] select-none transition-all duration-500">
+                    EMPOWERING LEADERS,
                   </span>
-                  <span className="heading-bounce inline text-3xl sm:text-4xl md:text-5xl lg:text-[44px] xl:text-[52px] font-black text-white drop-shadow-md">
-                    Transforming Organizations
+
+                  <span className="heading-bounce block text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-white tracking-tight drop-shadow-[0_4px_24px_rgba(0,0,0,0.65)] select-none mt-1">
+                    INSPIRING SUCCESS
                   </span>
                 </h1>
 
-                {/* Subtitle Accent Bar */}
                 <div className="heading-bounce flex items-center gap-2 pt-1">
-                  <div
-                    className={`h-[2px] w-8 rounded-full transition-all duration-500 ${
-                      isDark ? "bg-[#38BDF8]" : "bg-emerald-400"
-                    }`}
-                  />
-                  <span
-                    className={`text-[10px] sm:text-xs md:text-sm font-black uppercase tracking-[0.1em] sm:tracking-[0.25em] transition-all duration-500 ${
-                      isDark ? "text-[#38BDF8]" : "text-emerald-400"
-                    }`}
-                  >
+                  <div className="h-[2px] w-8 rounded-full bg-[#D4AF37]" />
+                  <span className="text-[10px] sm:text-xs md:text-sm font-black uppercase tracking-[0.1em] sm:tracking-[0.25em] text-[#F3E5AB]">
                     DRIVING COLD-CHAIN EXCELLENCE &amp; SUSTAINABLE TRADE
                   </span>
                 </div>
               </div>
 
-              {/* Description (strictly 2 clean, balanced lines) */}
-              <p
-                className={`text-base sm:text-lg leading-relaxed max-w-xl font-normal transition-colors duration-500 ${
-                  isDark ? "text-slate-300" : "text-emerald-100/90"
-                }`}
-                style={{ textWrap: "balance" }}
-              >
-                Comprehensive leadership solutions designed to unlock potential, inspire teams, and drive sustainable success for your organization.
+              <p className="text-sm sm:text-base lg:text-lg leading-relaxed max-w-2xl text-emerald-100/90 font-normal text-justify [text-justify:inter-word] [text-wrap:pretty]">
+                Empowering people, inspiring teams, and building strong leadership to drive sustainable growth and global success with uncompromised integrity across every tier of governance.
               </p>
 
               {/* Action Buttons */}
-              <div className="pt-3 flex flex-col sm:flex-row flex-wrap items-start sm:items-center gap-3 sm:gap-4">
+              <div className="pt-3 flex flex-col sm:flex-row flex-wrap items-start sm:items-center gap-2.5 sm:gap-3.5">
                 <a
                   href="#our-leaders"
-                  className={`w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 sm:px-8 py-3.5 sm:py-4 rounded-full font-bold text-xs sm:text-sm uppercase tracking-wider shadow-lg hover:scale-105 active:scale-95 transition-all duration-300 border ${
-                    isDark
-                      ? "border-[#38BDF8]/60 bg-sky-950/40 text-[#38BDF8] hover:bg-[#38BDF8] hover:text-[#06101E] shadow-[#38BDF8]/20"
-                      : "border-emerald-400/70 bg-emerald-950/40 text-emerald-300 hover:bg-emerald-400 hover:text-[#021A13] shadow-emerald-500/20"
-                  }`}
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 sm:px-7 py-3 sm:py-3.5 rounded-full font-black text-xs sm:text-sm uppercase tracking-wider shadow-xl hover:scale-105 active:scale-95 transition-all duration-300 bg-gradient-to-r from-[#D4AF37] via-[#F3E5AB] to-[#C8A950] text-[#021A13]"
                 >
                   <span>Explore Leaders</span>
                   <ArrowRight className="w-4 h-4" />
@@ -895,36 +980,33 @@ export default function LeadershipPage() {
 
                 <a
                   href="#our-leaders"
-                  className={`w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 sm:px-8 py-3.5 sm:py-4 rounded-full font-bold text-xs sm:text-sm uppercase tracking-wider backdrop-blur-md hover:scale-105 active:scale-95 transition-all duration-300 ${
-                    isDark
-                      ? "bg-gradient-to-r from-[#38BDF8] to-[#0284C7] hover:from-[#60A5FA] hover:to-[#1E56C8] text-[#06101E] shadow-xl shadow-[#0284C7]/30"
-                      : "bg-gradient-to-r from-emerald-400 via-emerald-500 to-teal-600 hover:from-emerald-300 hover:to-emerald-500 text-slate-950 shadow-xl shadow-emerald-950/40"
-                  }`}
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 sm:px-7 py-3 sm:py-3.5 rounded-full bg-white/10 backdrop-blur-md font-bold text-xs sm:text-sm uppercase tracking-wider hover:scale-105 active:scale-95 transition-all duration-300 hover:bg-emerald-950/50 text-white border border-emerald-500/30 hover:border-[#D4AF37]"
                 >
                   <span>Open Executive Ledger</span>
                   <BookOpen className="w-4 h-4" />
                 </a>
               </div>
-
             </div>
 
             {/* ── Right Side: Interactive Hanging ID Badge with Chef Leadership & Physics ── */}
-            <div className="lg:col-span-5 xl:col-span-5 flex justify-center relative" ref={heroImageRef}>
-              <div className="relative w-full max-w-[500px] flex flex-col items-center justify-center">
-                <div className="relative z-10 w-full flex justify-center pt-2">
+            <div
+              className="lg:col-span-5 xl:col-span-5 relative flex items-center justify-center select-none py-2"
+              ref={heroImageRef}
+            >
+              <div className="relative w-full max-w-[480px] flex flex-col items-center justify-center">
+                <div className="relative z-10 w-full flex justify-center -mt-4 sm:-mt-6">
                   <HangingIdCard
-                    ropeLength={115}
-                    ropeColor={isDark ? "#0284C7" : "#042a1e"}
+                    ropeLength={95}
+                    ropeColor="#042a1e"
                     name="Master Chef Leadership"
                     role="Director of Culinary & Quality"
                     badgeId="DT-CHEF-01"
-                    accentColor={isDark ? "#38BDF8" : "#059669"}
+                    accentColor="#D4AF37"
                     avatarImage={chefleadshipImg}
                   />
                 </div>
               </div>
             </div>
-
           </div>
         </div>
 
@@ -933,13 +1015,12 @@ export default function LeadershipPage() {
           <svg
             viewBox="0 0 1200 120"
             preserveAspectRatio="none"
-            className="relative block w-full h-10 sm:h-14 lg:h-16 fill-[#F9FBFC] dark:fill-[#07111E] transition-colors duration-300 translate-y-[1px]"
+            className="relative block w-full h-10 sm:h-14 lg:h-16 fill-[#F9FBFC] dark:fill-[#06100B] transition-colors duration-300 translate-y-[1px]"
           >
             <path d="M0,0 C150,90 350,-40 500,60 C650,160 900,10 1200,40 L1200,125 L0,125 Z"></path>
           </svg>
         </div>
       </section>
-
 
       {/* ═════════════════════════════════════════════════════════════════════════════
           SECTION 2: "OUR LEADERS" SIDE-BY-SIDE INTERACTIVE EXECUTIVE SHOWCASE
@@ -947,38 +1028,31 @@ export default function LeadershipPage() {
           - Left Side: 3D Pageflip Book (Auto-Flip + Centered Endplate)
           - Right Side: Synchronized Spotlight Card with Matching Equal Height
       ═════════════════════════════════════════════════════════════════════════════ */}
-      <section id="our-leaders" className={`pt-12 sm:pt-16 pb-6 sm:pb-8 transition-colors duration-300 relative ${
-        isDark ? "bg-[#07111E]" : "bg-[#F9FBFC]"
-      }`}>
+      <section
+        id="our-leaders"
+        className={`pt-14 sm:pt-20 pb-8 sm:pb-12 transition-colors duration-300 relative ${
+          isDark ? "bg-[#06100B]" : "bg-[#F9FBFC]"
+        }`}
+      >
         <div className="w-full max-w-[94%] xl:max-w-[1440px] 2xl:max-w-[1580px] mx-auto px-4 sm:px-6 lg:px-8">
-          
-          {/* ── Section Header matching TradingPage & AboutPage Signature Style ── */}
-          <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#1E56C8]/10 dark:bg-[#38BDF8]/15 border border-[#1E56C8]/20 dark:border-[#38BDF8]/30 text-[#1E56C8] dark:text-[#38BDF8] text-xs font-black uppercase tracking-[0.2em] mb-2.5 sm:mb-3 shadow-sm">
-              <Award className="w-3.5 h-3.5" />
-              <span>EXECUTIVE GOVERNANCE &amp; DIRECTORS</span>
-            </div>
+          {/* ── Section Header matching AboutPage Signature Style ── */}
+          <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14 space-y-3">
             
             <SplitTextHeading
               as="h2"
-              className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#0B2546] dark:text-white tracking-tight leading-[1.02] sm:leading-[1.05] mb-2.5"
+              className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#111827] dark:text-white tracking-tight leading-[1.15]"
             >
-              Our Executive <br className="hidden sm:block" />
-              <span className="bg-gradient-to-r from-emerald-600 via-[#1E56C8] to-[#38BDF8] dark:from-emerald-400 dark:via-[#38BDF8] dark:to-sky-300 bg-clip-text text-transparent">
-                Board
+              Our Executive{" "}
+              <span className="bg-gradient-to-r from-[#B4882F] via-[#D4AF37] to-[#C8A950] dark:from-[#D4AF37] dark:via-[#F3E5AB] dark:to-[#C8A950] bg-clip-text text-transparent">
+                Board &amp; Leadership
               </span>
             </SplitTextHeading>
-            
-            <p className="text-xs sm:text-sm md:text-base text-[#5D6B7E] dark:text-slate-300 leading-relaxed max-w-2xl mx-auto">
-              Guiding three decades of agricultural market stewardship, cold-chain innovation, and global compliance.
-            </p>
 
-          
+            
           </div>
 
           {/* Side-by-Side Grid with Perfectly Balanced Equal Height */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 xl:gap-12 items-stretch">
-            
             {/* ── LEFT SIDE: Increased Size 3D Pageflip Book with Auto-Flip ── */}
             <div className="lg:col-span-7 xl:col-span-7 flex flex-col items-center justify-between overflow-visible">
               <div className="w-full flex justify-center overflow-x-auto py-2 no-scrollbar">
@@ -991,9 +1065,9 @@ export default function LeadershipPage() {
                   perspective={1400}
                   peekAngle={14}
                   duration={0.7}
-                  shadowIntensity={0.45}
+                  shadowIntensity={0.12}
                   spineShift={true}
-                  accentColor={isDark ? "#38BDF8" : "#059669"}
+                  accentColor={isDark ? "#D4AF37" : "#059669"}
                   autoplay={true}
                   autoplayInterval={4500}
                   pauseOnHover={true}
@@ -1008,18 +1082,20 @@ export default function LeadershipPage() {
               <div
                 className={`p-6 sm:p-7 rounded-3xl border transition-all duration-300 flex flex-col justify-between flex-1 shadow-xl ${
                   isDark
-                    ? "bg-[#0E223D] border-slate-800 shadow-slate-950/50"
+                    ? "bg-gradient-to-br from-[#021A13] via-[#03261A] to-[#010E09] border-[#D4AF37]/35 shadow-2xl"
                     : "bg-white border-slate-200/90 shadow-slate-200/50"
                 }`}
               >
                 {/* Top: Header Badges & Names */}
                 <div className="space-y-4">
                   <div className="flex items-center justify-between gap-3">
-                    <span className="inline-block px-3 py-1 rounded-full text-[9.5px] font-black uppercase tracking-wider bg-emerald-50 dark:bg-sky-950 text-emerald-700 dark:text-[#38BDF8] border border-emerald-200 dark:border-sky-800/50">
+                    <span className="inline-block px-3 py-1 rounded-full text-[9.5px] font-black uppercase tracking-wider bg-emerald-50 dark:bg-[#01140E] text-emerald-700 dark:text-[#F3E5AB] border border-emerald-200 dark:border-[#D4AF37]/40">
                       {activeDirector.badge}
                     </span>
-                    <span className="text-xs font-mono font-bold text-slate-400">
-                      {currentTurnedLeaf === 0 ? "Cover Leaf" : `Director 0${currentTurnedLeaf} / 04`}
+                    <span className="text-xs font-mono font-bold text-slate-400 dark:text-slate-400">
+                      {currentTurnedLeaf === 0
+                        ? "Cover Leaf"
+                        : `Director 0${currentTurnedLeaf} / 04`}
                     </span>
                   </div>
 
@@ -1027,27 +1103,32 @@ export default function LeadershipPage() {
                     <h3 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white leading-tight">
                       {activeDirector.name}
                     </h3>
-                    <p className="text-xs sm:text-sm font-bold text-emerald-600 dark:text-[#38BDF8] mt-1">
+                    <p className="text-xs sm:text-sm font-bold text-emerald-600 dark:text-[#D4AF37] mt-1">
                       {activeDirector.role}
                     </p>
                   </div>
 
-                  {/* Email Address & Contact Card with Senior Frontend Text Spacing & Sonner Toasts */}
-                  <div className="py-3 px-4 rounded-2xl bg-slate-50 dark:bg-[#071322] border border-slate-200/80 dark:border-slate-800 space-y-2.5">
+                  {/* Email Address & Contact Card */}
+                  <div className="py-3 px-4 rounded-2xl bg-slate-50 dark:bg-[#01140E] border border-slate-200/80 dark:border-[#D4AF37]/30 space-y-2.5">
                     <div className="flex items-center justify-between text-xs">
                       <div className="flex items-center gap-2.5 text-slate-700 dark:text-slate-200 min-w-0 pr-2">
-                        <Mail className="w-4 h-4 text-emerald-600 dark:text-[#38BDF8] shrink-0" />
+                        <Mail className="w-4 h-4 text-emerald-600 dark:text-[#D4AF37] shrink-0" />
                         <a
                           href={`mailto:${activeDirector.email}`}
-                          className="hover:underline truncate font-sans font-medium text-[13px] tracking-tight hover:text-emerald-600 dark:hover:text-[#38BDF8] transition-colors"
+                          className="hover:underline truncate font-sans font-medium text-[13px] tracking-tight hover:text-emerald-600 dark:hover:text-[#F3E5AB] transition-colors"
                         >
                           {activeDirector.email}
                         </a>
                       </div>
                       <button
                         type="button"
-                        onClick={() => handleCopyEmail(activeDirector.email, activeDirector.name)}
-                        className="p-1.5 rounded-lg hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-400 hover:text-slate-700 dark:hover:text-white transition-all active:scale-90 shrink-0 cursor-pointer"
+                        onClick={() =>
+                          handleCopyEmail(
+                            activeDirector.email,
+                            activeDirector.name,
+                          )
+                        }
+                        className="p-1.5 rounded-lg hover:bg-slate-200 dark:hover:bg-emerald-950 text-slate-400 hover:text-slate-700 dark:hover:text-white transition-all active:scale-90 shrink-0 cursor-pointer"
                         title="Copy email address"
                       >
                         {copiedEmail === activeDirector.email ? (
@@ -1058,15 +1139,22 @@ export default function LeadershipPage() {
                       </button>
                     </div>
 
-                    <div className="flex items-center justify-between text-xs text-slate-500 dark:text-slate-400 pt-2 border-t border-slate-200/60 dark:border-slate-800/60">
+                    <div className="flex items-center justify-between text-xs text-slate-500 dark:text-slate-400 pt-2 border-t border-slate-200/60 dark:border-[#D4AF37]/20">
                       <div className="flex items-center gap-2.5 truncate">
                         <Phone className="w-3.5 h-3.5 text-slate-400 shrink-0" />
-                        <span className="font-medium tracking-tight truncate">{activeDirector.phone}</span>
+                        <span className="font-medium tracking-tight truncate">
+                          {activeDirector.phone}
+                        </span>
                       </div>
                       <button
                         type="button"
-                        onClick={() => handleCopyPhone(activeDirector.phone, activeDirector.name)}
-                        className="p-1 rounded-md hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-400 hover:text-slate-700 dark:hover:text-white transition-all active:scale-90 shrink-0 cursor-pointer"
+                        onClick={() =>
+                          handleCopyPhone(
+                            activeDirector.phone,
+                            activeDirector.name,
+                          )
+                        }
+                        className="p-1 rounded-md hover:bg-slate-200 dark:hover:bg-emerald-950 text-slate-400 hover:text-slate-700 dark:hover:text-white transition-all active:scale-90 shrink-0 cursor-pointer"
                         title="Copy phone number"
                       >
                         <Copy className="w-3 h-3" />
@@ -1075,29 +1163,40 @@ export default function LeadershipPage() {
                   </div>
 
                   {/* Executive Bio Narrative */}
-                  <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                  <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed text-justify [text-justify:inter-word] [text-wrap:pretty]">
                     {activeDirector.bio}
                   </p>
 
                   {/* Governance Credentials Checklist */}
-                  <div className="space-y-2 pt-1 border-t border-slate-100 dark:border-slate-800/80">
-                    <p className="text-[10px] font-black uppercase tracking-wider text-slate-400">
-                      Governance &amp; Board Focus:
+                  <div className="space-y-2.5 pt-2 border-t border-slate-100 dark:border-[#D4AF37]/20">
+                    <p className="text-[10px] font-black uppercase tracking-wider text-slate-400 dark:text-slate-400">
+                      GOVERNANCE &amp; BOARD FOCUS:
                     </p>
-                    {activeDirector.credentials.map((cred, idx) => (
-                      <div key={idx} className="flex items-center gap-2 text-xs text-slate-700 dark:text-slate-300">
-                        <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0" />
-                        <span>{cred}</span>
-                      </div>
-                    ))}
+                    <div className="space-y-2">
+                      {activeDirector?.credentials?.map((cred, idx) => {
+                        const credText = typeof cred === "string" ? cred : (cred?.text || "");
+                        const CredIcon = (typeof cred === "object" && cred?.icon) ? cred.icon : CheckCircle2;
+                        return (
+                          <div
+                            key={idx}
+                            className="flex items-center gap-2.5 text-xs sm:text-[13px] text-slate-700 dark:text-slate-200"
+                          >
+                            <div className="w-5 h-5 rounded-full bg-emerald-500/10 dark:bg-emerald-500/20 border border-emerald-500/30 dark:border-emerald-400/40 flex items-center justify-center shrink-0">
+                              <CredIcon className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
+                            </div>
+                            <span className="font-medium">{credText}</span>
+                          </div>
+                        );
+                      })}
+                    </div>
                   </div>
                 </div>
 
                 {/* Bottom Action Button */}
-                <div className="pt-4 mt-auto border-t border-slate-100 dark:border-slate-800">
+                <div className="pt-4 mt-auto border-t border-slate-100 dark:border-[#D4AF37]/20">
                   <Link
                     to="/contact"
-                    className="w-full py-3 px-4 rounded-xl text-xs sm:text-sm font-black uppercase tracking-wider flex items-center justify-center gap-2 bg-gradient-to-r from-emerald-500 via-emerald-600 to-teal-600 hover:from-emerald-400 hover:to-teal-500 text-white shadow-lg shadow-emerald-600/30 dark:from-[#1E56C8] dark:via-[#0284C7] dark:to-[#38BDF8] dark:hover:from-[#2563EB] dark:hover:to-[#60A5FA] dark:text-white transition-all duration-300 hover:scale-[1.02] active:scale-95 cursor-pointer"
+                    className="w-full py-3 px-4 rounded-xl text-xs sm:text-sm font-black uppercase tracking-wider flex items-center justify-center gap-2 bg-gradient-to-r from-[#14532D] via-[#15803D] to-[#16A34A] hover:from-[#15803D] hover:to-[#14532D] text-white shadow-lg dark:from-[#D4AF37] dark:via-[#F3E5AB] dark:to-[#C8A950] dark:text-[#01140E] transition-all duration-300 hover:scale-[1.02] active:scale-95 cursor-pointer"
                   >
                     <span>{activeDirector.ctaText}</span>
                     <ArrowRight className="w-4 h-4" />
@@ -1105,116 +1204,118 @@ export default function LeadershipPage() {
                 </div>
               </div>
             </div>
-
           </div>
-
         </div>
       </section>
 
-
       {/* ═════════════════════════════════════════════════════════════════════════════
           SECTION 3: CORE LEADERSHIP PILLARS & STRATEGIC GOVERNANCE
-          ✦ Enhanced with GSAP Draggable LiveSnap Inertia Physics Grid (.ball) ✦
       ═════════════════════════════════════════════════════════════════════════════ */}
-      <section className="pt-6 sm:pt-8 pb-14 sm:pb-20 transition-colors duration-300 relative">
+      <section className="pt-8 sm:pt-12 pb-16 sm:pb-24 transition-colors duration-300 relative">
         <div className="w-full max-w-[94%] xl:max-w-[1440px] 2xl:max-w-[1580px] mx-auto px-4 sm:px-6 lg:px-8">
-          
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-            
-            <div className="lg:col-span-5 space-y-5">
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#1E56C8]/10 dark:bg-[#38BDF8]/15 border border-[#1E56C8]/20 dark:border-[#38BDF8]/30 text-[#1E56C8] dark:text-[#38BDF8] text-xs font-black uppercase tracking-[0.2em] shadow-sm">
-                <Compass className="w-3.5 h-3.5" />
-                <span>OUR STRATEGIC CODE</span>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+            <div className="lg:col-span-5 space-y-5 sm:space-y-6">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 dark:bg-[#022A1C] border border-emerald-200 dark:border-[#D4AF37]/40 text-emerald-800 dark:text-[#F3E5AB] text-xs font-black uppercase tracking-[0.2em] shadow-sm">
+                <Compass className="w-3.5 h-3.5 text-emerald-600 dark:text-[#D4AF37]" />
+                <span>STRATEGIC GOVERNANCE CODE</span>
               </div>
 
               <SplitTextHeading
                 as="h2"
-                className="text-3xl sm:text-4xl md:text-5xl font-black text-[#0B2546] dark:text-white tracking-tight leading-tight"
+                className="text-3xl sm:text-4xl md:text-5xl font-black text-[#111827] dark:text-white tracking-tight leading-[1.15]"
               >
                 Four Pillars of{" "}
-                <span className="bg-gradient-to-r from-emerald-600 via-[#1E56C8] to-[#38BDF8] dark:from-emerald-400 dark:via-[#38BDF8] dark:to-sky-300 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-[#B4882F] via-[#D4AF37] to-[#C8A950] dark:from-[#D4AF37] dark:via-[#F3E5AB] dark:to-[#C8A950] bg-clip-text text-transparent">
                   Enduring Leadership
                 </span>
               </SplitTextHeading>
 
-              <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed">
-                Modern agribusiness demands more than trade execution—it requires unwavering ethical compass, scientific rigor, and farmer-centric economics.
-              </p>
+            
 
-              <div className="pt-2 space-y-3">
-                <div className="flex items-start gap-3">
-                  <div className="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-500 flex items-center justify-center shrink-0 mt-0.5">
-                    <CheckCircle2 className="w-4 h-4" />
+              <div className="pt-3 space-y-4">
+                <div className="flex items-start gap-3.5 group">
+                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-500/20 via-teal-500/15 to-emerald-950/30 dark:from-[#D4AF37]/25 dark:via-[#022A1C] dark:to-[#010E09] border border-emerald-500/30 dark:border-[#D4AF37]/40 text-emerald-600 dark:text-[#D4AF37] flex items-center justify-center shrink-0 shadow-sm mt-0.5 group-hover:scale-105 transition-transform duration-300">
+                    <ThermometerSnowflake className="w-5 h-5" />
                   </div>
                   <div>
-                    <h4 className="text-sm font-bold text-slate-900 dark:text-white">Zero Compromise on Cold Chain</h4>
-                    <p className="text-xs text-slate-500 dark:text-slate-400">Strict -18°C temperature telemetry recorded throughout storage and transit.</p>
+                    <h4 className="text-sm sm:text-[15px] font-black text-slate-900 dark:text-white">
+                      Zero Compromise on Cold Chain
+                    </h4>
+                    <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-300 mt-0.5 leading-relaxed">
+                      Strict -18°C temperature telemetry recorded throughout storage and reefer transit.
+                    </p>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-3">
-                  <div className="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-500 flex items-center justify-center shrink-0 mt-0.5">
-                    <CheckCircle2 className="w-4 h-4" />
+                <div className="flex items-start gap-3.5 group">
+                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-500/20 via-teal-500/15 to-emerald-950/30 dark:from-[#D4AF37]/25 dark:via-[#022A1C] dark:to-[#010E09] border border-emerald-500/30 dark:border-[#D4AF37]/40 text-emerald-600 dark:text-[#D4AF37] flex items-center justify-center shrink-0 shadow-sm mt-0.5 group-hover:scale-105 transition-transform duration-300">
+                    <Users className="w-5 h-5" />
                   </div>
                   <div>
-                    <h4 className="text-sm font-bold text-slate-900 dark:text-white">Direct Farmer Economic Dignity</h4>
-                    <p className="text-xs text-slate-500 dark:text-slate-400">Timely settlements and guaranteed procurement contracts for over 15,000 grower families.</p>
+                    <h4 className="text-sm sm:text-[15px] font-black text-slate-900 dark:text-white">
+                      Direct Farmer Economic Dignity
+                    </h4>
+                    <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-300 mt-0.5 leading-relaxed">
+                      Timely settlements and guaranteed procurement contracts for over 15,000 grower families.
+                    </p>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-3">
-                  <div className="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-500 flex items-center justify-center shrink-0 mt-0.5">
-                    <CheckCircle2 className="w-4 h-4" />
+                <div className="flex items-start gap-3.5 group">
+                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-500/20 via-teal-500/15 to-emerald-950/30 dark:from-[#D4AF37]/25 dark:via-[#022A1C] dark:to-[#010E09] border border-emerald-500/30 dark:border-[#D4AF37]/40 text-emerald-600 dark:text-[#D4AF37] flex items-center justify-center shrink-0 shadow-sm mt-0.5 group-hover:scale-105 transition-transform duration-300">
+                    <Globe2 className="w-5 h-5" />
                   </div>
                   <div>
-                    <h4 className="text-sm font-bold text-slate-900 dark:text-white">Institutional Global Trade</h4>
-                    <p className="text-xs text-slate-500 dark:text-slate-400">Multi-port containerized reefer exports meeting APEDA, FSSAI, and international phytosanitary laws.</p>
+                    <h4 className="text-sm sm:text-[15px] font-black text-slate-900 dark:text-white">
+                      Institutional Global Trade
+                    </h4>
+                    <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-300 mt-0.5 leading-relaxed">
+                      Multi-port containerized reefer exports meeting APEDA, FSSAI, and international phytosanitary laws.
+                    </p>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* Right Side: 4 Pillar Cards */}
-            <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6">
+            {/* Right Side: 4 Pillar Cards with Permanent Red React Icons & Stable Colors */}
+            <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6">
               {leadershipPillars.map((pillar) => {
                 const Icon = pillar.icon;
                 return (
                   <div
                     key={pillar.number}
-                    className={`p-6 sm:p-7 rounded-2xl border transition-all duration-300 hover:scale-[1.02] ${
+                    className={`relative p-6 sm:p-7 rounded-2xl border transition-all duration-300 hover:scale-[1.015] shadow-sm hover:shadow-lg ${
                       isDark
-                        ? "bg-[#0E223D] border-slate-800 hover:border-sky-500/50"
-                        : "bg-white border-slate-200 hover:border-slate-300 shadow-sm hover:shadow-md"
+                        ? "bg-gradient-to-br from-[#021A13] via-[#021F17] to-[#01140E] border-emerald-900/40"
+                        : "bg-white border-slate-200"
                     }`}
                   >
-                    <div className="flex items-center justify-between mb-4">
-                      <span className="text-2xl font-black text-slate-300 dark:text-slate-700">
-                        {pillar.number}
-                      </span>
-                      <div
-                        className={`w-10 h-10 rounded-xl flex items-center justify-center ${
-                          isDark ? "bg-sky-950 text-[#38BDF8]" : "bg-sky-50 text-[#123741]"
-                        }`}
-                      >
-                        <Icon className="w-5 h-5" />
+                    <div className="relative z-10">
+                      <div className="flex items-center justify-between mb-4">
+                        <span className="text-2xl sm:text-3xl font-black text-slate-300 dark:text-slate-600">
+                          {pillar.number}
+                        </span>
+                        <div
+                          className="w-12 h-12 sm:w-14 sm:h-14 rounded-full flex items-center justify-center bg-red-50 dark:bg-red-950/40 text-[#C62828] dark:text-[#EF5350] border border-red-200/80 dark:border-red-900/50 shadow-sm"
+                        >
+                          <Icon className="w-6 h-6 sm:w-7 sm:h-7 " />
+                        </div>
                       </div>
+
+                      <h3 className="text-base sm:text-lg font-black text-slate-900 dark:text-white mb-2 leading-snug">
+                        {pillar.title}
+                      </h3>
+                      <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-6 [text-wrap:pretty]">
+                        {pillar.description}
+                      </p>
                     </div>
-                    <h3 className="text-lg font-extrabold text-slate-900 dark:text-white mb-2">
-                      {pillar.title}
-                    </h3>
-                    <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
-                      {pillar.description}
-                    </p>
                   </div>
                 );
               })}
             </div>
-
           </div>
-
         </div>
       </section>
-
 
       {/* ═════════════════════════════════════════════════════════════════════════════
           SECTION 4: LEADERSHIP IMPACT COUNTER METRICS
@@ -1222,53 +1323,50 @@ export default function LeadershipPage() {
       <section
         className={`py-14 sm:py-16 border-y transition-colors duration-300 ${
           isDark
-            ? "bg-gradient-to-r from-[#06101E] via-[#09172A] to-[#06101E] border-slate-800"
+            ? "bg-gradient-to-br from-[#01140E] via-[#022A1C] to-[#010E09] border-[#D4AF37]/40"
             : "bg-gradient-to-r from-emerald-950 via-[#03241A] to-emerald-950 text-white border-emerald-900"
         }`}
       >
         <div className="w-full max-w-[94%] xl:max-w-[1440px] 2xl:max-w-[1580px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
-            
             <div className="space-y-1">
-              <p className="text-3xl sm:text-4xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-200">
+              <p className="text-3xl sm:text-4xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#D4AF37] via-[#F3E5AB] to-[#C8A950]">
                 <AnimatedNumber target={30} suffix="+" />
               </p>
-              <p className="text-xs sm:text-sm uppercase tracking-wider font-extrabold text-slate-300">
+              <p className="text-xs sm:text-sm uppercase tracking-wider font-extrabold text-[#F3E5AB]">
                 Years Agro Stewardship
               </p>
             </div>
 
             <div className="space-y-1">
-              <p className="text-3xl sm:text-4xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-200">
+              <p className="text-3xl sm:text-4xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#D4AF37] via-[#F3E5AB] to-[#C8A950]">
                 <AnimatedNumber target={5000} suffix="+ MT" />
               </p>
-              <p className="text-xs sm:text-sm uppercase tracking-wider font-extrabold text-slate-300">
+              <p className="text-xs sm:text-sm uppercase tracking-wider font-extrabold text-[#F3E5AB]">
                 Annual Cryo Storage
               </p>
             </div>
 
             <div className="space-y-1">
-              <p className="text-3xl sm:text-4xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-200">
+              <p className="text-3xl sm:text-4xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#D4AF37] via-[#F3E5AB] to-[#C8A950]">
                 <AnimatedNumber target={12} suffix="+" />
               </p>
-              <p className="text-xs sm:text-sm uppercase tracking-wider font-extrabold text-slate-300">
+              <p className="text-xs sm:text-sm uppercase tracking-wider font-extrabold text-[#F3E5AB]">
                 Global Export Ports
               </p>
             </div>
 
             <div className="space-y-1">
-              <p className="text-3xl sm:text-4xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-200">
+              <p className="text-3xl sm:text-4xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#D4AF37] via-[#F3E5AB] to-[#C8A950]">
                 <AnimatedNumber target={15000} suffix="+" />
               </p>
-              <p className="text-xs sm:text-sm uppercase tracking-wider font-extrabold text-slate-300">
+              <p className="text-xs sm:text-sm uppercase tracking-wider font-extrabold text-[#F3E5AB]">
                 Partner Farmers
               </p>
             </div>
-
           </div>
         </div>
       </section>
-
     </div>
   );
 }

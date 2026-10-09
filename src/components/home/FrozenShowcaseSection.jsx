@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import packGreenPeas from "../../assets/pack_green_peas.jpg";
 import packSweetCorn from "../../assets/pack_sweet_corn.jpg";
 import packSamosaSpringrolls from "../../assets/pack_samosa_springrolls.jpg";
@@ -108,7 +108,7 @@ const marqueeProductsRow2 = [
  */
 export default function FrozenShowcaseSection() {
   return (
-    <section className="relative w-full bg-white dark:bg-[#07111E] py-14 sm:py-18 lg:py-20 overflow-hidden text-[#1F2937] dark:text-[#E2E8F0] transition-colors duration-300">
+    <section className="relative w-full bg-white dark:bg-[#06100B] py-14 sm:py-18 lg:py-20 overflow-hidden text-[#1F2937] dark:text-[#E2E8F0] transition-colors duration-300">
       {/* ── Soft Ambient Warm Golden & Emerald Glow Orbs ── */}
       <div className="absolute -top-16 left-8 w-80 sm:w-96 h-80 sm:h-96 bg-[#C8A950]/8 dark:bg-[#D4AF37]/5 rounded-full blur-[140px] pointer-events-none" />
       <div className="absolute -bottom-16 right-8 w-80 sm:w-96 h-80 sm:h-96 bg-[#059669]/6 dark:bg-[#059669]/5 rounded-full blur-[140px] pointer-events-none" />
@@ -143,8 +143,8 @@ export default function FrozenShowcaseSection() {
         {/* Right Column: 2 Rows of Floating Food Products (Opposite Marquee with Faint Fade Masks) */}
         <div className="lg:col-span-8 xl:col-span-8 relative overflow-hidden space-y-4 sm:space-y-5">
           {/* Extended Gradient Fade Masks for Flawless Blending into Pure White Canvas */}
-          <div className="pointer-events-none absolute inset-y-0 left-0 w-24 sm:w-36 lg:w-44 bg-gradient-to-r from-white via-white/85 to-transparent dark:from-[#07111E] dark:via-[#07111E]/85 dark:to-transparent z-20" />
-          <div className="pointer-events-none absolute inset-y-0 right-0 w-20 sm:w-32 bg-gradient-to-l from-white via-white/85 to-transparent dark:from-[#07111E] dark:via-[#07111E]/85 dark:to-transparent z-20" />
+          <div className="pointer-events-none absolute inset-y-0 left-0 w-24 sm:w-36 lg:w-44 bg-gradient-to-r from-white via-white/85 to-transparent dark:from-[#06100B] dark:via-[#06100B]/85 dark:to-transparent z-20" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 w-20 sm:w-32 bg-gradient-to-l from-white via-white/85 to-transparent dark:from-[#06100B] dark:via-[#06100B]/85 dark:to-transparent z-20" />
 
           {/* Row 1: Scrolling LEFT (Mixed Variety with Golden Gradient Cards) */}
           <div className="overflow-hidden py-1">
@@ -153,7 +153,7 @@ export default function FrozenShowcaseSection() {
                 <Link
                   key={`mixed-r1-${p.id}-${idx}`}
                   to={p.link}
-                  className="group flex flex-col items-center justify-center p-4 sm:p-5 rounded-3xl bg-gradient-to-b from-[#FFFDF7] via-[#FAF5EA] to-[#F5EBD7] dark:from-[#0E1A26] dark:via-[#091520] dark:to-[#07111A] border border-[#C8A950]/35 dark:border-[#D4AF37]/25 w-40 sm:w-48 lg:w-52 shrink-0 transition-all duration-300 hover:scale-105 shadow-[0_8px_24px_rgba(200,169,80,0.12)] hover:shadow-[0_14px_36px_rgba(200,169,80,0.25)] hover:border-[#C8A950]"
+                  className="group flex flex-col items-center justify-center p-4 sm:p-5 rounded-3xl bg-gradient-to-b from-[#FFFDF7] via-[#FAF5EA] to-[#F5EBD7] dark:from-[#0E1B15] dark:via-[#0B1611] dark:to-[#06100B] border border-[#C8A950]/35 dark:border-[#D4AF37]/25 w-40 sm:w-48 lg:w-52 shrink-0 transition-all duration-300 hover:scale-105 shadow-[0_8px_24px_rgba(200,169,80,0.12)] hover:shadow-[0_14px_36px_rgba(200,169,80,0.25)] hover:border-[#C8A950]"
                   title={p.name}
                 >
                   <div className="w-28 h-28 sm:w-36 sm:h-36 lg:w-40 lg:h-40 flex items-center justify-center overflow-hidden">
@@ -179,7 +179,7 @@ export default function FrozenShowcaseSection() {
                 <Link
                   key={`mixed-r2-${p.id}-${idx}`}
                   to={p.link}
-                  className="group flex flex-col items-center justify-center p-4 sm:p-5 rounded-3xl bg-gradient-to-b from-[#FFFDF7] via-[#FAF5EA] to-[#F5EBD7] dark:from-[#0E1A26] dark:via-[#091520] dark:to-[#07111A] border border-[#C8A950]/35 dark:border-[#D4AF37]/25 w-40 sm:w-48 lg:w-52 shrink-0 transition-all duration-300 hover:scale-105 shadow-[0_8px_24px_rgba(200,169,80,0.12)] hover:shadow-[0_14px_36px_rgba(200,169,80,0.25)] hover:border-[#C8A950]"
+                  className="group flex flex-col items-center justify-center p-4 sm:p-5 rounded-3xl bg-gradient-to-b from-[#FFFDF7] via-[#FAF5EA] to-[#F5EBD7] dark:from-[#0E1B15] dark:via-[#0B1611] dark:to-[#06100B] border border-[#C8A950]/35 dark:border-[#D4AF37]/25 w-40 sm:w-48 lg:w-52 shrink-0 transition-all duration-300 hover:scale-105 shadow-[0_8px_24px_rgba(200,169,80,0.12)] hover:shadow-[0_14px_36px_rgba(200,169,80,0.25)] hover:border-[#C8A950]"
                   title={p.name}
                 >
                   <div className="w-28 h-28 sm:w-36 sm:h-36 lg:w-40 lg:h-40 flex items-center justify-center overflow-hidden">

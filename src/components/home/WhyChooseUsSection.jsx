@@ -120,7 +120,7 @@ export default function WhyChooseUsSection() {
 
     return (
       <div
-        className={`group relative w-full max-w-[350px] sm:max-w-[370px] xl:max-w-[390px] flex items-center justify-between gap-3 sm:gap-3.5 px-4 py-2.5 sm:px-5 sm:py-3 rounded-full bg-white dark:bg-[#0B1B2F] border-2 border-[#D4AF37]/70 dark:border-[#D4AF37]/50 shadow-[0_4px_16px_rgba(200,169,80,0.06)] dark:shadow-[0_4px_16px_rgba(0,0,0,0.5)] hover:shadow-[0_8px_24px_rgba(200,169,80,0.20)] dark:hover:shadow-[0_8px_24px_rgba(212,175,55,0.25)] hover:border-[#B4882F] dark:hover:border-[#D4AF37] transition-all duration-300 hover:-translate-y-0.5 cursor-default ${
+        className={`group relative w-full max-w-[350px] sm:max-w-[370px] xl:max-w-[390px] flex items-center justify-between gap-3 sm:gap-3.5 px-4 py-2.5 sm:px-5 sm:py-3 rounded-full bg-white dark:bg-[#0E1B15] border-2 border-[#D4AF37]/70 dark:border-[#D4AF37]/50 shadow-[0_4px_16px_rgba(200,169,80,0.06)] dark:shadow-[0_4px_16px_rgba(0,0,0,0.5)] hover:shadow-[0_8px_24px_rgba(200,169,80,0.20)] dark:hover:shadow-[0_8px_24px_rgba(212,175,55,0.25)] hover:border-[#B4882F] dark:hover:border-[#D4AF37] transition-all duration-300 hover:-translate-y-0.5 cursor-default ${
           isVisible ? "opacity-100 translate-x-0" : `opacity-0 ${slideDir}`
         }`}
         style={{ transitionDelay: isVisible ? `${delayMs}ms` : "0ms" }}
@@ -160,7 +160,7 @@ export default function WhyChooseUsSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative bg-gradient-to-b from-[#FDFCFA] via-white to-[#FBF8F0] dark:from-[#07111E] dark:via-[#09172A] dark:to-[#07111E] py-14 sm:py-18 lg:py-20 overflow-hidden transition-colors duration-300"
+      className="relative bg-gradient-to-b from-[#FDFCFA] via-white to-[#FBF8F0] dark:from-[#06100B] dark:via-[#0E1B15] dark:to-[#06100B] py-14 sm:py-18 lg:py-20 overflow-hidden transition-colors duration-300"
     >
       {/* Ambient light behind central woman */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[550px] bg-gradient-to-b from-[#C8A950]/15 via-[#059669]/8 to-transparent rounded-full blur-3xl pointer-events-none" />

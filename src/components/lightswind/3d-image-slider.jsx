@@ -83,7 +83,7 @@ export default function ImageSlider3D({
         {dataList.map((item, i) => (
           <div
             key={i}
-            onClick={(e) => {
+            onClick={() => {
               if (onCardClick) onCardClick(item, i);
             }}
             className="col-start-1 row-start-1 select-none pointer-events-auto cursor-pointer"

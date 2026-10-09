@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
-import { Sparkles, ThermometerSnowflake, ShieldCheck, Building2, Truck } from "lucide-react";
+import { Building2, Truck } from "lucide-react";
 import coldChainEcosystemMap from "../../assets/coldchain_ecosystem_map.jpg";
 import facilityImg from "../../assets/dattatray_facility.jpg";
 
@@ -80,7 +80,7 @@ export default function ColdChainInteractiveMap() {
   return (
     <div
       ref={containerRef}
-      className="relative w-full aspect-[16/10] sm:aspect-[16/9.5] rounded-[24px] sm:rounded-[32px] overflow-hidden border border-white/20 shadow-2xl bg-slate-950 select-none cursor-ew-resize group"
+      className="relative w-full aspect-[16/10] sm:aspect-[16/9.5] rounded-[24px] sm:rounded-[32px] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.2)] dark:shadow-[0_25px_60px_rgba(0,0,0,0.65)] select-none cursor-ew-resize group"
       style={{ touchAction: "none" }}
     >
       {/* ── Layer 1 (Right Side / Underneath): Illustrated Schematic Ecosystem Map ── */}
@@ -124,8 +124,8 @@ export default function ColdChainInteractiveMap() {
             <span>5,000+ MT PROCESSING PLANT</span>
           </div>
 
-          <div className="absolute bottom-[20%] left-[10%] hidden sm:flex items-center gap-2 px-3 py-1 rounded-lg bg-black/70 backdrop-blur-md border border-sky-400/80 text-sky-300 text-[11px] font-black tracking-wide shadow-xl">
-            <Truck className="w-3.5 h-3.5 text-sky-400" />
+          <div className="absolute bottom-[20%] left-[10%] hidden sm:flex items-center gap-2 px-3 py-1 rounded-lg bg-black/70 backdrop-blur-md border border-[#D4AF37]/80 text-[#F3E5AB] text-[11px] font-black tracking-wide shadow-xl">
+            <Truck className="w-3.5 h-3.5 text-[#D4AF37]" />
             <span>-18°C REEFER DOCKING BAY</span>
           </div>
 
@@ -137,28 +137,28 @@ export default function ColdChainInteractiveMap() {
         </div>
       </div>
 
-      {/* ── Interactive Draggable Vertical Split Handle ── */}
+      {/* ── Interactive Draggable Vertical Split Handle (Gold & Emerald Theme) ── */}
       <div
         ref={handleRef}
-        className="absolute top-0 bottom-0 w-[3px] bg-gradient-to-b from-[#38BDF8] via-white to-emerald-400 shadow-[0_0_15px_rgba(56,189,248,0.9)] pointer-events-none -translate-x-1/2 z-30"
+        className="absolute top-0 bottom-0 w-[3px] bg-gradient-to-b from-[#D4AF37] via-white to-emerald-400 shadow-[0_0_18px_rgba(212,175,55,0.9)] pointer-events-none -translate-x-1/2 z-30"
         style={{ left: "50%" }}
       >
         {/* Center Circular Grip Knob */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-9 h-9 sm:w-12 sm:h-12 rounded-full bg-slate-900 border-2 border-white shadow-[0_0_24px_rgba(56,189,248,0.9)] flex items-center justify-center text-white group-hover:scale-110 transition-transform">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-9 h-9 sm:w-12 sm:h-12 rounded-full bg-[#010E09] border-2 border-[#D4AF37] shadow-[0_0_24px_rgba(212,175,55,0.85)] flex items-center justify-center text-white group-hover:scale-110 transition-transform">
           <div className="flex items-center gap-0.5 text-[10px] sm:text-xs font-black text-white">
             <span className="text-emerald-400 text-xs sm:text-sm">◀</span>
-            <span className="text-[#38BDF8] text-xs sm:text-sm">▶</span>
+            <span className="text-[#D4AF37] text-xs sm:text-sm">▶</span>
           </div>
         </div>
 
         {/* Floating Top Indicator */}
-        <div className="absolute top-2.5 sm:top-3 left-1/2 -translate-x-1/2 px-2 py-0.5 rounded-full bg-slate-900/90 border border-white/40 text-[8px] sm:text-[9px] font-black uppercase tracking-widest text-white whitespace-nowrap shadow-md">
+        <div className="absolute top-2.5 sm:top-3 left-1/2 -translate-x-1/2 px-2 py-0.5 rounded-full bg-[#010E09]/95 border border-[#D4AF37]/60 text-[8px] sm:text-[9px] font-black uppercase tracking-widest text-[#F3E5AB] whitespace-nowrap shadow-md">
           SLIDE
         </div>
       </div>
 
       {/* Top Floating Badge */}
-      <div className="absolute top-2.5 left-2.5 sm:top-4 sm:left-4 px-2.5 sm:px-3.5 py-1 sm:py-1.5 rounded-full bg-black/80 backdrop-blur-md border border-white/20 text-white text-[9.5px] sm:text-xs font-black uppercase tracking-wider flex items-center gap-1.5 sm:gap-2 shadow-lg z-20 pointer-events-none">
+      <div className="absolute top-2.5 left-2.5 sm:top-4 sm:left-4 px-2.5 sm:px-3.5 py-1 sm:py-1.5 rounded-full bg-[#010E09]/85 backdrop-blur-md border border-[#D4AF37]/40 text-[#F3E5AB] text-[9.5px] sm:text-xs font-black uppercase tracking-wider flex items-center gap-1.5 sm:gap-2 shadow-lg z-20 pointer-events-none">
         <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-emerald-400 animate-pulse" />
         <span>Real Facility vs Ecosystem</span>
       </div>

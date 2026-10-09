@@ -69,7 +69,7 @@ export default function GlobalExportSection() {
     <section
       ref={sectionRef}
       id="global-export"
-      className="relative py-16 sm:py-20 lg:py-24 bg-gradient-to-b from-white via-[#FCFAF5] to-white dark:from-[#06101E] dark:via-[#09172A] dark:to-[#07111E] overflow-hidden transition-colors duration-300"
+      className="relative py-16 sm:py-20 lg:py-24 bg-gradient-to-b from-white via-[#FCFAF5] to-white dark:from-[#06100B] dark:via-[#0E1B15] dark:to-[#06100B] overflow-hidden transition-colors duration-300"
     >
       {/* Dynamic Ambient Background Glows */}
       <div className="absolute inset-0 pointer-events-none">
@@ -443,7 +443,7 @@ export default function GlobalExportSection() {
             return (
               <div
                 key={pillar.title}
-                className={`group p-5 rounded-2xl bg-white dark:bg-[#0B1B2F] border border-[#E5E1D8] dark:border-white/10 shadow-[0_4px_16px_rgba(0,0,0,0.03)] dark:shadow-[0_8px_24px_rgba(0,0,0,0.3)] hover:shadow-[0_12px_28px_rgba(200,169,80,0.18)] hover:border-[#C8A950]/50 dark:hover:border-[#C8A950]/50 transition-all duration-300 hover:-translate-y-1 ${
+                className={`group p-5 rounded-2xl bg-white dark:bg-[#0E1B15] border border-[#E5E1D8] dark:border-white/10 shadow-[0_4px_16px_rgba(0,0,0,0.03)] dark:shadow-[0_8px_24px_rgba(0,0,0,0.3)] hover:shadow-[0_12px_28px_rgba(200,169,80,0.18)] hover:border-[#C8A950]/50 dark:hover:border-[#C8A950]/50 transition-all duration-300 hover:-translate-y-1 ${
                   isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
                 }`}
                 style={{ transitionDelay: isVisible ? `${delayMs}ms` : "0ms" }}

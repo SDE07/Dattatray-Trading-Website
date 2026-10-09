@@ -19,7 +19,7 @@ export default function HomePage() {
   const [storyModalOpen, setStoryModalOpen] = useState(false);
 
   return (
-    <div className="bg-[#F9FBFC] dark:bg-[#07111E] min-h-screen text-[#1E1520] dark:text-[#F1F5F9] transition-colors duration-300 overflow-x-hidden">
+    <div className="bg-[#F9FBFC] dark:bg-[#06100B] min-h-screen text-[#1E1520] dark:text-[#F1F5F9] transition-colors duration-300 overflow-x-hidden">
       {/* 1. Full-bleed Hero Banner with Hotspot Touchpoints */}
       <HeroSection onOpenStoryModal={() => setStoryModalOpen(true)} />
 

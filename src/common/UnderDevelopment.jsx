@@ -67,7 +67,7 @@ export default function UnderDevelopment({
   };
 
   return (
-    <div className="min-h-[85vh] bg-[#F9FBFC] dark:bg-[#07111E] pt-28 pb-20 px-4 sm:px-6 lg:px-8 transition-colors duration-300">
+    <div className="min-h-[85vh] bg-[#F9FBFC] dark:bg-[#06100B] pt-28 pb-20 px-4 sm:px-6 lg:px-8 transition-colors duration-300">
       <div className="max-w-6xl mx-auto">
         
         {/* Breadcrumb Navigation */}
@@ -83,7 +83,7 @@ export default function UnderDevelopment({
         </nav>
 
         {/* Hero Section Container */}
-        <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#0B2546] via-[#0F3057] to-[#07172C] p-8 sm:p-12 lg:p-16 text-white shadow-2xl mb-12">
+        <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#0B2546] via-[#0F3057] to-[#07172C] dark:from-[#021A13] dark:via-[#042A1E] dark:to-[#01140E] p-8 sm:p-12 lg:p-16 text-white shadow-2xl mb-12 border border-transparent dark:border-emerald-900/30">
           
           {/* Subtle Ambient Background Glows */}
           <div className="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-[#8CC9D9]/15 blur-[90px] pointer-events-none" />
@@ -179,7 +179,7 @@ export default function UnderDevelopment({
               return (
                 <div
                   key={idx}
-                  className="bg-[#FFFFFF] dark:bg-[#0B1B2F] border border-[#E8EEF0] dark:border-white/10 rounded-2xl p-6 shadow-card hover:shadow-card-hover transition-all duration-300 hover:-translate-y-1 group"
+                  className="bg-[#FFFFFF] dark:bg-[#0E1B15] border border-[#E8EEF0] dark:border-white/10 rounded-2xl p-6 shadow-card hover:shadow-card-hover transition-all duration-300 hover:-translate-y-1 group"
                 >
                   <div className="w-12 h-12 rounded-xl bg-[#E8EEF0] dark:bg-slate-800 text-[#0B2546] dark:text-[#8CC9D9] flex items-center justify-center mb-4 group-hover:bg-[#1E56C8] group-hover:text-white transition-colors duration-200">
                     <Icon size={24} />
@@ -197,7 +197,7 @@ export default function UnderDevelopment({
         </div>
 
         {/* Early Access / Specification Inquiry Card */}
-        <div className="bg-[#EBF5FA] dark:bg-[#0B1B2F] border border-[#D0E7F2] dark:border-white/10 rounded-2xl p-8 sm:p-10 flex flex-col md:flex-row items-center justify-between gap-6 transition-colors duration-300">
+        <div className="bg-[#EBF5FA] dark:bg-[#0E1B15] border border-[#D0E7F2] dark:border-white/10 rounded-2xl p-8 sm:p-10 flex flex-col md:flex-row items-center justify-between gap-6 transition-colors duration-300">
           <div className="max-w-xl">
             <span className="text-xs font-extrabold uppercase tracking-wider text-[#1E56C8] dark:text-[#38BDF8]">
               Direct Wholesale Inquiry
@@ -212,7 +212,7 @@ export default function UnderDevelopment({
 
           <form onSubmit={handleSubscribe} className="w-full md:w-auto flex-shrink-0">
             {subscribed ? (
-              <div className="flex items-center gap-2 bg-[#FFFFFF] dark:bg-[#07111E] border border-[#8CC9D9] text-[#123741] dark:text-white px-5 py-3 rounded-xl font-semibold text-sm shadow-sm">
+              <div className="flex items-center gap-2 bg-[#FFFFFF] dark:bg-[#0E1B15] border border-[#8CC9D9] text-[#123741] dark:text-white px-5 py-3 rounded-xl font-semibold text-sm shadow-sm">
                 <CheckCircle2 size={18} className="text-[#10B981]" />
                 <span>Thank you! Our trading manager will reach out shortly.</span>
               </div>
@@ -224,7 +224,7 @@ export default function UnderDevelopment({
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="Enter your corporate email..."
                   required
-                  className="px-4 py-3 bg-[#FFFFFF] dark:bg-[#07111E] border border-[#5D6B7E]/20 dark:border-white/15 rounded-xl text-sm text-[#0B2546] dark:text-white placeholder:text-[#5D6B7E]/60 dark:placeholder:text-slate-500 focus:outline-none focus:border-[#1E56C8] focus:ring-1 focus:ring-[#1E56C8] min-w-[260px]"
+                  className="px-4 py-3 bg-[#FFFFFF] dark:bg-[#12221B] border border-[#5D6B7E]/20 dark:border-white/15 rounded-xl text-sm text-[#0B2546] dark:text-white placeholder:text-[#5D6B7E]/60 dark:placeholder:text-slate-500 focus:outline-none focus:border-[#1E56C8] focus:ring-1 focus:ring-[#1E56C8] min-w-[260px]"
                 />
                 <button
                   type="submit"

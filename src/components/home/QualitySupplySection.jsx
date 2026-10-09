@@ -180,7 +180,7 @@ export default function QualitySupplySection({ onOpenStoryModal }) {
   };
 
   return (
-    <section className="w-full bg-white dark:bg-[#07111E] py-14 sm:py-20 lg:py-24 transition-colors duration-300">
+    <section className="w-full bg-white dark:bg-[#06100B] py-14 sm:py-20 lg:py-24 transition-colors duration-300">
       <div className="w-full max-w-[94%] xl:max-w-[1440px] 2xl:max-w-[1580px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 xl:gap-16 items-center">
         
@@ -240,7 +240,7 @@ export default function QualitySupplySection({ onOpenStoryModal }) {
 
             <Link
               to="/contact"
-              className="inline-flex items-center gap-2 px-6 sm:px-7 py-3 rounded-full bg-white dark:bg-[#0B1B2F] hover:bg-[#F9FBFC] dark:hover:bg-slate-800 text-[#1F2937] dark:text-white hover:text-[#15803D] dark:hover:text-[#4ADE80] font-extrabold text-xs sm:text-sm border-2 border-[#15803D]/25 dark:border-white/20 hover:border-[#15803D] dark:hover:border-[#4ADE80] shadow-sm hover:scale-105 active:scale-95 transition-all duration-300"
+              className="inline-flex items-center gap-2 px-6 sm:px-7 py-3 rounded-full bg-white dark:bg-[#0E1B15] hover:bg-[#F9FBFC] dark:hover:bg-slate-800 text-[#1F2937] dark:text-white hover:text-[#15803D] dark:hover:text-[#4ADE80] font-extrabold text-xs sm:text-sm border-2 border-[#15803D]/25 dark:border-white/20 hover:border-[#15803D] dark:hover:border-[#4ADE80] shadow-sm hover:scale-105 active:scale-95 transition-all duration-300"
             >
               <span>Send Enquiry</span>
               <ArrowUpRight className="w-4 h-4 text-[#15803D] dark:text-[#4ADE80]" />
@@ -264,7 +264,7 @@ export default function QualitySupplySection({ onOpenStoryModal }) {
             </p>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-2.5 w-full">
               {/* Sector 1 */}
-              <div className="group min-w-0 inline-flex items-center justify-start sm:justify-center gap-2 px-2.5 sm:px-2.5 py-2 rounded-xl bg-[#FAFAFA] dark:bg-[#0B1B2F] border border-[#E5E7EB] dark:border-white/10 hover:border-[#15803D]/50 hover:bg-white shadow-2xs hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 cursor-default">
+              <div className="group min-w-0 inline-flex items-center justify-start sm:justify-center gap-2 px-2.5 sm:px-2.5 py-2 rounded-xl bg-[#FAFAFA] dark:bg-[#0E1B15] border border-[#E5E7EB] dark:border-white/10 hover:border-[#15803D]/50 hover:bg-white shadow-2xs hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 cursor-default">
                 <div className="w-6 h-6 rounded-full bg-[#EAEAEA] dark:bg-slate-800 group-hover:bg-[#15803D] dark:group-hover:bg-[#15803D] text-[#1F2937] dark:text-[#4ADE80] group-hover:text-white flex items-center justify-center transition-all duration-300 group-hover:scale-110 shrink-0">
                   <UtensilsCrossed className="w-3.5 h-3.5" />
                 </div>
@@ -272,7 +272,7 @@ export default function QualitySupplySection({ onOpenStoryModal }) {
               </div>
 
               {/* Sector 2 */}
-              <div className="group min-w-0 inline-flex items-center justify-start sm:justify-center gap-2 px-2.5 sm:px-2.5 py-2 rounded-xl bg-[#FAFAFA] dark:bg-[#0B1B2F] border border-[#E5E7EB] dark:border-white/10 hover:border-[#15803D]/50 hover:bg-white shadow-2xs hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 cursor-default">
+              <div className="group min-w-0 inline-flex items-center justify-start sm:justify-center gap-2 px-2.5 sm:px-2.5 py-2 rounded-xl bg-[#FAFAFA] dark:bg-[#0E1B15] border border-[#E5E7EB] dark:border-white/10 hover:border-[#15803D]/50 hover:bg-white shadow-2xs hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 cursor-default">
                 <div className="w-6 h-6 rounded-full bg-[#EAEAEA] dark:bg-slate-800 group-hover:bg-[#15803D] dark:group-hover:bg-[#15803D] text-[#1F2937] dark:text-[#4ADE80] group-hover:text-white flex items-center justify-center transition-all duration-300 group-hover:scale-110 shrink-0">
                   <Truck className="w-3.5 h-3.5" />
                 </div>
@@ -280,7 +280,7 @@ export default function QualitySupplySection({ onOpenStoryModal }) {
               </div>
 
               {/* Sector 3 */}
-              <div className="group min-w-0 inline-flex items-center justify-start sm:justify-center gap-2 px-2.5 sm:px-2.5 py-2 rounded-xl bg-[#FAFAFA] dark:bg-[#0B1B2F] border border-[#E5E7EB] dark:border-white/10 hover:border-[#15803D]/50 hover:bg-white shadow-2xs hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 cursor-default">
+              <div className="group min-w-0 inline-flex items-center justify-start sm:justify-center gap-2 px-2.5 sm:px-2.5 py-2 rounded-xl bg-[#FAFAFA] dark:bg-[#0E1B15] border border-[#E5E7EB] dark:border-white/10 hover:border-[#15803D]/50 hover:bg-white shadow-2xs hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 cursor-default">
                 <div className="w-6 h-6 rounded-full bg-[#EAEAEA] dark:bg-slate-800 group-hover:bg-[#15803D] dark:group-hover:bg-[#15803D] text-[#1F2937] dark:text-[#4ADE80] group-hover:text-white flex items-center justify-center transition-all duration-300 group-hover:scale-110 shrink-0">
                   <Store className="w-3.5 h-3.5" />
                 </div>
@@ -288,7 +288,7 @@ export default function QualitySupplySection({ onOpenStoryModal }) {
               </div>
 
               {/* Sector 4 */}
-              <div className="group min-w-0 inline-flex items-center justify-start sm:justify-center gap-2 px-2.5 sm:px-2.5 py-2 rounded-xl bg-[#FAFAFA] dark:bg-[#0B1B2F] border border-[#E5E7EB] dark:border-white/10 hover:border-[#15803D]/50 hover:bg-white shadow-2xs hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 cursor-default">
+              <div className="group min-w-0 inline-flex items-center justify-start sm:justify-center gap-2 px-2.5 sm:px-2.5 py-2 rounded-xl bg-[#FAFAFA] dark:bg-[#0E1B15] border border-[#E5E7EB] dark:border-white/10 hover:border-[#15803D]/50 hover:bg-white shadow-2xs hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 cursor-default">
                 <div className="w-6 h-6 rounded-full bg-[#EAEAEA] dark:bg-slate-800 group-hover:bg-[#15803D] dark:group-hover:bg-[#15803D] text-[#1F2937] dark:text-[#4ADE80] group-hover:text-white flex items-center justify-center transition-all duration-300 group-hover:scale-110 shrink-0">
                   <Globe2 className="w-3.5 h-3.5" />
                 </div>

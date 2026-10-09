@@ -8,9 +8,6 @@ import {
   Sparkles,
   ArrowRight,
   Layers,
-  Check,
-  Award,
-  ArrowUpRight
 } from "lucide-react";
 import { QualityPipelineAnimation, SplitTextHeading } from "../components/common";
 import QualityCertificationsSection from "../components/quality/QualityCertificationsSection";
@@ -38,35 +35,27 @@ export default function QualityPage() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#F9FBFC] dark:bg-[#07111E] text-[#0B2546] dark:text-[#F1F5F9] transition-colors duration-300 overflow-x-hidden">
+    <div className="min-h-screen bg-[#F9FBFC] dark:bg-[#06100B] text-[#0B2546] dark:text-[#F1F5F9] transition-colors duration-300 overflow-x-hidden">
       
       {/* ══════════════════════════════════════════════════════════════════════
-          1. GRAND HERO BANNER WITH CONDITIONAL THEME ADAPTATION
-             - Light Mode: Rich Botanical Green Palette (Emerald / Jade / Mint)
-             - Dark Theme: Blueish Palette (Deep Midnight Navy / Cyan / Sky Blue)
+          1. GRAND HERO BANNER - GREEN & GOLDEN THEME
       ══════════════════════════════════════════════════════════════════════ */}
       <section
         className={`relative w-full pt-24 sm:pt-28 md:pt-32 pb-16 sm:pb-20 md:pb-28 overflow-hidden text-white transition-all duration-500 ${
           isDark
-            ? "bg-gradient-to-b from-[#06101E] via-[#09172A] to-[#0B1F38]"
+            ? "bg-gradient-to-b from-[#01140E] via-[#022117] to-[#010E09]"
             : "bg-gradient-to-b from-[#021A13] via-[#042A1E] to-[#01140E]"
         }`}
       >
-        {/* Ambient Glow Orbs */}
+        {/* Ambient Glow Orbs in Golden & Emerald Harmony */}
         <div
-          className={`absolute top-10 left-10 w-96 h-96 rounded-full blur-[140px] pointer-events-none transition-all duration-500 ${
-            isDark ? "bg-[#1E56C8]/25" : "bg-emerald-600/20"
-          }`}
+          className="absolute top-10 left-10 w-96 h-96 rounded-full blur-[140px] pointer-events-none bg-[#D4AF37]/20"
         />
         <div
-          className={`absolute top-20 right-10 w-96 h-96 rounded-full blur-[140px] pointer-events-none transition-all duration-500 ${
-            isDark ? "bg-[#38BDF8]/20" : "bg-emerald-400/15"
-          }`}
+          className="absolute top-20 right-10 w-96 h-96 rounded-full blur-[140px] pointer-events-none bg-emerald-600/20"
         />
         <div
-          className={`absolute -bottom-10 left-1/2 -translate-x-1/2 w-[800px] h-64 rounded-full blur-[160px] pointer-events-none transition-all duration-500 ${
-            isDark ? "bg-[#0284C7]/15" : "bg-teal-600/15"
-          }`}
+          className="absolute -bottom-10 left-1/2 -translate-x-1/2 w-[800px] h-64 rounded-full blur-[160px] pointer-events-none bg-[#C8A950]/15"
         />
 
         <div className="relative w-full max-w-[94%] xl:max-w-[1440px] 2xl:max-w-[1580px] mx-auto px-4 sm:px-6 lg:px-8 z-10">
@@ -75,27 +64,12 @@ export default function QualityPage() {
             {/* LEFT SIDE: Heading & Badges */}
             <div className="lg:col-span-6 xl:col-span-7 space-y-4" ref={heroHeadingRef}>
               
-              {/* Top Luxury Badge */}
-              <div
-                className={`inline-flex items-center gap-2 px-3 sm:px-4 py-1 sm:py-1.5 rounded-full backdrop-blur-md text-[10px] sm:text-xs font-black uppercase tracking-[0.12em] sm:tracking-[0.2em] shadow-sm transition-all duration-500 ${
-                  isDark
-                    ? "bg-sky-950/70 border border-sky-500/35 text-[#38BDF8]"
-                    : "bg-emerald-950/60 border border-emerald-500/30 text-emerald-300"
-                }`}
-              >
-                <Sparkles className={`w-3.5 h-3.5 shrink-0 ${isDark ? "text-[#38BDF8]" : "text-emerald-400"}`} />
-                <span>RIGOROUS PROTOCOLS • CERTIFIED GLOBAL STANDARDS</span>
-              </div>
-
+            
               {/* Main Page Heading */}
               <div className="py-1 space-y-2">
                 <h1 className="font-sans tracking-tight leading-[1.08]">
                   <span
-                    className={`heading-bounce block text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black text-transparent bg-clip-text select-none transition-all duration-500 ${
-                      isDark
-                        ? "bg-gradient-to-r from-[#38BDF8] via-[#60A5FA] to-[#93C5FD] drop-shadow-[0_4px_30px_rgba(56,189,248,0.35)]"
-                        : "bg-gradient-to-r from-emerald-400 via-emerald-300 to-teal-200 drop-shadow-[0_4px_30px_rgba(16,185,129,0.35)]"
-                    }`}
+                    className="heading-bounce block text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black bg-gradient-to-r from-[#D4AF37] via-[#F3E5AB] to-[#C8A950] bg-clip-text text-transparent drop-shadow-[0_4px_30px_rgba(212,175,55,0.35)] select-none transition-all duration-500"
                   >
                     WORLD-CLASS COLD CHAIN
                   </span>
@@ -106,14 +80,10 @@ export default function QualityPage() {
 
                 <div className="heading-bounce flex items-center gap-2 pt-1">
                   <div
-                    className={`h-[2px] w-8 rounded-full transition-all duration-500 ${
-                      isDark ? "bg-[#38BDF8]" : "bg-emerald-400"
-                    }`}
+                    className="h-[2px] w-8 rounded-full bg-[#D4AF37]"
                   />
                   <span
-                    className={`text-[10px] sm:text-xs md:text-sm font-black uppercase tracking-[0.14em] sm:tracking-[0.25em] transition-all duration-500 ${
-                      isDark ? "text-[#38BDF8]" : "text-emerald-400"
-                    }`}
+                    className="text-[10px] sm:text-xs md:text-sm font-black uppercase tracking-[0.14em] sm:tracking-[0.25em] text-[#F3E5AB]"
                   >
                     FARM-GATE TO PORT TEMPERATURE INTEGRITY
                   </span>
@@ -122,25 +92,23 @@ export default function QualityPage() {
 
               {/* Subtitle */}
               <p
-                className={`text-xs sm:text-sm md:text-base leading-relaxed max-w-2xl transition-colors duration-500 ${
-                  isDark ? "text-slate-300" : "text-emerald-100/80"
-                }`}
+                className="text-xs sm:text-sm md:text-base leading-relaxed max-w-2xl text-emerald-100/90"
               >
                 From farm-gate harvest through sub-zero individual quick freezing (IQF) to international containerized export, Dattatray Traders engineers zero nutritional degradation, certified microbiological purity, and unbroken -18°C temperature telemetry.
               </p>
 
               {/* Trust Badges Bar */}
-              <div className="heading-bounce pt-1 flex flex-wrap items-center gap-2 sm:gap-3 text-[11px] sm:text-xs text-slate-300 font-bold">
-                <div className="flex items-center gap-1.5 sm:gap-2 bg-white/5 border border-white/10 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full">
-                  <ShieldCheck className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+              <div className="heading-bounce pt-1 flex flex-wrap items-center gap-2 sm:gap-3 text-[11px] sm:text-xs text-white/90 font-bold">
+                <div className="flex items-center gap-1.5 sm:gap-2 bg-white/10 border border-white/15 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full backdrop-blur-md">
+                  <ShieldCheck className="w-3.5 h-3.5 text-[#D4AF37] shrink-0" />
                   <span>APEDA &amp; FSSAI Grade A Certified</span>
                 </div>
-                <div className="flex items-center gap-1.5 sm:gap-2 bg-white/5 border border-white/10 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full">
-                  <ThermometerSnowflake className="w-3.5 h-3.5 text-[#8CC9D9] shrink-0" />
+                <div className="flex items-center gap-1.5 sm:gap-2 bg-white/10 border border-white/15 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full backdrop-blur-md">
+                  <ThermometerSnowflake className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
                   <span>-18°C GPS Monitored Cold Chain</span>
                 </div>
-                <div className="flex items-center gap-1.5 sm:gap-2 bg-white/5 border border-white/10 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-sky-400 shrink-0" />
+                <div className="flex items-center gap-1.5 sm:gap-2 bg-white/10 border border-white/15 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full backdrop-blur-md">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-[#D4AF37] shrink-0" />
                   <span>100% Lot Traceability</span>
                 </div>
               </div>
@@ -160,7 +128,7 @@ export default function QualityPage() {
           <svg
             viewBox="0 0 1200 120"
             preserveAspectRatio="none"
-            className="relative block w-full h-10 sm:h-14 lg:h-16 fill-[#F9FBFC] dark:fill-[#07111E] transition-colors duration-300 translate-y-[1px]"
+            className="relative block w-full h-10 sm:h-14 lg:h-16 fill-[#F9FBFC] dark:fill-[#06100B] transition-colors duration-300 translate-y-[1px]"
           >
             <path d="M0,0 C150,90 350,-40 500,60 C650,160 900,10 1200,40 L1200,125 L0,125 Z"></path>
           </svg>
@@ -177,15 +145,18 @@ export default function QualityPage() {
         
         {/* Section Heading */}
         <div className="text-center max-w-3xl mx-auto mb-14 sm:mb-18">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#1E56C8]/10 dark:bg-[#38BDF8]/15 border border-[#1E56C8]/20 dark:border-[#38BDF8]/30 text-[#1E56C8] dark:text-[#38BDF8] text-xs font-black uppercase tracking-[0.18em] mb-3.5 shadow-sm">
-            <Layers className="w-3.5 h-3.5" />
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-50 dark:bg-[#022A1C]/90 border border-emerald-500/25 dark:border-[#D4AF37]/45 text-emerald-800 dark:text-[#F3E5AB] text-xs font-black uppercase tracking-[0.2em] mb-3.5 shadow-sm">
+            <Layers className="w-3.5 h-3.5 text-emerald-600 dark:text-[#D4AF37]" />
             <span>Rigorous Protocols</span>
           </div>
           <SplitTextHeading
             as="h2"
-            className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#0B2546] dark:text-white tracking-tight mb-3"
+            className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#0B2546] dark:text-white tracking-tight leading-[1.15] mb-3"
           >
-            Sub-Zero Farm-to-Port Quality Verification Pipeline
+            Sub-Zero Farm-to-Port{" "}
+            <span className="bg-gradient-to-r from-[#B4882F] via-[#D4AF37] to-[#C8A950] dark:from-[#D4AF37] dark:via-[#F3E5AB] dark:to-[#C8A950] bg-clip-text text-transparent">
+              Quality Verification Pipeline
+            </span>
           </SplitTextHeading>
           <p className="text-xs sm:text-sm md:text-base text-[#5D6B7E] dark:text-slate-300 max-w-2xl mx-auto leading-relaxed">
             Every batch undergoes systematic sensory evaluation, moisture testing, and microbiological analysis before certification for delivery.
@@ -195,7 +166,7 @@ export default function QualityPage() {
         {/* 2-Column Split: Increased gap between left & right */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 xl:gap-20 items-center">
           
-          {/* LEFT SIDE: Dattatray Traders Gives Overall Best Quality (Senior UI Developer Minimalist Layout) */}
+          {/* LEFT SIDE: Dattatray Traders Gives Overall Best Quality */}
           <div className="lg:col-span-5 space-y-5">
             
             {/* Pill Tag */}
@@ -205,8 +176,11 @@ export default function QualityPage() {
             </div>
 
             {/* Headline */}
-            <h3 className="text-2xl sm:text-3xl font-black text-[#0B2546] dark:text-white tracking-tight leading-snug">
-              Overall Best Quality, Guaranteed from Farm Gate to Port
+            <h3 className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#021A13] dark:text-white tracking-tight leading-snug">
+              Overall Best Quality, Guaranteed from{" "}
+              <span className="bg-gradient-to-r from-[#B4882F] via-[#D4AF37] to-[#C8A950] dark:from-[#D4AF37] dark:via-[#F3E5AB] dark:to-[#C8A950] bg-clip-text text-transparent">
+                Farm Gate to Port
+              </span>
             </h3>
 
             {/* Concise, High-Impact Summary */}
@@ -216,33 +190,33 @@ export default function QualityPage() {
 
             {/* Sleek 2x2 Feature Micro-Pills */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-1">
-              <div className="flex items-center gap-2.5 p-2.5 rounded-xl bg-white dark:bg-[#0B1B2F] border border-slate-200/90 dark:border-white/10 shadow-xs">
+              <div className="flex items-center gap-2.5 p-2.5 rounded-xl bg-white dark:bg-[#032015] border border-slate-200/90 dark:border-white/10 shadow-xs">
                 <span className="w-2 h-2 rounded-full bg-emerald-500 shrink-0" />
-                <span className="text-xs font-bold text-[#0B2546] dark:text-slate-200">99.8% Sortex Laser Grade</span>
+                <span className="text-xs font-bold text-[#021A13] dark:text-slate-200">99.8% Sortex Laser Grade</span>
               </div>
-              <div className="flex items-center gap-2.5 p-2.5 rounded-xl bg-white dark:bg-[#0B1B2F] border border-slate-200/90 dark:border-white/10 shadow-xs">
-                <span className="w-2 h-2 rounded-full bg-sky-500 shrink-0" />
-                <span className="text-xs font-bold text-[#0B2546] dark:text-slate-200">-35°C Rapid Cryo IQF</span>
+              <div className="flex items-center gap-2.5 p-2.5 rounded-xl bg-white dark:bg-[#032015] border border-slate-200/90 dark:border-white/10 shadow-xs">
+                <span className="w-2 h-2 rounded-full bg-[#D4AF37] shrink-0" />
+                <span className="text-xs font-bold text-[#021A13] dark:text-slate-200">-35°C Rapid Cryo IQF</span>
               </div>
-              <div className="flex items-center gap-2.5 p-2.5 rounded-xl bg-white dark:bg-[#0B1B2F] border border-slate-200/90 dark:border-white/10 shadow-xs">
-                <span className="w-2 h-2 rounded-full bg-purple-500 shrink-0" />
-                <span className="text-xs font-bold text-[#0B2546] dark:text-slate-200">NABL &amp; 0.8mm X-Ray Cleared</span>
+              <div className="flex items-center gap-2.5 p-2.5 rounded-xl bg-white dark:bg-[#032015] border border-slate-200/90 dark:border-white/10 shadow-xs">
+                <span className="w-2 h-2 rounded-full bg-emerald-600 shrink-0" />
+                <span className="text-xs font-bold text-[#021A13] dark:text-slate-200">NABL &amp; 0.8mm X-Ray Cleared</span>
               </div>
-              <div className="flex items-center gap-2.5 p-2.5 rounded-xl bg-white dark:bg-[#0B1B2F] border border-slate-200/90 dark:border-white/10 shadow-xs">
-                <span className="w-2 h-2 rounded-full bg-blue-500 shrink-0" />
-                <span className="text-xs font-bold text-[#0B2546] dark:text-slate-200">-18°C Satellite IoT Fleet</span>
+              <div className="flex items-center gap-2.5 p-2.5 rounded-xl bg-white dark:bg-[#032015] border border-slate-200/90 dark:border-white/10 shadow-xs">
+                <span className="w-2 h-2 rounded-full bg-[#D4AF37] shrink-0" />
+                <span className="text-xs font-bold text-[#021A13] dark:text-slate-200">-18°C Satellite IoT Fleet</span>
               </div>
             </div>
 
             {/* Compact Minimalist Metrics Row */}
             <div className="py-3 px-4 rounded-xl bg-slate-50 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 flex items-center justify-between text-center">
               <div>
-                <span className="block text-base sm:text-lg font-black text-[#1E56C8] dark:text-[#38BDF8]">99.8%</span>
+                <span className="block text-base sm:text-lg font-black text-[#D4AF37]">99.8%</span>
                 <span className="text-[10px] font-bold uppercase text-slate-500 dark:text-slate-400">Sortex Purity</span>
               </div>
               <div className="w-px h-6 bg-slate-200 dark:bg-white/15" />
               <div>
-                <span className="block text-base sm:text-lg font-black text-sky-600 dark:text-sky-400">-18°C</span>
+                <span className="block text-base sm:text-lg font-black text-emerald-600 dark:text-emerald-400">-18°C</span>
                 <span className="text-[10px] font-bold uppercase text-slate-500 dark:text-slate-400">Cryo-Lock</span>
               </div>
               <div className="w-px h-6 bg-slate-200 dark:bg-white/15" />
@@ -252,25 +226,25 @@ export default function QualityPage() {
               </div>
               <div className="w-px h-6 bg-slate-200 dark:bg-white/15" />
               <div>
-                <span className="block text-base sm:text-lg font-black text-[#0B2546] dark:text-white">15+</span>
+                <span className="block text-base sm:text-lg font-black text-[#021A13] dark:text-white">15+</span>
                 <span className="text-[10px] font-bold uppercase text-slate-500 dark:text-slate-400">QA Checks</span>
               </div>
             </div>
 
-            {/* Action CTA with Image 3 Cyan Button Color */}
+            {/* Action CTA */}
             <div className="pt-1">
               <Link
                 to="/contact"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#8CC9D9] hover:bg-[#78B9C9] text-[#123741] font-black text-xs sm:text-sm shadow-md shadow-[#8CC9D9]/25 transition-all hover:scale-105"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-[#D4AF37] via-[#F3E5AB] to-[#C8A950] hover:scale-105 text-[#021A13] font-black text-xs sm:text-sm shadow-md shadow-[#D4AF37]/25 transition-all"
               >
                 <span>Request QA Specs &amp; Lab COA</span>
-                <ArrowRight className="w-4 h-4 text-[#123741]" />
+                <ArrowRight className="w-4 h-4 text-[#021A13]" />
               </Link>
             </div>
 
           </div>
 
-          {/* RIGHT SIDE: 15-Stage Animated Connect Beam Pipeline (Clean, borderless, transparent) */}
+          {/* RIGHT SIDE: 15-Stage Animated Connect Beam Pipeline */}
           <div className="lg:col-span-7 flex flex-col items-center justify-center">
             <div className="w-full bg-transparent border-0 shadow-none p-0 flex justify-center">
               <QualityPipelineAnimation hideHeader={true} className="py-0 px-0" />
@@ -282,7 +256,6 @@ export default function QualityPage() {
 
       {/* ══════════════════════════════════════════════════════════════════════
           3. DOWN SIDE SECTION: INTERNATIONALLY RECOGNISED STANDARDS
-             (Dedicated pastel 6-card grid matching Screenshot 3, without touching hero page)
       ══════════════════════════════════════════════════════════════════════ */}
       <QualityCertificationsSection />
 
@@ -290,13 +263,13 @@ export default function QualityPage() {
           4. COLD-CHAIN CONTINUOUS TEMPERATURE DATA LOGGING GUARANTEE BANNER
       ══════════════════════════════════════════════════════════════════════ */}
       <section className="pb-12 sm:pb-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="rounded-3xl p-6 sm:p-8 md:p-10 bg-gradient-to-r from-[#0B2546] via-[#123766] to-[#0B2546] text-white flex flex-col md:flex-row items-start md:items-center justify-between gap-6 shadow-xl border border-white/10">
+        <div className="rounded-3xl p-6 sm:p-8 md:p-10 bg-gradient-to-r from-[#021A13] via-[#042A1E] to-[#01140E] text-white flex flex-col md:flex-row items-start md:items-center justify-between gap-6 shadow-xl border border-[#D4AF37]/30">
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-5">
-            <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-[#8CC9D9]/20 border border-[#8CC9D9]/40 flex items-center justify-center shrink-0">
-              <ThermometerSnowflake className="w-6 h-6 sm:w-7 sm:h-7 text-[#8CC9D9]" />
+            <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-[#D4AF37]/20 border border-[#D4AF37]/40 flex items-center justify-center shrink-0">
+              <ThermometerSnowflake className="w-6 h-6 sm:w-7 sm:h-7 text-[#D4AF37]" />
             </div>
             <div>
-              <span className="text-[10px] sm:text-xs font-black uppercase tracking-widest text-[#8CC9D9]">
+              <span className="text-[10px] sm:text-xs font-black uppercase tracking-widest text-[#F3E5AB]">
                 -18°C Deep Freeze Assurance
               </span>
               <SplitTextHeading
@@ -305,7 +278,7 @@ export default function QualityPage() {
               >
                 Continuous Cold-Chain Temperature Data Logging
               </SplitTextHeading>
-              <p className="text-xs sm:text-sm text-[#D0E2EC] mt-1 max-w-xl leading-relaxed">
+              <p className="text-xs sm:text-sm text-emerald-100/80 mt-1 max-w-xl leading-relaxed">
                 Every reefer container and cold room is equipped with GPS-synced continuous temperature dataloggers ensuring unbroken -18°C preservation.
               </p>
             </div>
@@ -314,7 +287,7 @@ export default function QualityPage() {
           <div className="flex items-center gap-3 shrink-0 w-full sm:w-auto">
             <Link
               to="/contact"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-[#8CC9D9] hover:bg-[#78B9C9] text-[#123741] font-black text-xs sm:text-sm shadow-md transition-all hover:scale-105"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-[#D4AF37] via-[#F3E5AB] to-[#C8A950] text-[#021A13] font-black text-xs sm:text-sm shadow-md transition-all hover:scale-105"
             >
               <span>Request QA Specs</span>
               <ArrowRight className="w-4 h-4" />

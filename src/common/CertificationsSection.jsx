@@ -85,7 +85,7 @@ export default function CertificationsSection() {
     <section
       ref={sectionRef}
       id="certifications"
-      className="relative py-14 sm:py-18 lg:py-20 overflow-hidden bg-gradient-to-b from-white via-[#FCFAF5] to-white dark:from-[#07111E] dark:via-[#09172A] dark:to-[#07111E] transition-colors duration-300"
+      className="relative py-14 sm:py-18 lg:py-20 overflow-hidden bg-gradient-to-b from-white via-[#FCFAF5] to-white dark:from-[#06100B] dark:via-[#0E1B15] dark:to-[#06100B] transition-colors duration-300"
     >
       {/* Dynamic Ambient Background Glows */}
       <div className="absolute inset-0 pointer-events-none">
@@ -160,10 +160,10 @@ export default function CertificationsSection() {
                   style={{ transitionDelay: isVisible ? `${delayMs}ms` : "0ms" }}
                 >
                   {/* Circular Seal Medallion */}
-                  <div className="relative w-32 h-32 sm:w-34 sm:h-34 lg:w-36 lg:h-36 rounded-full bg-white dark:bg-[#0B1B2F] border-2 border-[#E5E1D8] dark:border-white/15 group-hover:border-[#D4AF37] shadow-[0_8px_24px_rgba(0,0,0,0.04)] dark:shadow-[0_8px_24px_rgba(0,0,0,0.4)] group-hover:shadow-[0_16px_36px_rgba(200,169,80,0.20)] flex items-center justify-center p-3 sm:p-3.5 transition-all duration-300 group-hover:scale-108 group-hover:-translate-y-2 cursor-pointer z-10 group-hover:ring-4 group-hover:ring-[#D4AF37]/25">
+                  <div className="relative w-32 h-32 sm:w-34 sm:h-34 lg:w-36 lg:h-36 rounded-full bg-white dark:bg-[#0E1B15] border-2 border-[#E5E1D8] dark:border-white/15 group-hover:border-[#D4AF37] shadow-[0_8px_24px_rgba(0,0,0,0.04)] dark:shadow-[0_8px_24px_rgba(0,0,0,0.4)] group-hover:shadow-[0_16px_36px_rgba(200,169,80,0.20)] flex items-center justify-center p-3 sm:p-3.5 transition-all duration-300 group-hover:scale-108 group-hover:-translate-y-2 cursor-pointer z-10 group-hover:ring-4 group-hover:ring-[#D4AF37]/25">
                     
                     {/* Inner Circular Card Container */}
-                    <div className="w-full h-full rounded-full bg-gradient-to-b from-[#FAFCFD] via-white to-[#FDFCFA] dark:from-[#0E223D] dark:via-[#0B1B2F] dark:to-[#07111E] border border-slate-100 dark:border-white/10 flex items-center justify-center p-3 shadow-inner">
+                    <div className="w-full h-full rounded-full bg-gradient-to-b from-[#FAFCFD] via-white to-[#FDFCFA] dark:from-[#14261E] dark:via-[#0E1B15] dark:to-[#06100B] border border-slate-100 dark:border-white/10 flex items-center justify-center p-3 shadow-inner">
                       <img
                         src={cert.img}
                         alt={`${cert.title} Quality Seal`}

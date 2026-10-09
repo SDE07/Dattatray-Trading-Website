@@ -4,9 +4,7 @@ import {
   ThermometerSnowflake,
   Clock,
   Send,
-  ShieldCheck,
-  CheckCircle2,
-  Info
+  Info,
 } from "lucide-react";
 
 /**
@@ -17,11 +15,7 @@ import {
  * - Single prominent "Enquiry" button
  * - Zero consumer pricing
  */
-export default function ProductCard({
-  product,
-  onEnquiry,
-  onQuickView,
-}) {
+export default function ProductCard({ product, onEnquiry, onQuickView }) {
   const {
     name,
     isVeg,
@@ -39,8 +33,7 @@ export default function ProductCard({
   };
 
   return (
-    <div className="group relative bg-white dark:bg-[#0B1B2F] rounded-2xl sm:rounded-3xl border border-slate-200/90 dark:border-white/10 p-4 sm:p-5 md:p-6 flex flex-col justify-between hover:border-[#3B1F3A]/40 dark:hover:border-[#8CC9D9]/50 shadow-[0_6px_25px_-5px_rgba(59,31,58,0.08)] dark:shadow-none hover:shadow-[0_22px_45px_-10px_rgba(59,31,58,0.22)] dark:hover:shadow-[0_22px_45px_-10px_rgba(0,0,0,0.65)] transition-all duration-300 transform-gpu hover:-translate-y-1.5 overflow-hidden h-full">
-      
+    <div className="group relative bg-white dark:bg-[#0E1B15] rounded-2xl sm:rounded-3xl border border-slate-200/90 dark:border-white/10 p-4 sm:p-5 md:p-6 flex flex-col justify-between hover:border-[#3B1F3A]/40 dark:hover:border-[#8CC9D9]/50 shadow-[0_6px_25px_-5px_rgba(59,31,58,0.08)] dark:shadow-none hover:shadow-[0_22px_45px_-10px_rgba(59,31,58,0.22)] dark:hover:shadow-[0_22px_45px_-10px_rgba(0,0,0,0.65)] transition-all duration-300 transform-gpu hover:-translate-y-1.5 overflow-hidden h-full">
       {/* ── Top Header: Veg/Non-Veg & Tag ── */}
       <div className="flex items-center justify-between gap-2 mb-3.5">
         {/* Diet Indicator Pill */}
@@ -59,7 +52,9 @@ export default function ProductCard({
           </div>
           <span
             className={`text-[10px] font-black uppercase tracking-wider ${
-              isVeg ? "text-emerald-700 dark:text-emerald-400" : "text-rose-700 dark:text-rose-400"
+              isVeg
+                ? "text-emerald-700 dark:text-emerald-400"
+                : "text-rose-700 dark:text-rose-400"
             }`}
           >
             {isVeg ? "Veg" : "Non-Veg"}
@@ -77,7 +72,7 @@ export default function ProductCard({
       {/* ── Product Packaging Image Box (Increased Size with Hover More Info) ── */}
       <div
         onClick={handleAction}
-        className="relative w-full h-44 sm:h-56 md:h-64 lg:h-72 flex items-center justify-center p-3 sm:p-4 mb-3 sm:mb-4 bg-gradient-to-b from-slate-50 via-slate-50/70 to-slate-100/70 dark:from-[#071322]/90 dark:to-[#0B1B2F]/90 rounded-xl sm:rounded-2xl overflow-hidden cursor-pointer group/img border border-slate-100 dark:border-white/5"
+        className="relative w-full h-44 sm:h-56 md:h-64 lg:h-72 flex items-center justify-center p-3 sm:p-4 mb-3 sm:mb-4 bg-gradient-to-b from-slate-50 via-slate-50/70 to-slate-100/70 dark:from-[#06100B]/90 dark:to-[#0E1B15]/90 rounded-xl sm:rounded-2xl overflow-hidden cursor-pointer group/img border border-slate-100 dark:border-white/5"
       >
         <img
           src={image}
@@ -93,8 +88,8 @@ export default function ProductCard({
         </div>
 
         {/* Interactive "More Info" Glassmorphic Hover Overlay */}
-        <div className="absolute inset-0 bg-[#0B2546]/45 backdrop-blur-[2px] opacity-0 group-hover/img:opacity-100 transition-all duration-300 flex items-center justify-center z-20">
-          <span className="px-4 py-2 rounded-xl bg-white/95 dark:bg-[#0B1B2F]/95 text-[#0B2546] dark:text-white font-black text-xs shadow-2xl flex items-center gap-2 border border-white/60 transform scale-90 group-hover/img:scale-100 transition-all duration-300 hover:scale-105">
+        <div className="absolute inset-0 bg-black/50 backdrop-blur-[2px] opacity-0 group-hover/img:opacity-100 transition-all duration-300 flex items-center justify-center z-20">
+          <span className="px-4 py-2 rounded-xl bg-white/95 dark:bg-[#0E1B15]/95 text-[#0B2546] dark:text-white font-black text-xs shadow-2xl flex items-center gap-2 border border-white/60 transform scale-90 group-hover/img:scale-100 transition-all duration-300 hover:scale-105">
             <Info className="w-4 h-4 text-[#0284C7] dark:text-[#8CC9D9]" />
             <span>More Info</span>
           </span>
@@ -129,7 +124,12 @@ export default function ProductCard({
         <div className="pt-2.5 border-t border-slate-100 dark:border-white/10 flex items-center justify-between text-xs text-slate-500 dark:text-slate-400">
           <div className="flex items-center gap-1.5 text-xs">
             <Clock className="w-3.5 h-3.5 text-slate-400" />
-            <span>Shelf Life: <strong className="text-slate-800 dark:text-slate-200">{specs.shelfLife || "12 Months"}</strong></span>
+            <span>
+              Shelf Life:{" "}
+              <strong className="text-slate-800 dark:text-slate-200">
+                {specs.shelfLife || "12 Months"}
+              </strong>
+            </span>
           </div>
 
           <div className="flex items-center gap-1 font-black text-slate-800 dark:text-slate-200 bg-amber-500/10 px-2 py-0.5 rounded text-xs">
@@ -150,9 +150,7 @@ export default function ProductCard({
             <span>Enquiry</span>
           </button>
         </div>
-
       </div>
-
     </div>
   );
 }

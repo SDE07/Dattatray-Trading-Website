@@ -1,36 +1,26 @@
 import React, { useState, useEffect, useRef } from "react";
-import { useSearchParams, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Flip } from "gsap/Flip";
 import {
   Building,
   Truck,
-  ShieldCheck,
   Handshake,
   Sparkles,
   Globe2,
-  ThermometerSnowflake,
   CheckCircle2,
   ArrowRight,
   ArrowUpRight,
-  Layers,
-  Box,
   Anchor,
-  FileCheck,
-  BadgePercent,
-  Clock,
-  PhoneCall,
   Leaf,
   Ship,
-  Warehouse,
   Store,
   UtensilsCrossed,
   Building2,
   Users,
   Package,
-  Award,
-  Globe
+  Globe,
 } from "lucide-react";
 import TradingRouteVisual from "../components/trading/TradingRouteVisual";
 import ImageSlider3D from "../components/lightswind/3d-image-slider";
@@ -119,23 +109,13 @@ const allExportCountries = exportRegions.flatMap((group) =>
   }))
 );
 
-const exportFilterTabs = ["All", ...exportRegions.map((r) => r.continent)];
-
 export default function TradingPage() {
   const { isDark } = useTheme();
-  const [searchParams] = useSearchParams();
   const heroHeadingRef = useRef(null);
   const horizontalContainerRef = useRef(null);
   const panelsTrackRef = useRef(null);
   const corridorsContainerRef = useRef(null);
   const [activeStage, setActiveStage] = useState(1);
-  const [activeExportTab, setActiveExportTab] = useState("All");
-
-  // Filtered countries for display
-  const displayedCountries =
-    activeExportTab === "All"
-      ? allExportCountries
-      : allExportCountries.filter((c) => c.continent === activeExportTab);
 
   // GSAP Flip Interaction Handler for Stage Cards
   const handleStageSelect = (stageIdx) => {
@@ -287,7 +267,7 @@ export default function TradingPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#F9FBFC] dark:bg-[#07111E] text-[#0B2546] dark:text-[#F1F5F9] transition-colors duration-300 overflow-x-hidden">
+    <div className="min-h-screen bg-[#F9FBFC] dark:bg-[#06100B] text-[#0B2546] dark:text-[#F1F5F9] transition-colors duration-300 overflow-x-hidden">
       
       {/* ══════════════════════════════════════════════════════════════════════
           1. GRAND HERO BANNER WITH CONDITIONAL THEME ADAPTATION
@@ -295,56 +275,42 @@ export default function TradingPage() {
              - Dark Theme: Blueish Palette (Deep Midnight Navy / Cyan / Sky Blue)
       ══════════════════════════════════════════════════════════════════════ */}
       <section
-        className={`relative w-full pt-24 sm:pt-28 md:pt-32 pb-16 sm:pb-20 md:pb-28 overflow-hidden text-white transition-all duration-500 ${
+        className={`relative w-full pt-20 sm:pt-30 md:pt-36 pb-34 sm:pb-34 md:pb-38 overflow-hidden text-white transition-all duration-500 ${
           isDark
-            ? "bg-gradient-to-b from-[#06101E] via-[#09172A] to-[#0B1F38]"
+            ? "bg-gradient-to-b from-[#01140E] via-[#022117] to-[#010E09]"
             : "bg-gradient-to-b from-[#021A13] via-[#042A1E] to-[#01140E]"
         }`}
       >
-        {/* Ambient Glow Orbs */}
+        {/* Ambient Glow Orbs in Golden & Emerald Harmony */}
         <div
-          className={`absolute top-10 left-10 w-96 h-96 rounded-full blur-[140px] pointer-events-none transition-all duration-500 ${
-            isDark ? "bg-[#1E56C8]/25" : "bg-emerald-600/20"
-          }`}
+          className="absolute top-10 left-10 w-96 h-96 rounded-full blur-[140px] pointer-events-none bg-[#D4AF37]/20"
         />
         <div
-          className={`absolute top-20 right-10 w-96 h-96 rounded-full blur-[140px] pointer-events-none transition-all duration-500 ${
-            isDark ? "bg-[#38BDF8]/20" : "bg-emerald-400/15"
-          }`}
+          className="absolute top-20 right-10 w-96 h-96 rounded-full blur-[140px] pointer-events-none bg-emerald-600/20"
         />
         <div
-          className={`absolute -bottom-10 left-1/2 -translate-x-1/2 w-[800px] h-64 rounded-full blur-[160px] pointer-events-none transition-all duration-500 ${
-            isDark ? "bg-[#0284C7]/15" : "bg-teal-600/15"
-          }`}
+          className="absolute -bottom-10 left-1/2 -translate-x-1/2 w-[800px] h-64 rounded-full blur-[160px] pointer-events-none bg-[#C8A950]/15"
         />
 
-        <div className="relative w-full max-w-[94%] xl:max-w-[1440px] 2xl:max-w-[1580px] mx-auto px-4 sm:px-6 lg:px-8 z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 xl:gap-14 items-center">
+        <div className="relative w-full max-w-[94%] xl:max-w-[1440px] 2xl:max-w-[1580px] mx-auto px-4 sm:px-6 lg:px-8 z-10 space-y-4 sm:space-y-5">
+          
+          {/* TOP PORTION: Heading on Left & Action Buttons Vertically Centered on Right */}
+          <div className="w-full flex flex-col lg:flex-row lg:items-center lg:justify-between gap-5 sm:gap-6">
             
-            {/* LEFT SIDE: Heading, Subheading & CTAs */}
-            <div className="lg:col-span-6 xl:col-span-6 space-y-4" ref={heroHeadingRef}>
-              
+            {/* Left: Badge, Heading & Subtitle */}
+            <div className="max-w-3xl space-y-3 sm:space-y-3.5">
               {/* Badge */}
               <div
-                className={`inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 rounded-full backdrop-blur-md text-[10px] sm:text-xs font-black uppercase tracking-[0.12em] sm:tracking-[0.2em] shadow-sm transition-all duration-500 ${
-                  isDark
-                    ? "bg-sky-950/70 border border-sky-500/35 text-[#38BDF8]"
-                    : "bg-emerald-950/60 border border-emerald-500/30 text-emerald-300"
-                }`}
+                className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 rounded-full backdrop-blur-md text-[10px] sm:text-xs font-black uppercase tracking-[0.12em] sm:tracking-[0.2em] shadow-sm bg-emerald-950/70 border border-[#D4AF37]/40 text-[#F3E5AB]"
               >
-                <Sparkles className={`w-3 h-3 sm:w-3.5 sm:h-3.5 shrink-0 ${isDark ? "text-[#38BDF8]" : "text-emerald-400"}`} />
                 <span className="leading-tight">PAN-INDIA DISTRIBUTION • GLOBAL MERCHANT EXPORT</span>
               </div>
 
               {/* Main Page Heading */}
-              <div className="py-1 space-y-2">
+              <div className="py-0.5 space-y-1.5">
                 <h1 className="font-sans tracking-tight leading-[1.08]">
                   <span
-                    className={`heading-bounce block text-2xl sm:text-3xl md:text-5xl lg:text-5xl xl:text-6xl font-black text-transparent bg-clip-text select-none transition-all duration-500 ${
-                      isDark
-                        ? "bg-gradient-to-r from-[#38BDF8] via-[#60A5FA] to-[#93C5FD] drop-shadow-[0_4px_30px_rgba(56,189,248,0.35)]"
-                        : "bg-gradient-to-r from-emerald-400 via-emerald-300 to-teal-200 drop-shadow-[0_4px_30px_rgba(16,185,129,0.35)]"
-                    }`}
+                    className="heading-bounce block text-2xl sm:text-3xl md:text-5xl lg:text-5xl xl:text-6xl font-black bg-gradient-to-r from-[#D4AF37] via-[#F3E5AB] to-[#C8A950] bg-clip-text text-transparent drop-shadow-[0_4px_30px_rgba(212,175,55,0.35)] select-none transition-all duration-500"
                   >
                     B2B AGRO TRADING
                   </span>
@@ -353,65 +319,45 @@ export default function TradingPage() {
                   </span>
                 </h1>
 
-                <div className="heading-bounce flex items-center gap-2 pt-1">
+                <div className="heading-bounce flex items-center gap-2 pt-0.5">
                   <div
-                    className={`h-[2px] w-8 rounded-full transition-all duration-500 ${
-                      isDark ? "bg-[#38BDF8]" : "bg-emerald-400"
-                    }`}
+                    className="h-[2px] w-8 rounded-full bg-[#D4AF37]"
                   />
                   <span
-                    className={`text-[10px] sm:text-xs md:text-sm font-black uppercase tracking-[0.1em] sm:tracking-[0.25em] transition-all duration-500 ${
-                      isDark ? "text-[#38BDF8]" : "text-emerald-400"
-                    }`}
+                    className="text-[10px] sm:text-xs md:text-sm font-black uppercase tracking-[0.1em] sm:tracking-[0.25em] text-[#F3E5AB]"
                   >
                     COLD-CHAIN DISTRIBUTION &amp; APMC PROCUREMENT
                   </span>
                 </div>
               </div>
-
-              <p
-                className={`text-sm sm:text-base leading-relaxed max-w-2xl transition-colors duration-500 ${
-                  isDark ? "text-slate-300" : "text-emerald-100/80"
-                }`}
-              >
-                Bridging Maharashtra's premier agricultural harvest belts with wholesale FMCG distributors, institutional HoReCa partners, and international containerized shipping corridors with certified -18°C reefer telemetry.
-              </p>
-
-              {/* Action Buttons */}
-              <div className="pt-2 flex flex-col sm:flex-row flex-wrap items-start sm:items-center gap-2.5 sm:gap-3.5">
-                <Link
-                  to="/contact"
-                  className={`w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 sm:px-7 py-3 sm:py-3.5 rounded-full font-black text-xs sm:text-sm uppercase tracking-wider shadow-xl hover:scale-105 active:scale-95 transition-all duration-300 ${
-                    isDark
-                      ? "bg-gradient-to-r from-[#38BDF8] to-[#0284C7] hover:from-[#60A5FA] hover:to-[#1E56C8] text-[#06101E] shadow-[#0284C7]/35"
-                      : "bg-gradient-to-r from-emerald-400 via-emerald-500 to-teal-600 hover:from-emerald-300 hover:to-emerald-500 text-slate-950 shadow-emerald-950/50 hover:shadow-emerald-500/30"
-                  }`}
-                >
-                  <span>Inquire Commercial Bulk</span>
-                  <ArrowUpRight className="w-4 h-4" />
-                </Link>
-
-                <a
-                  href="#divisions-container"
-                  className={`w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 sm:px-7 py-3 sm:py-3.5 rounded-full bg-white/10 backdrop-blur-md font-bold text-xs sm:text-sm uppercase tracking-wider hover:scale-105 active:scale-95 transition-all duration-300 ${
-                    isDark
-                      ? "hover:bg-sky-950/50 text-white border border-white/20 hover:border-[#38BDF8]"
-                      : "hover:bg-emerald-950/50 text-white border border-emerald-500/30 hover:border-emerald-400/80"
-                  }`}
-                >
-                  <span>View Trading Divisions</span>
-                  <ArrowRight className="w-4 h-4" />
-                </a>
-              </div>
-
             </div>
 
-            {/* RIGHT SIDE: The Small Reefer Truck Route Visual */}
-            <div className="lg:col-span-6 xl:col-span-6 flex justify-center w-full">
-              <TradingRouteVisual />
+            {/* Right: Action Buttons Perfectly Centered Vertically */}
+            <div className="flex flex-row flex-wrap sm:flex-nowrap items-center gap-3 sm:gap-4 shrink-0">
+              <Link
+                to="/contact"
+                className="inline-flex items-center justify-center gap-2 px-5 sm:px-7 py-2.5 sm:py-3 rounded-full font-black text-xs sm:text-sm uppercase tracking-wider shadow-xl hover:scale-105 active:scale-95 transition-all duration-300 bg-gradient-to-r from-[#D4AF37] via-[#F3E5AB] to-[#C8A950] text-[#021A13]"
+              >
+                <span>Inquire Commercial Bulk</span>
+                <ArrowUpRight className="w-4 h-4" />
+              </Link>
+
+              <a
+                href="#divisions-container"
+                className="inline-flex items-center justify-center gap-2 px-5 sm:px-7 py-2.5 sm:py-3 rounded-full bg-white/10 backdrop-blur-md font-bold text-xs sm:text-sm uppercase tracking-wider hover:scale-105 active:scale-95 transition-all duration-300 hover:bg-emerald-950/50 text-white border border-emerald-500/30 hover:border-[#D4AF37]"
+              >
+                <span>View Trading Divisions</span>
+                <ArrowRight className="w-4 h-4" />
+              </a>
             </div>
 
           </div>
+
+          {/* FULL-WIDTH MULTIMODAL HIGHWAY ROUTE: Left Start Point (India) to Right End Point (Global Ports) */}
+          <div className="w-full pt-4 sm:pt-6 pb-1">
+            <TradingRouteVisual />
+          </div>
+
         </div>
 
         {/* ── Smooth Slanted Bottom Wave Transition ── */}
@@ -419,7 +365,7 @@ export default function TradingPage() {
           <svg
             viewBox="0 0 1200 120"
             preserveAspectRatio="none"
-            className="relative block w-full h-10 sm:h-14 lg:h-16 fill-[#F9FBFC] dark:fill-[#07111E] transition-colors duration-300 translate-y-[1px]"
+            className="relative block w-full h-10 sm:h-14 lg:h-16 fill-[#F9FBFC] dark:fill-[#06100B] transition-colors duration-300 translate-y-[1px]"
           >
             <path d="M0,0 C150,90 350,-40 500,60 C650,160 900,10 1200,40 L1200,125 L0,125 Z"></path>
           </svg>
@@ -429,7 +375,7 @@ export default function TradingPage() {
       {/* ══════════════════════════════════════════════════════════════════════
           2. MULTIMODAL INFRASTRUCTURE & PORT NETWORK CORRIDORS
       ══════════════════════════════════════════════════════════════════════ */}
-      <section className="py-16 sm:py-20 bg-[#F9FBFC] dark:bg-[#07111E] border-b border-slate-200/80 dark:border-white/10 transition-colors relative overflow-hidden">
+      <section className="py-16 sm:py-20 bg-[#F9FBFC] dark:bg-[#06100B] border-b border-slate-200/80 dark:border-white/10 transition-colors relative overflow-hidden">
         
         {/* Ambient background glows */}
         <div className="absolute top-1/3 left-10 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none" />
@@ -439,16 +385,16 @@ export default function TradingPage() {
           
           {/* Header */}
           <div className="text-center max-w-3xl mx-auto mb-14">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#1E56C8]/10 dark:bg-[#38BDF8]/15 border border-[#1E56C8]/20 dark:border-[#38BDF8]/30 text-[#1E56C8] dark:text-[#38BDF8] text-xs font-black uppercase tracking-[0.2em] mb-3.5 shadow-sm">
-              <Anchor className="w-3.5 h-3.5" />
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-50 dark:bg-[#022A1C]/90 border border-emerald-500/25 dark:border-[#D4AF37]/45 text-emerald-800 dark:text-[#F3E5AB] text-xs font-black uppercase tracking-[0.2em] mb-3.5 shadow-sm">
+              <Anchor className="w-3.5 h-3.5 text-emerald-600 dark:text-[#D4AF37]" />
               <span>Multimodal Transit Corridors</span>
             </div>
             <SplitTextHeading
               as="h2"
-              className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#0B2546] dark:text-white tracking-tight leading-tight mb-3"
+              className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#0B2546] dark:text-white tracking-tight leading-[1.15] mb-3"
             >
               From APMC Market Yards to <br className="hidden sm:block" />
-              <span className="bg-gradient-to-r from-emerald-600 via-[#1E56C8] to-[#38BDF8] dark:from-emerald-400 dark:via-[#38BDF8] dark:to-sky-300 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-[#B4882F] via-[#D4AF37] to-[#C8A950] dark:from-[#D4AF37] dark:via-[#F3E5AB] dark:to-[#C8A950] bg-clip-text text-transparent">
                 Global Container Berths
               </span>
             </SplitTextHeading>
@@ -463,7 +409,7 @@ export default function TradingPage() {
             {/* Stage 01 */}
             <div
               onClick={() => handleStageSelect(1)}
-              className={`corridor-card cursor-pointer group relative rounded-3xl bg-white dark:bg-[#0B1B2F] border transition-all duration-300 flex flex-col justify-between overflow-hidden ${
+              className={`corridor-card cursor-pointer group relative rounded-3xl bg-white dark:bg-[#0E1B15] border transition-all duration-300 flex flex-col justify-between overflow-hidden ${
                 activeStage === 1
                   ? "ring-2 ring-emerald-500 border-emerald-500 shadow-[0_20px_45px_rgba(16,185,129,0.2)] scale-[1.02] bg-emerald-50/20 dark:bg-emerald-950/30"
                   : "border-slate-200/90 dark:border-white/10 shadow-lg hover:shadow-2xl hover:border-emerald-500/40 hover:-translate-y-1"
@@ -541,7 +487,7 @@ export default function TradingPage() {
             {/* Stage 02 */}
             <div
               onClick={() => handleStageSelect(2)}
-              className={`corridor-card cursor-pointer group relative rounded-3xl bg-white dark:bg-[#0B1B2F] border transition-all duration-300 flex flex-col justify-between overflow-hidden ${
+              className={`corridor-card cursor-pointer group relative rounded-3xl bg-white dark:bg-[#0E1B15] border transition-all duration-300 flex flex-col justify-between overflow-hidden ${
                 activeStage === 2
                   ? "ring-2 ring-[#38BDF8] border-[#38BDF8] shadow-[0_20px_45px_rgba(56,189,248,0.2)] scale-[1.02] bg-sky-50/20 dark:bg-sky-950/30"
                   : "border-slate-200/90 dark:border-white/10 shadow-lg hover:shadow-2xl hover:border-sky-500/40 hover:-translate-y-1"
@@ -619,7 +565,7 @@ export default function TradingPage() {
             {/* Stage 03 */}
             <div
               onClick={() => handleStageSelect(3)}
-              className={`corridor-card cursor-pointer group relative rounded-3xl bg-white dark:bg-[#0B1B2F] border transition-all duration-300 flex flex-col justify-between overflow-hidden ${
+              className={`corridor-card cursor-pointer group relative rounded-3xl bg-white dark:bg-[#0E1B15] border transition-all duration-300 flex flex-col justify-between overflow-hidden ${
                 activeStage === 3
                   ? "ring-2 ring-purple-500 border-purple-500 shadow-[0_20px_45px_rgba(168,85,247,0.2)] scale-[1.02] bg-purple-50/20 dark:bg-purple-950/30"
                   : "border-slate-200/90 dark:border-white/10 shadow-lg hover:shadow-2xl hover:border-purple-500/40 hover:-translate-y-1"
@@ -707,24 +653,27 @@ export default function TradingPage() {
         <div className="absolute bottom-1/4 left-0 w-96 h-96 bg-sky-500/10 rounded-full blur-3xl pointer-events-none" />
 
         {/* Section Header - Clean Centered / Left Aligned without filters */}
-        <div className="relative z-10 flex flex-col md:flex-row md:items-end justify-between gap-4 mb-4 pb-4 border-b border-slate-200/80 dark:border-white/10">
+        <div className="relative z-10 flex flex-col md:flex-row md:items-end justify-between gap-4 mb-6 pb-4 border-b border-slate-200/80 dark:border-white/10">
           <div>
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400 text-xs font-black uppercase tracking-widest mb-1.5">
-              <Globe className="w-3.5 h-3.5" />
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-50 dark:bg-[#022A1C]/90 border border-emerald-500/25 dark:border-[#D4AF37]/45 text-emerald-800 dark:text-[#F3E5AB] text-xs font-black uppercase tracking-[0.2em] mb-3.5 shadow-sm">
+              <Globe className="w-3.5 h-3.5 text-emerald-600 dark:text-[#D4AF37]" />
               <span>APEDA &amp; FSSAI Certified Global Corridors</span>
             </div>
             <SplitTextHeading
               as="h2"
-              className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#0B2546] dark:text-white tracking-tight"
+              className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#0B2546] dark:text-white tracking-tight leading-[1.15] mb-2"
             >
-              Global Export Destinations &amp; Distribution Markets
+              Global Export Destinations &amp;{" "}
+              <span className="bg-gradient-to-r from-[#B4882F] via-[#D4AF37] to-[#C8A950] dark:from-[#D4AF37] dark:via-[#F3E5AB] dark:to-[#C8A950] bg-clip-text text-transparent">
+                Distribution Markets
+              </span>
             </SplitTextHeading>
-            <p className="text-xs sm:text-sm text-[#5D6B7E] dark:text-slate-300 mt-0.5 max-w-3xl font-medium">
+            <p className="text-xs sm:text-sm md:text-base text-[#5D6B7E] dark:text-slate-300 mt-1 max-w-3xl font-medium leading-relaxed">
               Supplying premier frozen vegetables, IQF commodities, and processed agro lines to institutional buyers, ethnic grocery chains, and supermarket networks across 30+ countries.
             </p>
           </div>
 
-          <div className="hidden sm:flex items-center gap-2 px-4 py-2 rounded-full bg-slate-100/80 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-xs font-bold text-slate-500 dark:text-slate-300">
+          <div className="hidden sm:flex items-center gap-2 px-4 py-2 rounded-full bg-slate-100/80 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-xs font-bold text-slate-500 dark:text-slate-300 shrink-0">
             <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
             <span>360° Global Reefer Corridors</span>
           </div>
@@ -738,11 +687,11 @@ export default function TradingPage() {
             cardWidth="22.5em"
             cardAspectRatio="4/3.2"
             perspective="75em"
-            renderItem={(country, idx) => {
+            renderItem={(country) => {
               const Icon = marketIcons[country.markets] || Store;
               return (
                 <div
-                  className={`group relative overflow-hidden rounded-3xl border border-slate-200/90 dark:border-white/15 bg-white dark:bg-[#0B1B2F] p-4 sm:p-5 shadow-2xl ${country.borderAccent} hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between h-full w-full select-none`}
+                  className={`group relative overflow-hidden rounded-3xl border border-slate-200/90 dark:border-white/15 bg-white dark:bg-[#0E1B15] p-4 sm:p-5 shadow-2xl ${country.borderAccent} hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between h-full w-full select-none`}
                 >
                   {/* Top Color Accent Line */}
                   <div className={`absolute top-0 left-0 h-1.5 w-full bg-gradient-to-r ${country.accent}`} />
@@ -795,25 +744,28 @@ export default function TradingPage() {
       <section
         id="divisions-container"
         ref={horizontalContainerRef}
-        className="relative overflow-hidden py-10 sm:py-14 bg-gradient-to-b from-[#F9FBFC] via-slate-100/60 to-[#F9FBFC] dark:from-[#07111E] dark:via-[#0A1627] dark:to-[#07111E] transition-colors duration-300"
+        className="relative overflow-hidden py-10 sm:py-14 bg-gradient-to-b from-[#F9FBFC] via-slate-100/60 to-[#F9FBFC] dark:from-[#06100B] dark:via-[#0E1B15] dark:to-[#06100B] transition-colors duration-300"
       >
         {/* Ambient decorative glowing spots */}
         <div className="absolute top-1/4 left-10 w-96 h-96 bg-[#8CC9D9]/10 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute bottom-1/4 right-10 w-96 h-96 bg-[#3B1F3A]/20 dark:bg-[#1E56C8]/15 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute bottom-1/4 right-10 w-96 h-96 bg-[#3B1F3A]/20 dark:bg-[#059669]/15 rounded-full blur-3xl pointer-events-none" />
 
         <div className="max-w-[96%] 2xl:max-w-[1660px] mx-auto px-4 sm:px-6 mb-6 flex flex-col md:flex-row md:items-end justify-between gap-4">
           <div>
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#3B1F3A]/10 dark:bg-white/10 text-[#3B1F3A] dark:text-[#8CC9D9] text-xs font-black uppercase tracking-widest mb-2">
-              <Sparkles className="w-3.5 h-3.5" />
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-50 dark:bg-[#022A1C]/90 border border-emerald-500/25 dark:border-[#D4AF37]/45 text-emerald-800 dark:text-[#F3E5AB] text-xs font-black uppercase tracking-[0.2em] mb-3.5 shadow-sm">
+              <Sparkles className="w-3.5 h-3.5 text-emerald-600 dark:text-[#D4AF37]" />
               <span>Core Trading Verticals</span>
             </div>
             <SplitTextHeading
               as="h2"
-              className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#0B2546] dark:text-white tracking-tight"
+              className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#0B2546] dark:text-white tracking-tight leading-[1.15] mb-2"
             >
-              Specialized B2B Cold-Chain Supply Divisions
+              Specialized B2B{" "}
+              <span className="bg-gradient-to-r from-[#B4882F] via-[#D4AF37] to-[#C8A950] dark:from-[#D4AF37] dark:via-[#F3E5AB] dark:to-[#C8A950] bg-clip-text text-transparent">
+                Cold-Chain Supply Divisions
+              </span>
             </SplitTextHeading>
-            <p className="text-xs sm:text-sm text-[#5D6B7E] dark:text-slate-300 mt-1 max-w-2xl">
+            <p className="text-xs sm:text-sm md:text-base text-[#5D6B7E] dark:text-slate-300 mt-1 max-w-2xl font-medium leading-relaxed">
               Scroll horizontally to inspect our end-to-end institutional HoReCa distribution, wholesale reefer fleet, global merchant export, and APMC mandi procurement capabilities.
             </p>
           </div>
@@ -842,7 +794,7 @@ export default function TradingPage() {
                 key={div.id}
                 className="panel-card w-full min-w-full shrink-0 px-3 sm:px-6 lg:px-10 flex justify-center items-center"
               >
-                <div className="w-full max-w-5xl rounded-3xl bg-white dark:bg-[#0B1B2F] border border-slate-200/90 dark:border-white/15 p-6 sm:p-8 lg:p-10 shadow-2xl relative overflow-hidden transition-all duration-300">
+                <div className="w-full max-w-5xl rounded-3xl bg-white dark:bg-[#0E1B15] border border-slate-200/90 dark:border-white/15 p-6 sm:p-8 lg:p-10 shadow-2xl relative overflow-hidden transition-all duration-300">
                   {/* Ambient corner card gradient */}
                   <div className={`absolute top-0 right-0 w-80 h-80 bg-gradient-to-br ${div.color} rounded-full blur-3xl pointer-events-none opacity-40`} />
 
@@ -873,7 +825,7 @@ export default function TradingPage() {
                       </p>
 
                       {/* 3 Metrics Pills */}
-                      <div className="grid grid-cols-3 gap-2.5 py-3.5 px-4 rounded-2xl bg-slate-50 dark:bg-[#07111E] border border-slate-200/70 dark:border-white/10">
+                      <div className="grid grid-cols-3 gap-2.5 py-3.5 px-4 rounded-2xl bg-slate-50 dark:bg-[#06100B] border border-slate-200/70 dark:border-white/10">
                         {div.metrics.map((m) => (
                           <div key={m.label} className="text-center">
                             <span className="block text-[10px] font-bold text-slate-400 uppercase tracking-tight truncate">
@@ -888,7 +840,7 @@ export default function TradingPage() {
                     </div>
 
                     {/* Right Column: Capabilities & Action CTA */}
-                    <div className="lg:col-span-5 flex flex-col justify-between h-full space-y-5 bg-slate-50/70 dark:bg-[#081525]/60 p-5 rounded-2xl border border-slate-200/60 dark:border-white/10">
+                    <div className="lg:col-span-5 flex flex-col justify-between h-full space-y-5 bg-slate-50/70 dark:bg-[#0A1611]/80 p-5 rounded-2xl border border-slate-200/60 dark:border-white/10">
                       <div className="space-y-2.5">
                         <span className="text-[10px] font-black uppercase tracking-wider text-slate-400 block mb-1">
                           Operational Highlights:
@@ -932,7 +884,7 @@ export default function TradingPage() {
           4. COMMERCIAL TRADE TERMS & FAQ CTA
       ══════════════════════════════════════════════════════════════════════ */}
       <section className="py-12 sm:py-16 max-w-[94%] xl:max-w-[1440px] 2xl:max-w-[1580px] mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="relative rounded-3xl overflow-hidden border border-slate-200/80 dark:border-white/15 p-8 sm:p-12 lg:p-14 text-white shadow-2xl flex flex-col lg:flex-row items-center justify-between gap-8 bg-[#07111E]">
+        <div className="relative rounded-3xl overflow-hidden border border-slate-200/80 dark:border-white/15 p-8 sm:p-12 lg:p-14 text-white shadow-2xl flex flex-col lg:flex-row items-center justify-between gap-8 bg-[#06100B]">
           
           {/* Background Image Layer with Beautiful Visual Depth */}
           <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
@@ -942,18 +894,21 @@ export default function TradingPage() {
               className="w-full h-full object-cover object-center lg:object-right opacity-80 dark:opacity-70 filter brightness-90 contrast-105 transform scale-105 transition-transform duration-700 hover:scale-100"
             />
             {/* Elegant Directional Gradient for Perfect Text Readability */}
-            <div className="absolute inset-0 bg-gradient-to-r from-[#07111E] via-[#07111E]/90 to-[#07111E]/40" />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#07111E]/80 via-transparent to-[#07111E]/50" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#06100B] via-[#06100B]/90 to-[#06100B]/40" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#06100B]/80 via-transparent to-[#06100B]/50" />
           </div>
 
           {/* Content */}
           <div className="relative z-10 space-y-3.5 max-w-2xl">
-            <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/40 border border-white/20 text-[#8CC9D9] text-xs font-black uppercase tracking-[0.2em] backdrop-blur-md shadow-lg">
-              <Sparkles className="w-3.5 h-3.5 text-[#8CC9D9]" />
+            <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/40 border border-[#D4AF37]/30 text-[#F3E5AB] text-xs font-black uppercase tracking-[0.2em] backdrop-blur-md shadow-lg">
+              <Sparkles className="w-3.5 h-3.5 text-[#D4AF37]" />
               <span>Commercial Escrow &amp; Transparent Terms</span>
             </span>
             <h3 className="text-2xl sm:text-3xl lg:text-4xl font-black tracking-tight leading-tight text-white drop-shadow-md">
-              Ready to Lock in Contract Volume or Procure Spot Loads?
+              Ready to Lock in Contract Volume or{" "}
+              <span className="bg-gradient-to-r from-[#B4882F] via-[#D4AF37] to-[#C8A950] dark:from-[#D4AF37] dark:via-[#F3E5AB] dark:to-[#C8A950] bg-clip-text text-transparent">
+                Procure Spot Loads?
+              </span>
             </h3>
             <p className="text-xs sm:text-sm text-slate-200 leading-relaxed max-w-xl font-medium drop-shadow">
               Connect directly with our Chief Trading Officer for institutional price sheets, harvest projections, and customized cold-chain delivery schedules.
@@ -964,7 +919,7 @@ export default function TradingPage() {
           <div className="relative z-10 flex flex-wrap items-center gap-3.5 shrink-0 bg-black/30 backdrop-blur-md p-2 sm:p-2.5 rounded-full border border-white/10 shadow-2xl">
             <Link
               to="/contact"
-              className="inline-flex items-center gap-2 px-6 sm:px-7 py-3 rounded-full bg-[#8CC9D9] hover:bg-white text-[#0B2546] font-black text-xs uppercase tracking-wider shadow-xl hover:scale-105 active:scale-95 transition-all duration-300"
+              className="inline-flex items-center gap-2 px-6 sm:px-7 py-3 rounded-full bg-gradient-to-r from-[#D4AF37] via-[#F3E5AB] to-[#C8A950] hover:brightness-110 text-[#01140E] font-black text-xs uppercase tracking-wider shadow-xl hover:scale-105 active:scale-95 transition-all duration-300"
             >
               <span>Contact Trading Desk</span>
               <ArrowUpRight className="w-4 h-4" />
